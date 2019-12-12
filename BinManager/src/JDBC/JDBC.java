@@ -1,12 +1,12 @@
-package application;
+package JDBC;
 import java.sql.*;
 
 public class JDBC {
 
 	public static void lireEnBase() {
 		String url = "jdbc:mysql://localhost/BinManager";
-		String login = "debian-sys-maint";
-		String passwd ="sNsaZIYtvDwdnS8G";
+		String login = "root";
+		String passwd ="";
 		Connection cn =null;
 		Statement st =null;
 		ResultSet rs = null;
@@ -37,8 +37,8 @@ public class JDBC {
 	
 	public static void sauverEnBase(String email, String name, String password){
 		String url = "jdbc:mysql://localhost/BinManager";
-		String login = "debian-sys-maint";
-		String passwd ="sNsaZIYtvDwdnS8G";
+		String login = "root";
+		String passwd ="";
 		Connection cn =null;
 		Statement st =null;
 		try {
@@ -63,7 +63,7 @@ public class JDBC {
 	}
 
 	public static void main(String[] args) {
-		sauverEnBase("kmille42@hotmail.fr", "Camille Thomas", "1234");
+		sauverEnBase("erv@hotmail.fr", "sfrv Thomas", "srfg");
 		lireEnBase();
 	}
 }
