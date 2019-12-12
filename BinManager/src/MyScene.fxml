@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane prefHeight="415.1328125" prefWidth="455.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.MyController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <TitledPane alignment="CENTER" animated="false" blendMode="SRC_OVER" collapsible="false" content="$null" contentDisplay="CENTER" expanded="false" layoutX="0.0" prefHeight="416.0" prefWidth="455.0" text="Login" AnchorPane.topAnchor="0.0" />
+    
+    <Label>
+	   <graphic>
+	      <ImageView fitWidth="150" preserveRatio="true" smooth="true">
+	        <image>
+	          <Image url="application/binManager.png"/>
+	        </image>
+	      </ImageView>
+	   </graphic>
+	</Label>
+    
+    <Pane layoutX="64.0" layoutY="146.0" prefHeight="175.0" prefWidth="330.0">
+      <children>
+        <AnchorPane id="PaneLogin" layoutX="0.0" layoutY="1.0" prefHeight="175.0" prefWidth="330.0">
+          <children>
+            <TextField id="emailButton" fx:id="emailField" editable="true" layoutX="81.0" layoutY="40.0" prefWidth="169.0" promptText="Email" text="" />
+            <PasswordField id="passwordButton" fx:id="passwordField" disable="false" layoutX="81.0" layoutY="87.0" prefWidth="169.0" promptText="Password" text="" visible="true" />
+            <Button fx:id="loginButton" layoutX="126.0" layoutY="124.0" mnemonicParsing="false" onAction="#loginAction" text="Login" />
+            <Label layoutX="81.0" layoutY="24.0" text="Email" textFill="WHITE" />
+            <Label layoutX="81.0" layoutY="72.0" text="Password" textFill="WHITE" />
+          </children>
+          <stylesheets>
+            <URL value="@application/login.css" />
+          </stylesheets>
+        </AnchorPane>
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>
