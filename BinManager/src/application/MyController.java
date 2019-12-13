@@ -1,8 +1,11 @@
 package application;
 
 import java.net.URL;
+
 import java.util.ResourceBundle;
- 
+
+import BinManagerDAO.PersonDAOSQL;
+import BinManagerPerson.Person;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,7 +31,8 @@ public class MyController implements Initializable {
 	   // When user click on myButton
 	   // this method will be called.
 	   public void loginAction(ActionEvent event) {
-	       System.out.println(emailField.getText());
-	       System.out.println(passwordField.getText());
+	       PersonDAOSQL p = new PersonDAOSQL();
+		   Person example = p.load(emailField.getText());
+		   System.out.println(example.getName());
 	   }	
 }
