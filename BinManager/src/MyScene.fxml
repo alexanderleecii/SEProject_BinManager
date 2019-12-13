@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.*?>
 
-<AnchorPane prefHeight="415.1328125" prefWidth="455.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.MyController">
+<AnchorPane prefHeight="415.1328125" prefWidth="455.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.LoginController">
   <!-- TODO Add Nodes -->
   <children>
     <TitledPane alignment="CENTER" animated="false" blendMode="SRC_OVER" collapsible="false" content="$null" contentDisplay="CENTER" expanded="false" layoutX="0.0" prefHeight="416.0" prefWidth="455.0" text="Login" AnchorPane.topAnchor="0.0" />

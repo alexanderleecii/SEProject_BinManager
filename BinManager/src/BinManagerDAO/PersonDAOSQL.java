@@ -19,9 +19,9 @@ public class PersonDAOSQL implements Dao<Person> {
 	 * @param email
 	 */
 	public Person load(String email) {
-		String url = "jdbc:mysql://localhost/BinManager";
-		String login = "debian-sys-maint";
-		String passwd ="qJRBGtUqgfjE6kGE";
+		String url = "jdbc:mysql://mysql-binmanager.alwaysdata.net/binmanager_bm";
+		String login = "196466";
+		String passwd ="BinManager";
 		Connection cn =null;
 		Statement st =null;
 		ResultSet rs = null;
@@ -29,7 +29,7 @@ public class PersonDAOSQL implements Dao<Person> {
 			Class.forName("com.mysql.jdbc.Driver");
 			cn = DriverManager.getConnection(url, login, passwd);
 			st = cn.createStatement();
-			String sql = "SELECT * from Person WHERE email='"+email+"'";
+			String sql = "SELECT * from person WHERE email='"+email+"'";
 			rs = st.executeQuery(sql);
 			while(rs.next()) {
 				Person p = new Person(rs.getString("name"),rs.getString("email"),rs.getString("password"));
@@ -55,9 +55,9 @@ public class PersonDAOSQL implements Dao<Person> {
 	 * @param infos
 	 */
 	public void save(ArrayList<String> infos) {
-		String url = "jdbc:mysql://localhost/BinManager";
-		String login = "debian-sys-maint";
-		String passwd ="qJRBGtUqgfjE6kGE";
+		String url = "jdbc:mysql://mysql-binmanager.alwaysdata.net/binmanager_bm";
+		String login = "196466";
+		String passwd ="BinManager";
 		Connection cn =null;
 		Statement st =null;
 		try {
@@ -85,9 +85,9 @@ public class PersonDAOSQL implements Dao<Person> {
 	 * @param email
 	 */
 	public void delete(String email) {
-		String url = "jdbc:mysql://localhost/BinManager";
-		String login = "debian-sys-maint";
-		String passwd ="qJRBGtUqgfjE6kGE";
+		String url = "jdbc:mysql://mysql-binmanager.alwaysdata.net/binmanager_bm";
+		String login = "196466";
+		String passwd ="BinManager";
 		Connection cn =null;
 		Statement st =null;
 		try {

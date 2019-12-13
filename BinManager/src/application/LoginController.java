@@ -2,6 +2,7 @@ package application;
 
 import java.net.URL;
 
+
 import java.util.ResourceBundle;
 
 import BinManagerDAO.PersonDAOSQL;
@@ -11,8 +12,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-public class MyController implements Initializable {
-	 @FXML
+public class LoginController implements Initializable {
+	@FXML
 	   private Button loginButton;
 	  
 	   @FXML
