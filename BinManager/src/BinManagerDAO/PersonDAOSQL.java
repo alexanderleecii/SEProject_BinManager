@@ -1,52 +1,36 @@
 package BinManagerDAO;
 import BinManagerPerson.Person;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.*;
 
 public class PersonDAOSQL implements Dao<Person> {
-
+	private String url = "jdbc:mysql://mysql-binmanager.alwaysdata.net/binmanager_bm";
+	private String login = "196466";
+	private String passwd ="BinManager";
+	private QueryHandler queryHandler;
 	
 	public PersonDAOSQL() {
-		
+		this.queryHandler = new QueryHandler(this.url,this.login,this.passwd);
 	}
 	/**
 	 * 
 	 * @param email
 	 */
 	public Person load(String email) {
-		String url = "jdbc:mysql://mysql-binmanager.alwaysdata.net/binmanager_bm";
-		String login = "196466";
-		String passwd ="BinManager";
-		Connection cn =null;
-		Statement st =null;
-		ResultSet rs = null;
+		String sql = "SELECT * from person WHERE email='"+email+"'";
+		ResultSet rs = this.queryHandler.executeQuery(sql);
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			cn = DriverManager.getConnection(url, login, passwd);
-			st = cn.createStatement();
-			String sql = "SELECT * from person WHERE email='"+email+"'";
-			rs = st.executeQuery(sql);
 			while(rs.next()) {
 				Person p = new Person(rs.getString("name"),rs.getString("email"),rs.getString("password"));
 				return p;
 			}
+			rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}finally {
-			try {
-				cn.close();
-				st.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
 		}
+		this.queryHandler.close();
 		return null;
 	}
 
@@ -55,29 +39,9 @@ public class PersonDAOSQL implements Dao<Person> {
 	 * @param infos
 	 */
 	public void save(ArrayList<String> infos) {
-		String url = "jdbc:mysql://mysql-binmanager.alwaysdata.net/binmanager_bm";
-		String login = "196466";
-		String passwd ="BinManager";
-		Connection cn =null;
-		Statement st =null;
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			cn = DriverManager.getConnection(url, login, passwd);
-			st = cn.createStatement();
-			String sql = "INSERT INTO `Person` (`name`) VALUES ('"+infos.get(0)+"');";
-			st.executeUpdate(sql);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				cn.close();
-				st.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+		String sql = "INSERT INTO `Person` (`name`) VALUES ('"+infos.get(0)+"');";
+		this.queryHandler.executeUpdate(sql);
+		this.queryHandler.close();
 	}
 
 	/**
@@ -85,29 +49,9 @@ public class PersonDAOSQL implements Dao<Person> {
 	 * @param email
 	 */
 	public void delete(String email) {
-		String url = "jdbc:mysql://mysql-binmanager.alwaysdata.net/binmanager_bm";
-		String login = "196466";
-		String passwd ="BinManager";
-		Connection cn =null;
-		Statement st =null;
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			cn = DriverManager.getConnection(url, login, passwd);
-			st = cn.createStatement();
-			String sql = "DELETE FROM `Person` WHERE email='"+email+"';";
-			st.executeUpdate(sql);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				cn.close();
-				st.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+		String sql = "DELETE FROM `Person` WHERE email='"+email+"';";
+		this.queryHandler.executeUpdate(sql);
+		this.queryHandler.close();
 	}
 
 }

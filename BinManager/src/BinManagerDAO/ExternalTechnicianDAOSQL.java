@@ -3,7 +3,7 @@ import java.util.*;
 
 import ExternalTechnician.ExternalTechnician;
 
-public class ExternalTechnicianDAOSQL implements ExternalTechnicianDAO {
+public class ExternalTechnicianDAOSQL implements Dao<ExternalTechnician> {
 
 	/**
 	 * 
