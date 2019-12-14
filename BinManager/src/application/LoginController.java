@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import BinManagerDAO.PersonDAOSQL;
+import BinManagerFacade.PersonFacade;
 import BinManagerPerson.Person;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,8 +33,8 @@ public class LoginController implements Initializable {
 	   // When user click on myButton
 	   // this method will be called.
 	   public void loginAction(ActionEvent event) {
-	       PersonDAOSQL p = new PersonDAOSQL();
-		   Person example = p.load(emailField.getText());
+	       PersonFacade facade = new PersonFacade();
+		   Person example = facade.load(emailField.getText(), passwordField.getText());
 		   System.out.println(example.getName());
 	   }	
 }

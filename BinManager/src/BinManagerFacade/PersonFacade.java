@@ -2,15 +2,41 @@ package BinManagerFacade;
 import BinManagerPerson.Person;
 import java.util.*;
 
-public class PersonFacade {
+import BinManagerDAO.Dao;
+import BinManagerDAO.PersonDAOSQL;
 
+public class PersonFacade implements Facade<Person>{
+
+	private Person person;
+	private Dao<Person> personDao;
+	
+	public PersonFacade() {
+		this.person = null;
+		this.personDao = null;
+	}
+	
+	public Dao<Person> getDao(){
+		if(this.personDao == null) {
+			this.personDao = createDao();
+		}
+		return this.personDao;
+	}
+	
+	public Person getPerson() {
+		return this.person;
+	}
+	
+	public Dao<Person> createDao(){
+		Dao<Person> newDao = new PersonDAOSQL();
+		return newDao;
+	}
 	/**
 	 * 
 	 * @param info
 	 */
 	public void update(ArrayList<String> info) {
-		// TODO - implement PersonFacade.update
-		throw new UnsupportedOperationException();
+		Dao<Person> dao = getDao();
+		//dao.update(info);
 	}
 
 	/**
@@ -18,8 +44,8 @@ public class PersonFacade {
 	 * @param email
 	 */
 	public void delete(String email) {
-		// TODO - implement PersonFacade.delete
-		throw new UnsupportedOperationException();
+		Dao<Person> dao = getDao();
+		dao.delete(email);
 	}
 
 	/**
@@ -27,8 +53,8 @@ public class PersonFacade {
 	 * @param info
 	 */
 	public void add(ArrayList<String> info) {
-		// TODO - implement PersonFacade.add
-		throw new UnsupportedOperationException();
+		Dao<Person> dao = getDao();
+		dao.add(info);
 	}
 
 	/**
@@ -36,9 +62,9 @@ public class PersonFacade {
 	 * @param email
 	 * @param password
 	 */
-	public Person login(String email, String password) {
-		// TODO - implement PersonFacade.login
-		throw new UnsupportedOperationException();
+	public Person load(String email, String password) {
+		Dao<Person> dao = getDao();
+		return dao.load(email);
 	}
 
 }

@@ -1,6 +1,7 @@
 package BinManagerAbstractFactory;
-import BinManagerDAO.ExternalTechnicianDAO;
+import BinManagerDAO.Dao;
 import BinManagerDAO.PersonDAOSQL;
+import BinManagerDAO.ExternalTechnicianDAOSQL;
 
 public class AbstractFactory {
 
@@ -14,7 +15,7 @@ public class AbstractFactory {
 		throw new UnsupportedOperationException();
 	}
 
-	public ExternalTechnicianDAO createExternalTechnicianDAO() {
+	public ExternalTechnicianDAOSQL createExternalTechnicianDAO() {
 		// TODO - implement AbstractFactory.createExternalTechnicianDAO
 		throw new UnsupportedOperationException();
 	}

@@ -38,10 +38,18 @@ public class PersonDAOSQL implements Dao<Person> {
 	 * 
 	 * @param infos
 	 */
-	public void save(ArrayList<String> infos) {
+	public void add(ArrayList<String> infos) {
 		String sql = "INSERT INTO `Person` (`name`) VALUES ('"+infos.get(0)+"');";
 		this.queryHandler.executeUpdate(sql);
 		this.queryHandler.close();
+	}
+	
+	/**
+	 * 
+	 * @param infos
+	 */
+	public void update(ArrayList<String> infos) {
+		// TODO Auto-generated method stub
 	}
 
 	/**
