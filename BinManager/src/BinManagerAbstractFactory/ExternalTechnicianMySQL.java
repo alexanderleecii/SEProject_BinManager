@@ -1,7 +1,7 @@
 package BinManagerAbstractFactory;
 import BinManagerDAO.ExternalTechnicianDAO;
 
-public class ExternalTechnicianMySQL extends MySQLFactory {
+public class ExternalTechnicianMySQL extends PersonMySQLFactory {
 
 	public void getExternalTechnicianDAO() {
 		// TODO - implement ExternalTechnicianMySQL.getExternalTechnicianDAO

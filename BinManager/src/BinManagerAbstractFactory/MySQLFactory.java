@@ -1,22 +1,15 @@
 package BinManagerAbstractFactory;
-import BinManagerDAO.ExternalTechnicianDAO;
+
+import BinManagerDAO.DAOSQL;
+import BinManagerDAO.Dao;
 import BinManagerDAO.PersonDAOSQL;
+import BinManagerPerson.Person;
 
-public class MySQLFactory extends AbstractFactory {
+public class MySQLFactory<T> implements AbstractFactory<T> {
 
-	public void getPersonDAO() {
-		// TODO - implement MySQLFactory.getPersonDAO
-		throw new UnsupportedOperationException();
-	}
-
-	public PersonDAOSQL createPersonDAO() {
-		// TODO - implement MySQLFactory.createPersonDAO
-		throw new UnsupportedOperationException();
-	}
-
-	public ExternalTechnicianDAO createExternalTechnicianDAO() {
-		// TODO - implement MySQLFactory.createExternalTechnicianDAO
-		throw new UnsupportedOperationException();
+	public Dao<T> createDao() {
+		Dao<T> newDao = new DAOSQL<T>();
+		return newDao;
 	}
 
 }

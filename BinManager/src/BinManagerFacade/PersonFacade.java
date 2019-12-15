@@ -1,9 +1,10 @@
 package BinManagerFacade;
 import BinManagerPerson.Person;
+
 import java.util.*;
 
+import BinManagerAbstractFactory.PersonMySQL;
 import BinManagerDAO.Dao;
-import BinManagerDAO.PersonDAOSQL;
 
 public class PersonFacade implements Facade<Person>{
 
@@ -27,8 +28,8 @@ public class PersonFacade implements Facade<Person>{
 	}
 	
 	public Dao<Person> createDao(){
-		Dao<Person> newDao = new PersonDAOSQL();
-		return newDao;
+		PersonMySQL p = new PersonMySQL();
+		return p.createDao();
 	}
 	/**
 	 * 
@@ -62,9 +63,9 @@ public class PersonFacade implements Facade<Person>{
 	 * @param email
 	 * @param password
 	 */
-	public Person load(String email, String password) {
+	public void load(String email, String password) {
 		Dao<Person> dao = getDao();
-		return dao.load(email);
+		this.person = dao.load(email);
 	}
 
 }
