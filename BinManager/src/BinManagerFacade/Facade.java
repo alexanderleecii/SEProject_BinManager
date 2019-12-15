@@ -23,5 +23,7 @@ public interface Facade<T> {
 	 * @param info
 	 */
 	public void add(ArrayList<String> info);
+	
+	public void load(String email, String password);
 
 }
