@@ -23,7 +23,7 @@ public class DAOSQL<T> implements Dao<T> {
 	}
 
 	@Override
-	public T load(String email) {
+	public T load(String email, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}
