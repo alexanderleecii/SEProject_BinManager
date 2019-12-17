@@ -18,13 +18,24 @@ public class PersonDAOSQL implements Dao<Person> {
 	 * 
 	 * @param email
 	 */
-	public Person load(String email) {
+	public Person load(String email, String password) {
 		String sql = "SELECT * from person WHERE email='"+email+"'";
 		ResultSet rs = this.queryHandler.executeQuery(sql);
 		try {
+			boolean exist = false;
 			while(rs.next()) {
-				Person p = new Person(rs.getString("name"),rs.getString("email"),rs.getString("password"));
-				return p;
+				exist = true;
+				if(password.equals(rs.getString("password"))) {
+					Person p = new Person(rs.getString("name"),rs.getString("email"),rs.getString("password"));
+					System.out.println("Vous êtes connecté");
+					return p;
+				}
+				else {
+					System.out.println("Mot de passe incorrect");
+				}
+			}
+			if(!exist) {
+				System.out.println("Email incorrect");
 			}
 			rs.close();
 		} catch (SQLException e) {

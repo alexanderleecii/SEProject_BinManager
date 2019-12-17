@@ -25,7 +25,7 @@ public interface Dao<T> {
 	 * 
 	 * @param email
 	 */
-	T load(String email);
+	T load(String email, String password);
 }
 
 

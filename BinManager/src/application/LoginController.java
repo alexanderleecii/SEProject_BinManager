@@ -34,7 +34,7 @@ public class LoginController implements Initializable {
 	   public void loginAction(ActionEvent event) {
 	       PersonFacade facade = new PersonFacade();
 		   facade.load(emailField.getText(), passwordField.getText());
-		   Person example = facade.getPerson();
-		   System.out.println(example.getName());
+//		   Person example = facade.getPerson();
+//		   System.out.println(example.getName());
 	   }	
 }

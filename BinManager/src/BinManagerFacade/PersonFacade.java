@@ -65,7 +65,7 @@ public class PersonFacade implements Facade<Person>{
 	 */
 	public void load(String email, String password) {
 		Dao<Person> dao = getDao();
-		this.person = dao.load(email);
+		this.person = dao.load(email,password);
 	}
 
 }
