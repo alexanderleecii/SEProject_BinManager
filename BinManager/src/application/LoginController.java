@@ -36,5 +36,5 @@ public class LoginController implements Initializable {
 		   facade.load(emailField.getText(), passwordField.getText());
 //		   Person example = facade.getPerson();
 //		   System.out.println(example.getName());
-	   }	
+	   }
 }

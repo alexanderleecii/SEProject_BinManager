@@ -50,7 +50,10 @@ public class PersonDAOSQL implements Dao<Person> {
 	 * @param infos
 	 */
 	public void add(ArrayList<String> infos) {
-		String sql = "INSERT INTO `Person` (`name`) VALUES ('"+infos.get(0)+"');";
+		String name=infos.get(0);
+		String email=infos.get(1);
+		String password=infos.get(2);
+		String sql = "INSERT INTO `Person` VALUES ('"+name+"','"+email+"','"+password+"');";
 		this.queryHandler.executeUpdate(sql);
 		this.queryHandler.close();
 	}
