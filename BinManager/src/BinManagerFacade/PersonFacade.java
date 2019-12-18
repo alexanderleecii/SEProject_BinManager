@@ -37,7 +37,7 @@ public class PersonFacade implements Facade<Person>{
 	 */
 	public void update(ArrayList<String> info) {
 		Dao<Person> dao = getDao();
-		//dao.update(info);
+		dao.update(info);
 	}
 
 	/**
