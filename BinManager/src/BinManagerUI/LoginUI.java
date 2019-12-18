@@ -13,9 +13,10 @@ public class LoginUI extends Application {
         try {
             // Read file fxml and draw interface.
         	
-            Parent root = FXMLLoader.load(getClass().getResource("/connectionPage.fxml"));
+            Parent connectionPage = FXMLLoader.load(getClass().getResource("/connectionPage.fxml"));
+            FXMLLoader registerPage = FXMLLoader.load(getClass().getResource("/registerPage.fxml"));
  
-            primaryStage.setScene(new Scene(root));
+            primaryStage.setScene(new Scene(connectionPage));
             primaryStage.show();
          
         } catch(Exception e) {

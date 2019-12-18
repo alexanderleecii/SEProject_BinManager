@@ -27,7 +27,7 @@
             <PasswordField fx:id="passwordField" disable="false" layoutX="81.0" layoutY="94.0" prefWidth="169.0" promptText="Password" text="" visible="true" />
             <Label layoutX="81.0" layoutY="19.0" text="Email" textFill="WHITE" />
             <Label layoutX="81.0" layoutY="70.0" text="Password" textFill="WHITE" />
-            <Button layoutX="94.0" layoutY="195.0" mnemonicParsing="false" onAction="#registerAction" prefWidth="124.0" text="Register" />
+            <Button fx:id="registerButton" layoutX="94.0" layoutY="195.0" mnemonicParsing="false" onAction="#registerAction" prefWidth="124.0" text="Register" />
             <TextField id="NameField" layoutX="81.0" layoutY="148.0" prefWidth="169.0" promptText="Name" text="" />
             <Label layoutX="81.0" layoutY="124.0" text="Name" textFill="WHITE" />
           </children>

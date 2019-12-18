@@ -12,12 +12,17 @@ import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 
 public class LoginController implements Initializable {
 	@FXML
 	   private Button loginButton;
 	  
+	@FXML
+	   private Button registerButton;
+	
 	   @FXML
 	   private TextField emailField;
 	   
@@ -41,6 +46,11 @@ public class LoginController implements Initializable {
 	   }
 	   
 	   public void registerAction(ActionEvent event) {
-		   
+		   System.out.println("Register");
+		   try {
+	         
+	        } catch(Exception e) {
+	            e.printStackTrace();
+	        }
 	   }
 }
