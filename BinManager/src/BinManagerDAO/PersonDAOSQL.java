@@ -18,6 +18,23 @@ public class PersonDAOSQL implements Dao<Person> {
 	 * 
 	 * @param email
 	 */
+	
+	public boolean isExist(String email) {
+		String sql = "SELECT * from person WHERE email='"+email+"'";
+		ResultSet rs = this.queryHandler.executeQuery(sql);
+		try {
+			boolean exist = false;
+			while(rs.next()) {
+				exist = true;
+			}
+			return exist;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		this.queryHandler.close();
+		return false;
+	}
+	
 	public Person load(String email, String password) {
 		String sql = "SELECT * from person WHERE email='"+email+"'";
 		ResultSet rs = this.queryHandler.executeQuery(sql);
@@ -27,15 +44,15 @@ public class PersonDAOSQL implements Dao<Person> {
 				exist = true;
 				if(password.equals(rs.getString("password"))) {
 					Person p = new Person(rs.getString("name"),rs.getString("email"),rs.getString("password"));
-					System.out.println("Vous êtes connecté");
+					System.out.println("You are connected");
 					return p;
 				}
 				else {
-					System.out.println("Mot de passe incorrect");
+					System.out.println("Incorrect password");
 				}
 			}
 			if(!exist) {
-				System.out.println("Email incorrect");
+				System.out.println("Incorrect email");
 			}
 			rs.close();
 		} catch (SQLException e) {
@@ -53,9 +70,14 @@ public class PersonDAOSQL implements Dao<Person> {
 		String name=infos.get(0);
 		String email=infos.get(1);
 		String password=infos.get(2);
-		String sql = "INSERT INTO `Person` VALUES ('"+name+"','"+email+"','"+password+"');";
-		this.queryHandler.executeUpdate(sql);
-		this.queryHandler.close();
+		if (isExist(email)) {
+			System.out.println("You already have an account");
+		}
+		else {
+			String sql = "INSERT INTO `Person` VALUES ('"+name+"','"+email+"','"+password+"');";
+			this.queryHandler.executeUpdate(sql);
+			this.queryHandler.close();
+		}
 	}
 	
 	/**
@@ -63,7 +85,17 @@ public class PersonDAOSQL implements Dao<Person> {
 	 * @param infos
 	 */
 	public void update(ArrayList<String> infos) {
-		// TODO Auto-generated method stub
+		String name=infos.get(0);
+		String email=infos.get(1);
+		String password=infos.get(2);
+		if (isExist(email)) {
+			String sql = "UPDATE `Person` SET name='"+name+"',password='"+password+"'WHERE email='"+email+"';";
+			this.queryHandler.executeUpdate(sql);
+			this.queryHandler.close();
+		}
+		else {
+			System.out.println("This account doesn't exist");
+		}
 	}
 
 	/**
