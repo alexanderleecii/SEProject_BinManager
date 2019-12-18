@@ -67,9 +67,9 @@ public class PersonDAOSQL implements Dao<Person> {
 	 * @param infos
 	 */
 	public void add(ArrayList<String> infos) {
-		String name=infos.get(0);
-		String email=infos.get(1);
-		String password=infos.get(2);
+		String name=infos.get(2);
+		String email=infos.get(0);
+		String password=infos.get(1);
 		if (isExist(email)) {
 			System.out.println("You already have an account");
 		}

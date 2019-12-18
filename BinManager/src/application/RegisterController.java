@@ -1,16 +1,14 @@
 package application;
 
-import java.io.IOException;
+//import java.io.IOException;
 import java.net.URL;
-
-
-
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import BinManagerFacade.PersonFacade;
-import BinManagerPerson.Person;
+//import BinManagerPerson.Person;
 import javafx.event.*;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+//import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
@@ -34,16 +32,14 @@ public class RegisterController implements Initializable {
 	      
 	   }
 	 
-//	   // When user click on myButton
-//	   // this method will be called.
-//	   public void loginAction(ActionEvent event) {
-//	       PersonFacade facade = new PersonFacade();
-//		   facade.load(emailField.getText(), passwordField.getText());
-////		   Person example = facade.getPerson();
-////		   System.out.println(example.getName());
-//	   }
-//	   
-//	   public void registerAction(ActionEvent event) {
-//		   
-//	   }
+	   public void registerAction(ActionEvent event) {
+		   PersonFacade facade = new PersonFacade();
+		   ArrayList<String> info = new ArrayList<>();
+		   info.add(emailField.getText());
+		   info.add(passwordField.getText());
+		   info.add(NameField.getText());
+		   facade.add(info);
+		   Routing rout= new Routing();
+		   rout.goTo("loginPage");
+	   }
 }

@@ -1,10 +1,11 @@
 package BinManagerUI;
 
+import application.Routing;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+//import javafx.fxml.FXMLLoader;
+//import javafx.scene.Parent;
+//import javafx.scene.Scene;
 
 
 public class LoginUI extends Application {
@@ -12,12 +13,13 @@ public class LoginUI extends Application {
     public void start(Stage primaryStage) {
         try {
             // Read file fxml and draw interface.
-        	
-            Parent connectionPage = FXMLLoader.load(getClass().getResource("/connectionPage.fxml"));
-            FXMLLoader registerPage = FXMLLoader.load(getClass().getResource("/registerPage.fxml"));
- 
-            primaryStage.setScene(new Scene(connectionPage));
-            primaryStage.show();
+        	Routing rout= new Routing(primaryStage);
+        	rout.goTo("connectionPage");
+//            Parent connectionPage = FXMLLoader.load(getClass().getResource("/connectionPage.fxml"));
+////            FXMLLoader registerPage = FXMLLoader.load(getClass().getResource("/registerPage.fxml"));
+// 
+//            primaryStage.setScene(new Scene(connectionPage));
+//            primaryStage.show();
          
         } catch(Exception e) {
             e.printStackTrace();
