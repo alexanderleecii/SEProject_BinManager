@@ -7,7 +7,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import BinManagerFacade.PersonFacade;
 import BinManagerPerson.Person;
-import javafx.event.ActionEvent;
+import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -36,5 +36,9 @@ public class LoginController implements Initializable {
 		   facade.load(emailField.getText(), passwordField.getText());
 //		   Person example = facade.getPerson();
 //		   System.out.println(example.getName());
+	   }
+	   
+	   public void registerAction(ActionEvent event) {
+		   
 	   }
 }
