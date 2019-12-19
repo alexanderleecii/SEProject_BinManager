@@ -4,11 +4,13 @@ public class Person {
 	private String name;
 	private String email;
 	private String password;
+	private PersonRole role;
 
-	public Person(String name, String email, String password) {
+	public Person(String name, String email, String password, PersonRole role) {
 		this.name = name;
 		this.email = email;
 		this.password = password;
+		this.role = role;
 	}
 	
 	public String getName() {
@@ -25,6 +27,14 @@ public class Person {
 
 	public String getEmail() {
 		return this.email;
+	}
+
+	public PersonRole getRole() {
+		return role;
+	}
+
+	public void setRole(PersonRole role) {
+		this.role = role;
 	}
 
 	/**

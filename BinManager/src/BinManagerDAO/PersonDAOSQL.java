@@ -1,5 +1,9 @@
 package BinManagerDAO;
+import BinManagerPerson.Citizen;
+import BinManagerPerson.Employee;
+import BinManagerPerson.Manager;
 import BinManagerPerson.Person;
+import BinManagerPerson.PersonRole;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -43,8 +47,17 @@ public class PersonDAOSQL implements Dao<Person> {
 			while(rs.next()) {
 				exist = true;
 				if(password.equals(rs.getString("password"))) {
-					Person p = new Person(rs.getString("name"),rs.getString("email"),rs.getString("password"));
-					System.out.println("You are connected");
+					PersonRole role = new PersonRole();
+					if(rs.getString("role").equals("citizen")) {
+						role = new Citizen();
+					}
+					else if(rs.getString("role").equals("employee")) {
+						role = new Employee();
+					}
+					else if(rs.getString("role").equals("manager")) {
+						role = new Manager();
+					}
+					Person p = new Person(rs.getString("name"),rs.getString("email"),rs.getString("password"),role);
 					return p;
 				}
 				else {
@@ -67,14 +80,15 @@ public class PersonDAOSQL implements Dao<Person> {
 	 * @param infos
 	 */
 	public void add(ArrayList<String> infos) {
-		String name=infos.get(2);
 		String email=infos.get(0);
 		String password=infos.get(1);
+		String name=infos.get(2);
+		String role=infos.get(3);
 		if (isExist(email)) {
 			System.out.println("You already have an account");
 		}
 		else {
-			String sql = "INSERT INTO `person` VALUES ('"+name+"','"+email+"','"+password+"');";
+			String sql = "INSERT INTO `person` VALUES ('"+email+"','"+password+"','"+name+"','"+role+"');";
 			this.queryHandler.executeUpdate(sql);
 			this.queryHandler.close();
 		}

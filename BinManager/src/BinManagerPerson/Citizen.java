@@ -30,5 +30,10 @@ public class Citizen extends PersonRole {
 		// TODO - implement Citizen.removeCitizen
 		throw new UnsupportedOperationException();
 	}
+	
+	@Override
+	public String toString() {
+		return "citizen";
+	}
 
 }

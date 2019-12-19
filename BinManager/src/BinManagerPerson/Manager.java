@@ -29,4 +29,8 @@ public class Manager extends PersonRole {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
+	public String toString() {
+		return "manager";
+	}
 }

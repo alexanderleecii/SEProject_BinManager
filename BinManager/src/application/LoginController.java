@@ -41,9 +41,23 @@ public class LoginController implements Initializable {
 	   // this method will be called.
 	   public void loginAction(ActionEvent event) {
 	       PersonFacade facade = new PersonFacade();
+	       Routing rout= new Routing();
 		   facade.load(emailField.getText(), passwordField.getText());
-//		   Person example = facade.getPerson();
-//		   System.out.println(example.getName());
+		   if(facade.getPerson().getRole().toString().equals("citizen")){
+			   System.out.println("You are connected as citizen");
+			   rout.goTo("homeCitizenPage");
+		   }
+		   else if(facade.getPerson().getRole().toString().equals("manager")){
+			   System.out.println("You are connected as manager");
+			   rout.goTo("homeManagerPage");
+		   }
+		   else if(facade.getPerson().getRole().toString().equals("employee")){
+			   System.out.println("You are connected as employee");
+			   rout.goTo("homeEmployeePage");
+		   }
+		   else{
+			   System.out.println("There is a problem with your account");
+		   }
 		   
 	   }
 	   

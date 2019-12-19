@@ -67,4 +67,9 @@ public class Employee extends PersonRole {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
+	public String toString() {
+		return "employee";
+	}
+	
 }

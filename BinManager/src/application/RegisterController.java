@@ -38,6 +38,7 @@ public class RegisterController implements Initializable {
 		   info.add(emailField.getText());
 		   info.add(passwordField.getText());
 		   info.add(nameField.getText());
+		   info.add("citizen");
 		   facade.add(info);
 		   Routing rout= new Routing();
 		   rout.goTo("connectionPage");
