@@ -74,7 +74,7 @@ public class PersonDAOSQL implements Dao<Person> {
 			System.out.println("You already have an account");
 		}
 		else {
-			String sql = "INSERT INTO `Person` VALUES ('"+name+"','"+email+"','"+password+"');";
+			String sql = "INSERT INTO `person` VALUES ('"+name+"','"+email+"','"+password+"');";
 			this.queryHandler.executeUpdate(sql);
 			this.queryHandler.close();
 		}

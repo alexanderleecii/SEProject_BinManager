@@ -17,6 +17,14 @@ public class Routing {
 	public Routing() {
 	}
 	
+	public static Stage getStage() {
+		return stage;
+	}
+
+	public static void setStage(Stage stage) {
+		Routing.stage = stage;
+	}
+
 	public void goTo(String page) {
 		Parent root;
 		try {

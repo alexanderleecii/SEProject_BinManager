@@ -20,7 +20,7 @@ public class RegisterController implements Initializable {
 	   private TextField emailField;
 	   
 	   @FXML
-	   private TextField NameField;
+	   private TextField nameField;
 	   
 	   @FXML
 	   private PasswordField passwordField;
@@ -37,9 +37,9 @@ public class RegisterController implements Initializable {
 		   ArrayList<String> info = new ArrayList<>();
 		   info.add(emailField.getText());
 		   info.add(passwordField.getText());
-		   info.add(NameField.getText());
+		   info.add(nameField.getText());
 		   facade.add(info);
 		   Routing rout= new Routing();
-		   rout.goTo("loginPage");
+		   rout.goTo("connectionPage");
 	   }
 }
