@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="415.1328125" prefWidth="455.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.mapController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <MenuBar fx:id="menu" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="455.0">
+      <menus>
+        <Menu mnemonicParsing="false" onAction="#mapAction" text="Map"></Menu>
+        <Menu mnemonicParsing="false" onAction="#usedObjectAction" text="Used Object"></Menu>
+        <Menu mnemonicParsing="false" onAction="#profileAction" text="Profile"></Menu>
+        <Menu mnemonicParsing="false" onAction="#logOutAction" text="Log out"></Menu>
+      </menus>
+    </MenuBar>
+    <Pane layoutX="64.0" layoutY="146.0" prefHeight="175.0" prefWidth="330.0">
+      <children>
+        <AnchorPane id="PaneLogin" layoutX="0.0" layoutY="1.0" prefHeight="175.0" prefWidth="330.0">
+          <children>
+            
+          </children>
+          <stylesheets>
+            <URL value="@application/login.css" />
+          </stylesheets>
+        </AnchorPane>
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>
