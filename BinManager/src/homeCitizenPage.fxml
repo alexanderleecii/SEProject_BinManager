@@ -7,19 +7,27 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="415.1328125" prefWidth="455.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.homeCitizenController">
+<AnchorPane disable="false" prefHeight="415.1328125" prefWidth="455.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.homeCitizenController">
   <!-- TODO Add Nodes -->
   <children>
-    <MenuBar fx:id="menu" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="455.0">
+    <MenuBar fx:id="menu" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="454.9998779296875" useSystemMenuBar="false">
       <menus>
-        <Menu mnemonicParsing="false" onAction="#mapAction" text="Map">
+        <Menu mnemonicParsing="false" text="Map">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#mapAction2" text="test" />
+            <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" onAction="#usedObjectAction" text="Used Object" />
-        <Menu mnemonicParsing="false" onAction="#profileAction" text="Profile" />
-        <Menu mnemonicParsing="false" onAction="#logOutAction" text="Log out" />
+        <Menu mnemonicParsing="false" text="Used Object">
+        <items>
+            <MenuItem mnemonicParsing="false" onAction="#usedObjectAction" text="See all used objects" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Profile" >
+        <items>
+            <MenuItem mnemonicParsing="false" onAction="#profileAction" text="My profil" />
+            <MenuItem mnemonicParsing="false" onAction="#logOutAction" text="Log out" />
+          </items>
+        </Menu>
       </menus>
     </MenuBar>
     <Pane layoutX="64.0" layoutY="146.0" prefHeight="175.0" prefWidth="330.0">

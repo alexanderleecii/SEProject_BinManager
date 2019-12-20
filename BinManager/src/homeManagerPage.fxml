@@ -7,34 +7,68 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="415.1328125" prefWidth="455.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.homeManagerController">
+<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.homeManagerController">
   <!-- TODO Add Nodes -->
   <children>
-    <TitledPane alignment="CENTER" animated="false" blendMode="SRC_OVER" collapsible="false" content="$null" contentDisplay="CENTER" expanded="false" layoutX="0.0" prefHeight="416.0" prefWidth="455.0" text="Home Page" AnchorPane.topAnchor="0.0" />
-    <Label>
-      <graphic>
-        <ImageView fitWidth="150.0" preserveRatio="true" smooth="true">
-          <image>
-            <Image url="application/binManager.png" />
-          </image>
-        </ImageView>
-      </graphic>
-    </Label>
-    <Pane layoutX="64.0" layoutY="146.0" prefHeight="175.0" prefWidth="330.0">
+    <MenuBar fx:id="menu" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false">
+      <menus>
+        <Menu mnemonicParsing="false" text="Map">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Schedule">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#scheduleAction" text="See the schedule" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Cost">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#costAction" text="Cost" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Person">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#citizenAction" text="Citizen" />
+            <MenuItem mnemonicParsing="false" onAction="#externalTechnicianAction" text="External Technician" />
+            <MenuItem mnemonicParsing="false" onAction="#employeeAction" text="Employee" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Garbage bins">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#binAction" text="See all bins" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Storage">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#storageAction" text="Storage" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Used Object">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#usedObjectAction" text="See all used objects" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Profile">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#profileAction" text="My profil" />
+            <MenuItem mnemonicParsing="false" onAction="#logOutAction" text="Log out" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane id="PaneLogin" layoutX="225.0" layoutY="157.0" prefHeight="194.0" prefWidth="364.0">
       <children>
-        <AnchorPane id="PaneLogin" layoutX="0.0" layoutY="1.0" prefHeight="175.0" prefWidth="330.0">
-          <children>
-            <Label layoutX="27.0" layoutY="73.0" text="You are connected as manager" textAlignment="CENTER" textFill="WHITE">
-              <font>
-                <Font size="22.0" />
-              </font>
-            </Label>
-          </children>
-          <stylesheets>
-            <URL value="@application/login.css" />
-          </stylesheets>
-        </AnchorPane>
+        <Label layoutX="43.0" layoutY="82.0" prefHeight="31.0" prefWidth="279.0" text="You are connected as citizen" textAlignment="CENTER" textFill="WHITE">
+          <font>
+            <Font size="22.0" />
+          </font>
+        </Label>
       </children>
-    </Pane>
+      <stylesheets>
+        <URL value="@application/login.css" />
+      </stylesheets>
+    </AnchorPane>
+    <Pane layoutX="225.0" layoutY="157.0" prefHeight="194.0" prefWidth="364.0" />
   </children>
 </AnchorPane>

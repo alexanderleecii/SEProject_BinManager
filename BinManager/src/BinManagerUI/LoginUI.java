@@ -15,11 +15,6 @@ public class LoginUI extends Application {
             // Read file fxml and draw interface.
         	Routing rout= new Routing(primaryStage);
         	rout.goTo("connectionPage");
-//            Parent connectionPage = FXMLLoader.load(getClass().getResource("/connectionPage.fxml"));
-////            FXMLLoader registerPage = FXMLLoader.load(getClass().getResource("/registerPage.fxml"));
-// 
-//            primaryStage.setScene(new Scene(connectionPage));
-//            primaryStage.show();
          
         } catch(Exception e) {
             e.printStackTrace();

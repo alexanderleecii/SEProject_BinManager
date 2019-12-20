@@ -9,7 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 public class homeCitizenController implements Initializable {
-	
+	  
 		@FXML
 		private MenuBar menu;
 		
@@ -19,12 +19,6 @@ public class homeCitizenController implements Initializable {
 	   }
 	   
 	   public void mapAction(ActionEvent event) {
-		   System.out.println("map");
-		   Routing rout= new Routing();
-		   rout.goTo("mapPage");
-	   }
-	   
-	   public void mapAction2(ActionEvent event) {
 		   System.out.println("map");
 		   Routing rout= new Routing();
 		   rout.goTo("mapPage");
@@ -41,6 +35,7 @@ public class homeCitizenController implements Initializable {
 	   }
 	   
 	   public void logOutAction(ActionEvent event) {
-		   	//A FAIRE
+		   Routing rout= new Routing();
+   			rout.goTo("connectionPage");
 	   }
 }
