@@ -40,6 +40,9 @@ public class ListEmployeeDAOSQL implements Dao<ListEmployee> {
 	}
 
 	public void delete(String email) {
+		String sql = "DELETE FROM `person` WHERE email='"+email+"';";
+		this.queryHandler.executeUpdate(sql);
+		this.queryHandler.close();
 	}
 
 	

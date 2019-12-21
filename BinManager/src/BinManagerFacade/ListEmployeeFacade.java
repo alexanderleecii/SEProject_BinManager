@@ -37,7 +37,7 @@ public class ListEmployeeFacade implements Facade<ListEmployee>{
 
 	public void delete(String email) {
 		Dao<ListEmployee> dao = getDao();
-//		this.listEmployee.removeEmployee(p);
+		this.listEmployee.removeEmployee(email);
 		dao.delete(email);
 	}
 

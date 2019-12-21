@@ -102,7 +102,7 @@ public class PersonDAOSQL implements Dao<Person> {
 		String email=infos.get(1);
 		String password=infos.get(2);
 		if (isExist(email)) {
-			String sql = "UPDATE `Person` SET name='"+name+"',password='"+password+"'WHERE email='"+email+"';";
+			String sql = "UPDATE `person` SET name='"+name+"',password='"+password+"'WHERE email='"+email+"';";
 			this.queryHandler.executeUpdate(sql);
 			this.queryHandler.close();
 		}
@@ -112,24 +112,10 @@ public class PersonDAOSQL implements Dao<Person> {
 	}
 
 	public void delete(String email) {
-		String sql = "DELETE FROM `Person` WHERE email='"+email+"';";
+		String sql = "DELETE FROM `person` WHERE email='"+email+"';";
 		this.queryHandler.executeUpdate(sql);
 		this.queryHandler.close();
 	}
 	
-	public ListEmployee getAllEmployees() {
-		String sql = "SELECT * FROM `Person` WHERE role='employee';";
-		ResultSet rs = this.queryHandler.executeQuery(sql);
-		ListEmployee list = new ListEmployee();
-		try {
-			while(rs.next()) {
-				Person p = new Person(rs.getString("name"),rs.getString("email"), new Employee());
-				list.addEmployee(p);
-			}
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return list;	
-	}
 
 }

@@ -19,11 +19,21 @@ public class ListEmployee {
 	public void addEmployee(Person p) {
 		listEmployee.add(p);
 	}
-	public void removeEmployee(Person p) {
-		listEmployee.remove(p);
+	public void removeEmployee(String email) {
+		listEmployee.remove(getEmployee(email));
 	}
 	public Person getEmployee(int i) {
 		return listEmployee.get(i);
+	}
+	public Person getEmployee(String email) {
+		int i = 0;
+		while(i<listEmployee.size()) {
+			if(email.equals(listEmployee.get(i).getEmail())) {
+				return listEmployee.get(i);
+			}
+			i++;
+		}
+		return null;
 	}
 	public int size() {
 		return listEmployee.size();

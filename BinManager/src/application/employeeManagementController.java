@@ -72,9 +72,9 @@ public class employeeManagementController extends homeController implements Init
 	   }
 
 	   public void deleteAction(ActionEvent event) {
-//		   int i = listEmployeeView.getSelectionModel().getSelectedIndex();
-//		   facade.delete(facade.getListEmployee().getEmployee(i));
-//		   rout.goTo("employeeManagementPage");
+		   int i = listEmployeeView.getSelectionModel().getSelectedIndex();
+		   facade.delete(facade.getListEmployee().getEmployee(i).getEmail());
+		   rout.goTo("employeeManagementPage");
 	   }
 	   
 	   public void editAction(ActionEvent event) {
