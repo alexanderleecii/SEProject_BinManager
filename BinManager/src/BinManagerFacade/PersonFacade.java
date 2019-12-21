@@ -63,9 +63,13 @@ public class PersonFacade implements Facade<Person>{
 	 * @param email
 	 * @param password
 	 */
-	public void load(String email, String password) {
+	public boolean load(String email, String password) {
 		Dao<Person> dao = getDao();
 		this.person = dao.load(email,password);
+		if(person == null) {
+			return false;
+		}
+		return true;
 	}
 
 }

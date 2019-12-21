@@ -62,10 +62,12 @@ public class PersonDAOSQL implements Dao<Person> {
 				}
 				else {
 					System.out.println("Incorrect password");
+					return null;
 				}
 			}
 			if(!exist) {
 				System.out.println("Incorrect email");
+				return null;
 			}
 			rs.close();
 		} catch (SQLException e) {

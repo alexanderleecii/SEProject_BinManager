@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.MenuBar;
 
 public class homeManagerController implements Initializable {
@@ -16,7 +17,7 @@ public class homeManagerController implements Initializable {
 	
 	   @Override
 	   public void initialize(URL location, ResourceBundle resources) {
-	 
+
 	       // TODO (don't really need to do anything here).
 	      
 	   }

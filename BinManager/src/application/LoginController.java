@@ -34,21 +34,28 @@ public class LoginController implements Initializable {
 	   public void loginAction(ActionEvent event) {
 	       PersonFacade facade = new PersonFacade();
 	       Routing rout= new Routing();
-		   facade.load(emailField.getText(), passwordField.getText());
-		   if(facade.getPerson().getRole().toString().equals("citizen")){
-			   System.out.println("You are connected as citizen");
-			   rout.goTo("homeCitizenPage");
+		   boolean res = facade.load(emailField.getText(), passwordField.getText());
+		   if(!res) {
+			   rout.alerte("Wrong email or password !");
+			   rout.goTo("connectionPage");
 		   }
-		   else if(facade.getPerson().getRole().toString().equals("manager")){
-			   System.out.println("You are connected as manager");
-			   rout.goTo("homeManagerPage");
-		   }
-		   else if(facade.getPerson().getRole().toString().equals("employee")){
-			   System.out.println("You are connected as employee");
-			   rout.goTo("homeEmployeePage");
-		   }
-		   else{
-			   System.out.println("There is a problem with your account");
+		   else {
+			   if(facade.getPerson().getRole().toString().equals("citizen")){
+				   System.out.println("You are connected as citizen");
+				   rout.goTo("homeCitizenPage");
+			   }
+			   else if(facade.getPerson().getRole().toString().equals("manager")){
+				   System.out.println("You are connected as manager");
+				   rout.goTo("homeManagerPage");
+			   }
+			   else if(facade.getPerson().getRole().toString().equals("employee")){
+				   System.out.println("You are connected as employee");
+				   rout.goTo("homeEmployeePage");
+			   }
+			   else{
+				   rout.alerte("There is a problem with your account");
+				   System.out.println("There is a problem with your account");
+			   }
 		   }
 		   
 	   }
