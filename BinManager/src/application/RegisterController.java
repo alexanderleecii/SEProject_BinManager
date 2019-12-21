@@ -12,7 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-public class RegisterController implements Initializable {
+public class RegisterController extends homeController implements Initializable {
 	@FXML
 	   private Button registerButton;
 	  
@@ -39,8 +39,10 @@ public class RegisterController implements Initializable {
 		   info.add(passwordField.getText());
 		   info.add(nameField.getText());
 		   info.add("citizen");
-		   facade.add(info);
-		   Routing rout= new Routing();
+		   boolean res = facade.add(info);
+		   if(!res) {
+			   alerte("You already are in the database");
+		   }
 		   rout.goTo("connectionPage");
 	   }
 }

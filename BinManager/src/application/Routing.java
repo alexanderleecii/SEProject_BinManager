@@ -45,12 +45,5 @@ public class Routing {
 			e.printStackTrace();
 		}
 	}
-	public void alerte(String msg) {
-		Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("ERREUR");
-        alert.setHeaderText(null);
-        alert.setContentText(msg);
-        alert.show();
-	}
 	
 }

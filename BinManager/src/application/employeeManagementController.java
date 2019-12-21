@@ -12,12 +12,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-public class mapController extends homeController implements Initializable {
-	
+public class employeeManagementController extends homeController implements Initializable {
 	
 	   @Override
 	   public void initialize(URL location, ResourceBundle resources) {
 		   initMenuBar();
 	   }
+	   
 	   
 }

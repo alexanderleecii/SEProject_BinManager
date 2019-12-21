@@ -11,7 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-public class LoginController implements Initializable {
+public class LoginController extends homeController implements Initializable {
 	@FXML
 	   private Button loginButton;
 	  
@@ -24,7 +24,6 @@ public class LoginController implements Initializable {
 	   @FXML
 	   private PasswordField passwordField;
 	   
-	   private Routing rout = new Routing();
 	  
 	   @Override
 	   public void initialize(URL location, ResourceBundle resources) {
@@ -37,7 +36,7 @@ public class LoginController implements Initializable {
 	       PersonFacade facade = new PersonFacade();
 		   boolean res = facade.load(emailField.getText(), passwordField.getText());
 		   if(!res) {
-			   rout.alerte("Wrong email or password !");
+			   alerte("Wrong email or password !");
 			   rout.goTo("connectionPage");
 		   }
 		   else {

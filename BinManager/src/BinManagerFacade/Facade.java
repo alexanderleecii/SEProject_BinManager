@@ -21,8 +21,9 @@ public interface Facade<T> {
 	/**
 	 * 
 	 * @param info
+	 * @return 
 	 */
-	public void add(ArrayList<String> info);
+	public boolean add(ArrayList<String> info);
 	
 	public boolean load(String email, String password);
 

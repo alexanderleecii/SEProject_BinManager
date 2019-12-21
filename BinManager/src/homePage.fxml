@@ -10,8 +10,78 @@
 <AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.homeController">
   <!-- TODO Add Nodes -->
   <children>
-    <MenuBar fx:id="menuEmployee" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false" />
-    <MenuBar fx:id="menuAdmin" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false" />
+ 	<MenuBar fx:id="menuEmployee" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false" >
+     <menus>
+        <Menu mnemonicParsing="false" text="Map">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Schedule">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#scheduleAction" text="See the schedule" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Garbage bins">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#binAction" text="See all bins" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Storage">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#storageAction" text="Storage" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Used Object">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#usedObjectAction" text="See all used objects" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Profile">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#profileAction" text="My profil" />
+            <MenuItem mnemonicParsing="false" onAction="#logOutAction" text="Log out" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <MenuBar fx:id="menuAdmin" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
+     <menus>
+        <Menu mnemonicParsing="false" text="Map">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Cost">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#costAction" text="Cost" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Person">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#citizenAction" text="Citizen Management" />
+            <MenuItem mnemonicParsing="false" onAction="#externalTechnicianAction" text="External Technician Management" />
+            <MenuItem mnemonicParsing="false" onAction="#employeeAction" text="Employee Management" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Garbage bins">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#binAction" text="See all bins" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Used Object">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#usedObjectAction" text="See all used objects" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Profile">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#profileAction" text="My profil" />
+            <MenuItem mnemonicParsing="false" onAction="#logOutAction" text="Log out" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
     <MenuBar fx:id="menuCitizen" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
       <menus>
         <Menu mnemonicParsing="false" text="Map">
@@ -51,9 +121,9 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Person">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#citizenAction" text="Citizen" />
-            <MenuItem mnemonicParsing="false" onAction="#externalTechnicianAction" text="External Technician" />
-            <MenuItem mnemonicParsing="false" onAction="#employeeAction" text="Employee" />
+            <MenuItem mnemonicParsing="false" onAction="#citizenAction" text="Citizen Management" />
+            <MenuItem mnemonicParsing="false" onAction="#externalTechnicianAction" text="External Technician Management" />
+            <MenuItem mnemonicParsing="false" onAction="#employeeAction" text="Employee Management" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Garbage bins">

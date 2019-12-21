@@ -53,9 +53,10 @@ public class PersonFacade implements Facade<Person>{
 	 * 
 	 * @param info
 	 */
-	public void add(ArrayList<String> info) {
+	public boolean add(ArrayList<String> info) {
 		Dao<Person> dao = getDao();
-		dao.add(info);
+		boolean res = dao.add(info);
+		return res;
 	}
 
 	/**

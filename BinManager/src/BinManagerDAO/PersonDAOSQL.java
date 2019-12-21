@@ -1,4 +1,5 @@
 package BinManagerDAO;
+import BinManagerPerson.Admin;
 import BinManagerPerson.Citizen;
 import BinManagerPerson.Employee;
 import BinManagerPerson.Manager;
@@ -57,6 +58,9 @@ public class PersonDAOSQL implements Dao<Person> {
 					else if(rs.getString("role").equals("manager")) {
 						role = new Manager();
 					}
+					else if(rs.getString("role").equals("admin")) {
+						role = new Admin();
+					}
 					Person p = new Person(rs.getString("name"),rs.getString("email"),rs.getString("password"),role);
 					return p;
 				}
@@ -81,19 +85,21 @@ public class PersonDAOSQL implements Dao<Person> {
 	 * 
 	 * @param infos
 	 */
-	public void add(ArrayList<String> infos) {
+	public boolean add(ArrayList<String> infos) {
 		String email=infos.get(0);
 		String password=infos.get(1);
 		String name=infos.get(2);
 		String role=infos.get(3);
 		if (isExist(email)) {
 			System.out.println("You already have an account");
+			return false;
 		}
 		else {
 			String sql = "INSERT INTO `person` VALUES ('"+email+"','"+password+"','"+name+"','"+role+"');";
 			this.queryHandler.executeUpdate(sql);
 			this.queryHandler.close();
 		}
+		return true;
 	}
 	
 	/**

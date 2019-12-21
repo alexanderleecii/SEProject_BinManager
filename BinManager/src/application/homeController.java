@@ -22,7 +22,7 @@ public class homeController implements Initializable {
 	@FXML
 	private Label personConnected;
 	
-	private Routing rout = new Routing();
+	protected Routing rout = new Routing();
 	
 	   @Override
 	   public void initialize(URL location, ResourceBundle resources) {
@@ -46,6 +46,14 @@ public class homeController implements Initializable {
 			   menuAdmin.setVisible(true);
 		   }
 	   }
+	   //FONCTION QUI CREE LES POPUPSS
+	   public void alerte(String msg) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+	        alert.setTitle("ERREUR");
+	        alert.setHeaderText(null);
+	        alert.setContentText(msg);
+	        alert.show();
+		}
 	   
 	   //EN DESSOUS TOUT LES LIENS VERS LES PAGES DANS LA MANUBAR !!
 	   public void mapAction(ActionEvent event) {
@@ -65,7 +73,7 @@ public class homeController implements Initializable {
 	   }
 	   
 	   public void employeeAction(ActionEvent event) {
-   			rout.goTo("employeePage");
+   			rout.goTo("employeeManagementPage");
 	   }
 	   
 	   public void binAction(ActionEvent event) {

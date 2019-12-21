@@ -18,8 +18,9 @@ public interface Dao<T> {
 	/**
 	 * 
 	 * @param infos
+	 * @return 
 	 */
-	void add(ArrayList<String> infos);
+	boolean add(ArrayList<String> infos);
 
 	/**
 	 * 
