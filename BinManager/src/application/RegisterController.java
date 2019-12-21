@@ -15,7 +15,8 @@ import javafx.scene.control.*;
 public class RegisterController extends homeController implements Initializable {
 	@FXML
 	   private Button registerButton;
-	  
+	@FXML
+	   private Button goBack;
 	   @FXML
 	   private TextField emailField;
 	   
@@ -39,10 +40,18 @@ public class RegisterController extends homeController implements Initializable 
 		   info.add(passwordField.getText());
 		   info.add(nameField.getText());
 		   info.add("citizen");
-		   boolean res = facade.add(info);
-		   if(!res) {
-			   alerte("You already are in the database");
+		   if(emailField.getText().equals("") || passwordField.getText().equals("") || nameField.getText().equals("")) {
+			   alerte("You should fill all field"); 
 		   }
+		   else {
+			   boolean res = facade.add(info);
+			   if(!res) {
+				   alerte("You already are in the database");
+			   }
+			   rout.goTo("connectionPage");
+		   }
+	   }
+	   public void goBackAction(ActionEvent event) {
 		   rout.goTo("connectionPage");
 	   }
 }

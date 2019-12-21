@@ -37,5 +37,6 @@
         </AnchorPane>
       </children>
     </Pane>
+    <Button fx:id="goBack" layoutX="14.0" layoutY="462.0" mnemonicParsing="false" onAction="#goBackAction" text="&lt;-" />
   </children>
 </AnchorPane>

@@ -98,6 +98,7 @@ public class homeController implements Initializable {
 	   }
 	   
 	   public void logOutAction(ActionEvent event) {
+		   Routing.setPersonFacade(null);
    			rout.goTo("connectionPage");
 	   }
 }
