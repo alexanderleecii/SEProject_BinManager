@@ -23,6 +23,8 @@ public class LoginController implements Initializable {
 	   
 	   @FXML
 	   private PasswordField passwordField;
+	   
+	   private Routing rout = new Routing();
 	  
 	   @Override
 	   public void initialize(URL location, ResourceBundle resources) {
@@ -33,7 +35,6 @@ public class LoginController implements Initializable {
 	 
 	   public void loginAction(ActionEvent event) {
 	       PersonFacade facade = new PersonFacade();
-	       Routing rout= new Routing();
 		   boolean res = facade.load(emailField.getText(), passwordField.getText());
 		   if(!res) {
 			   rout.alerte("Wrong email or password !");
@@ -47,7 +48,6 @@ public class LoginController implements Initializable {
 	   }
 	   
 	   public void registerAction(ActionEvent event) {
-		   	Routing rout= new Routing();
        		rout.goTo("registerPage");
 	   }
 }

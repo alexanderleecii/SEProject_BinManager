@@ -6,31 +6,30 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="415.1328125" prefWidth="455.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.RegisterController">
+<AnchorPane prefHeight="508.1328125" prefWidth="813.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.RegisterController">
   <!-- TODO Add Nodes -->
   <children>
-    <TitledPane alignment="CENTER" animated="false" blendMode="SRC_OVER" collapsible="false" content="$null" contentDisplay="CENTER" expanded="false" layoutX="-1.0" prefHeight="416.0" prefWidth="455.0" text="Register" AnchorPane.topAnchor="2.0" />
-    <Label layoutX="-1.0" layoutY="2.0">
+    <TitledPane alignment="CENTER" animated="false" blendMode="SRC_OVER" collapsible="false" content="$null" contentDisplay="CENTER" expanded="false" layoutX="0.0" prefHeight="32.0" prefWidth="813.0" text="Register" AnchorPane.topAnchor="0.0" />
+    <Label layoutX="0.0" layoutY="-31.0" prefHeight="171.0" prefWidth="185.0">
       <graphic>
-        <ImageView fitWidth="150.0" preserveRatio="true" smooth="true">
+        <ImageView fitHeight="217.0" fitWidth="217.0" preserveRatio="true" smooth="true">
           <image>
-            <Image url="application/binManager.png" />
+            <Image url="@application/binManager.png" />
           </image>
         </ImageView>
       </graphic>
     </Label>
-    <Pane layoutX="63.0" layoutY="148.0" prefHeight="217.0" prefWidth="333.0">
+    <Pane layoutX="225.0" layoutY="157.0" prefHeight="194.0" prefWidth="364.0">
       <children>
-        <AnchorPane id="PaneLogin" layoutX="2.0" layoutY="-15.0" prefHeight="241.0" prefWidth="330.0">
+        <AnchorPane id="PaneLogin" layoutX="0.0" layoutY="-4.0" minHeight="194.0" prefHeight="243.0" prefWidth="364.0">
           <children>
-            <TextField fx:id="emailField" editable="true" layoutX="81.0" layoutY="43.0" prefWidth="169.0" promptText="Email" text="" />
-            <PasswordField fx:id="passwordField" disable="false" layoutX="81.0" layoutY="94.0" prefWidth="169.0" promptText="Password" text="" visible="true" />
-            <TextField fx:id="nameField" layoutX="81.0" layoutY="148.0" prefWidth="169.0" promptText="Name" text="" />
-            <Label layoutX="81.0" layoutY="19.0" text="Email" textFill="WHITE" />
-            <Label layoutX="81.0" layoutY="70.0" text="Password" textFill="WHITE" />
-            <Label layoutX="81.0" layoutY="124.0" text="Name" textFill="WHITE" />
-            <Button fx:id="registerButton" layoutX="94.0" layoutY="195.0" mnemonicParsing="false" onAction="#registerAction" prefWidth="124.0" text="Register" />
-            
+            <TextField fx:id="emailField" editable="true" layoutX="69.0" layoutY="33.0" prefWidth="227.0" promptText="Email" text="" />
+            <PasswordField fx:id="passwordField" disable="false" layoutX="69.0" layoutY="89.0" prefWidth="227.0" promptText="Password" text="" visible="true" />
+            <TextField fx:id="nameField" layoutX="69.0" layoutY="146.0" prefWidth="227.0" promptText="Name" text="" />
+            <Label layoutX="69.0" layoutY="9.0" text="Email" textFill="WHITE" />
+            <Label layoutX="68.0" layoutY="65.0" text="Password" textFill="WHITE" />
+            <Label layoutX="69.0" layoutY="122.0" text="Name" textFill="WHITE" />
+            <Button fx:id="registerButton" layoutX="120.0" layoutY="195.0" mnemonicParsing="false" onAction="#registerAction" prefWidth="124.0" text="Register" />
           </children>
           <stylesheets>
             <URL value="@application/login.css" />
