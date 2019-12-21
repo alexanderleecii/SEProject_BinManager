@@ -12,32 +12,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-public class mapController implements Initializable {
+public class mapController extends homeController implements Initializable {
 		@FXML
 		private MenuBar menu;
 	
 	   @Override
 	   public void initialize(URL location, ResourceBundle resources) {
-	      
+		   initMenuBar();
 	   }
 	   
-	   public void mapAction(ActionEvent event) {
-		   System.out.println("map");
-		   Routing rout= new Routing();
-		   rout.goTo("mapPage");
-	   }
-	   
-	   public void usedObjectAction(ActionEvent event) {
-		   	Routing rout= new Routing();
-     		rout.goTo("usedObjectPage");
-	   }
-	   
-	   public void profileAction(ActionEvent event) {
-		   	Routing rout= new Routing();
-    		rout.goTo("profilePage");
-	   }
-	   
-	   public void logOutAction(ActionEvent event) {
-		   	//A FAIRE
-	   }
 }

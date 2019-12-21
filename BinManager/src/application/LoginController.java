@@ -40,22 +40,8 @@ public class LoginController implements Initializable {
 			   rout.goTo("connectionPage");
 		   }
 		   else {
-			   if(facade.getPerson().getRole().toString().equals("citizen")){
-				   System.out.println("You are connected as citizen");
-				   rout.goTo("homeCitizenPage");
-			   }
-			   else if(facade.getPerson().getRole().toString().equals("manager")){
-				   System.out.println("You are connected as manager");
-				   rout.goTo("homeManagerPage");
-			   }
-			   else if(facade.getPerson().getRole().toString().equals("employee")){
-				   System.out.println("You are connected as employee");
-				   rout.goTo("homeEmployeePage");
-			   }
-			   else{
-				   rout.alerte("There is a problem with your account");
-				   System.out.println("There is a problem with your account");
-			   }
+			   Routing.setPersonFacade(facade);
+			   rout.goTo("homePage");
 		   }
 		   
 	   }

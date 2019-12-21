@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.mapController">
+<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.homeController">
   <!-- TODO Add Nodes -->
   <children>
     <MenuBar fx:id="menuEmployee" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false" />
@@ -81,6 +81,11 @@
     </MenuBar>
     <AnchorPane id="PaneLogin" layoutX="225.0" layoutY="157.0" prefHeight="194.0" prefWidth="364.0">
       <children>
+        <Label fx:id="personConnected" layoutX="43.0" layoutY="82.0" prefHeight="31.0" prefWidth="279.0" textAlignment="CENTER" textFill="WHITE">
+          <font>
+            <Font size="18" />
+          </font>
+        </Label>
       </children>
       <stylesheets>
         <URL value="@application/login.css" />
