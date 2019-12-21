@@ -8,7 +8,7 @@ import BinManagerPerson.Person;
 public class MySQLFactory<T> implements AbstractFactory<T> {
 
 	public Dao<T> createDao() {
-		Dao<T> newDao = new DAOSQL<T>();
+		Dao<T> newDao = new Dao<T>();
 		return newDao;
 	}
 

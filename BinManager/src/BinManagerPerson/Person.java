@@ -12,6 +12,11 @@ public class Person {
 		this.password = password;
 		this.role = role;
 	}
+	public Person(String name, String email, PersonRole role) {
+		this.name = name;
+		this.email = email;
+		this.role = role;
+	}
 	
 	public String getName() {
 		return this.name;

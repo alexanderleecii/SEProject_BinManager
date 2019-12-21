@@ -5,10 +5,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
 
-<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.employeeManagementController">
+<AnchorPane prefHeight="508.1328125" prefWidth="813.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.RegisterEmployeeController">
   <children>
     <MenuBar fx:id="menuEmployee" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
       <menus>
@@ -149,43 +147,25 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane id="PaneLogin" layoutX="46.0" layoutY="69.0" prefHeight="392.0" prefWidth="730.0">
-      <stylesheets>
-        <URL value="@application/login.css" />
-      </stylesheets>
-    </AnchorPane>
-    <Pane layoutX="46.0" layoutY="69.0" prefHeight="392.0" prefWidth="730.0">
+
+    <Pane layoutX="225.0" layoutY="157.0" prefHeight="194.0" prefWidth="364.0">
       <children>
-        <ListView id="listEmployee" fx:id="listEmployeeView" layoutX="39.0" layoutY="86.0" prefHeight="246.0" prefWidth="390.0" />
-        <Button id="viewMoreButton" fx:id="seeMoreButton" layoutX="365.0" layoutY="346.0" mnemonicParsing="false" onAction="#seeMoreAction" text="See more" />
-        <Label id="personConnected" alignment="CENTER_LEFT" layoutX="67.0" layoutY="39.0" prefHeight="31.0" prefWidth="281.4998779296875" text="List of employees" textAlignment="LEFT" textFill="WHITE" visible="true" wrapText="false">
-          <font>
-            <Font size="21.0" fx:id="x1" />
-          </font>
-        </Label>
-        <Button id="viewMoreButton" fx:id="addButton" layoutX="418.0" layoutY="41.0" mnemonicParsing="false" onAction="#addAction" text="+" />
+        <AnchorPane id="PaneLogin" layoutX="0.0" layoutY="-4.0" minHeight="194.0" prefHeight="243.0" prefWidth="364.0">
+          <children>
+            <TextField fx:id="emailField" editable="true" layoutX="69.0" layoutY="33.0" prefWidth="227.0" promptText="Email" text="" />
+            <PasswordField fx:id="passwordField" disable="false" layoutX="69.0" layoutY="89.0" prefWidth="227.0" promptText="Password" text="" visible="true" />
+            <TextField fx:id="nameField" layoutX="69.0" layoutY="146.0" prefWidth="227.0" promptText="Name" text="" />
+            <Label layoutX="69.0" layoutY="9.0" text="Email" textFill="WHITE" />
+            <Label layoutX="68.0" layoutY="65.0" text="Password" textFill="WHITE" />
+            <Label layoutX="69.0" layoutY="122.0" text="Name" textFill="WHITE" />
+            <Button fx:id="registerButton" layoutX="90.0" layoutY="195.0" mnemonicParsing="false" onAction="#registerAction" prefWidth="184.0" text="Add the employee" />
+          </children>
+          <stylesheets>
+            <URL value="@application/login.css" />
+          </stylesheets>
+        </AnchorPane>
       </children>
     </Pane>
-    <AnchorPane id="PaneEmployee" fx:id="paneEmployee" blendMode="SRC_OVER" layoutX="504.0" layoutY="155.0" prefHeight="246.0" prefWidth="248.0" visible="false">
-      <children>
-        <Label id="personConnected" fx:id="email" alignment="CENTER_LEFT" layoutX="20.0" layoutY="123.0" prefHeight="31.0" prefWidth="113.0" text="Email :" textAlignment="LEFT" visible="false" wrapText="false">
-          <font>
-            <Font size="15.0" fx:id="x3" />
-          </font>
-          <textFill>
-            <Color blue="0.251" green="0.220" red="0.173" fx:id="x2" />
-          </textFill>
-        </Label>
-        <Label id="personConnected" fx:id="name" alignment="CENTER_LEFT" font="$x3" layoutX="20.0" layoutY="77.0" prefHeight="31.0" prefWidth="113.0" text="Name :" textAlignment="LEFT" textFill="$x2" visible="false" wrapText="false" />
-        <Button id="viewMoreButton" fx:id="editButton" layoutX="30.0" layoutY="190.0" mnemonicParsing="false" onAction="#editAction" prefWidth="82.0" text="Edit" visible="false" />
-        <Button id="viewMoreButton" fx:id="deleteButton" layoutX="145.0" layoutY="190.0" mnemonicParsing="false" onAction="#deleteAction" prefWidth="82.0" text="Delete" visible="false" />
-        <Label id="personConnected" fx:id="emailEmployee" alignment="CENTER_LEFT" font="$x3" layoutX="69.0" layoutY="123.0" prefHeight="31.0" prefWidth="178.0" text="" textAlignment="LEFT" textFill="$x2" visible="true" wrapText="false" />
-        <Label id="personConnected" fx:id="nameEmployee" alignment="CENTER_LEFT" font="$x3" layoutX="74.0" layoutY="77.0" prefHeight="31.0" prefWidth="176.0" text="" textAlignment="LEFT" textFill="$x2" visible="true" wrapText="false" />
-        <Label id="personConnected" fx:id="moreInfo" alignment="CENTER" font="$x1" layoutX="13.0" layoutY="14.0" prefHeight="31.0" prefWidth="223.0" text="More informations" textAlignment="LEFT" textFill="$x2" visible="false" wrapText="false" />
-      </children>
-      <stylesheets>
-        <URL value="@application/login.css" />
-      </stylesheets>
-    </AnchorPane>
+    <Button fx:id="goBack" layoutX="14.0" layoutY="462.0" mnemonicParsing="false" onAction="#goBackAction" text="&lt;-" />
   </children>
 </AnchorPane>

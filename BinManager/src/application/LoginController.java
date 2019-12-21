@@ -1,9 +1,7 @@
 package application;
 
 import java.net.URL;
-
-
-
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import BinManagerFacade.PersonFacade;
 import javafx.event.*;
@@ -34,7 +32,10 @@ public class LoginController extends homeController implements Initializable {
 	 
 	   public void loginAction(ActionEvent event) {
 	       PersonFacade facade = new PersonFacade();
-		   boolean res = facade.load(emailField.getText(), passwordField.getText());
+	       ArrayList<String> infos = new ArrayList<>();
+	       infos.add(emailField.getText());
+	       infos.add(passwordField.getText());
+		   boolean res = facade.load(infos);
 		   if(!res) {
 			   alerte("Wrong email or password !");
 			   rout.goTo("connectionPage");

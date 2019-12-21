@@ -2,6 +2,7 @@ package BinManagerDAO;
 import BinManagerPerson.Admin;
 import BinManagerPerson.Citizen;
 import BinManagerPerson.Employee;
+import BinManagerPerson.ListEmployee;
 import BinManagerPerson.Manager;
 import BinManagerPerson.Person;
 import BinManagerPerson.PersonRole;
@@ -19,10 +20,6 @@ public class PersonDAOSQL implements Dao<Person> {
 	public PersonDAOSQL() {
 		this.queryHandler = new QueryHandler(this.url,this.login,this.passwd);
 	}
-	/**
-	 * 
-	 * @param email
-	 */
 	
 	public boolean isExist(String email) {
 		String sql = "SELECT * from person WHERE email='"+email+"'";
@@ -40,7 +37,9 @@ public class PersonDAOSQL implements Dao<Person> {
 		return false;
 	}
 	
-	public Person load(String email, String password) {
+	public Person load(ArrayList<String> infos) {
+		String email = infos.get(0);
+		String password = infos.get(1);
 		String sql = "SELECT * from person WHERE email='"+email+"'";
 		ResultSet rs = this.queryHandler.executeQuery(sql);
 		try {
@@ -81,10 +80,6 @@ public class PersonDAOSQL implements Dao<Person> {
 		return null;
 	}
 
-	/**
-	 * 
-	 * @param infos
-	 */
 	public boolean add(ArrayList<String> infos) {
 		String email=infos.get(0);
 		String password=infos.get(1);
@@ -102,10 +97,6 @@ public class PersonDAOSQL implements Dao<Person> {
 		return true;
 	}
 	
-	/**
-	 * 
-	 * @param infos
-	 */
 	public void update(ArrayList<String> infos) {
 		String name=infos.get(0);
 		String email=infos.get(1);
@@ -120,14 +111,25 @@ public class PersonDAOSQL implements Dao<Person> {
 		}
 	}
 
-	/**
-	 * 
-	 * @param email
-	 */
 	public void delete(String email) {
 		String sql = "DELETE FROM `Person` WHERE email='"+email+"';";
 		this.queryHandler.executeUpdate(sql);
 		this.queryHandler.close();
+	}
+	
+	public ListEmployee getAllEmployees() {
+		String sql = "SELECT * FROM `Person` WHERE role='employee';";
+		ResultSet rs = this.queryHandler.executeQuery(sql);
+		ListEmployee list = new ListEmployee();
+		try {
+			while(rs.next()) {
+				Person p = new Person(rs.getString("name"),rs.getString("email"), new Employee());
+				list.addEmployee(p);
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;	
 	}
 
 }

@@ -25,6 +25,6 @@ public interface Facade<T> {
 	 */
 	public boolean add(ArrayList<String> info);
 	
-	public boolean load(String email, String password);
+	public boolean load(ArrayList<String> info);
 
 }

@@ -1,13 +1,11 @@
 package BinManagerPerson;
 import Schedule.Schedule;
-import java.util.*;
 
 public class Employee extends PersonRole {
 
 	Schedule Schedule;
 	private String accountNumber;
-	private static ArrayList<Employee> listEmployee;
-
+	
 	public String getAccountNumber() {
 		return this.accountNumber;
 	}
@@ -20,30 +18,6 @@ public class Employee extends PersonRole {
 		this.accountNumber = accountNumber;
 	}
 
-	public static ArrayList<Employee> getListEmployee() {
-		return Employee.listEmployee;
-	}
-
-	/**
-	 * 
-	 * @param name
-	 * @param email
-	 * @param password
-	 * @param accountNumber
-	 */
-	public static void addEmployee(String name, String email, String password, String accountNumber) {
-		// TODO - implement Employee.addEmployee
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param email
-	 */
-	public static void removeEmployee(String email) {
-		// TODO - implement Employee.removeEmployee
-		throw new UnsupportedOperationException();
-	}
 
 	public Schedule createSchedule() {
 		// TODO - implement Employee.createSchedule
