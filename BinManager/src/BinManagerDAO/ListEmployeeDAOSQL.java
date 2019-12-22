@@ -33,16 +33,55 @@ public class ListEmployeeDAOSQL implements Dao<ListEmployee> {
 	}
 	
 	public boolean add(ArrayList<String> infos) {
+		String email=infos.get(0);
+		String password=infos.get(1);
+		String name=infos.get(2);
+		String role=infos.get(3);
+		if (isExist(email)) {
+			System.out.println("You already have an account");
+			return false;
+		}
+		else {
+			String sql = "INSERT INTO `person` VALUES ('"+email+"','"+password+"','"+name+"','"+role+"');";
+			this.queryHandler.executeUpdate(sql);
+			this.queryHandler.close();
+		}
 		return true;
 	}
 	
 	public void update(ArrayList<String> infos) {
+		String email=infos.get(0);
+		String name=infos.get(1);
+		if (isExist(email)) {
+			String sql = "UPDATE `person` SET name='"+name+"' WHERE email='"+email+"';";
+			this.queryHandler.executeUpdate(sql);
+			this.queryHandler.close();
+		}
+		else {
+			System.out.println("This account doesn't exist");
+		}
 	}
 
 	public void delete(String email) {
 		String sql = "DELETE FROM `person` WHERE email='"+email+"';";
 		this.queryHandler.executeUpdate(sql);
 		this.queryHandler.close();
+	}
+	
+	public boolean isExist(String email) {
+		String sql = "SELECT * from person WHERE email='"+email+"'";
+		ResultSet rs = this.queryHandler.executeQuery(sql);
+		try {
+			boolean exist = false;
+			while(rs.next()) {
+				exist = true;
+			}
+			return exist;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		this.queryHandler.close();
+		return false;
 	}
 
 	

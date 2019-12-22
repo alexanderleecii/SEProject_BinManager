@@ -35,7 +35,20 @@ public class ListEmployee {
 		}
 		return null;
 	}
+	
 	public int size() {
 		return listEmployee.size();
+	}
+	public void editEmployee(ArrayList<String> info) {
+		String email = info.get(0);
+		int i = 0;
+		while(i<listEmployee.size()) {
+			if(email.equals(listEmployee.get(i).getEmail())) {
+				listEmployee.get(i).setName(info.get(1));
+				i=listEmployee.size();
+			}
+			i++;
+		}
+		
 	}
 }

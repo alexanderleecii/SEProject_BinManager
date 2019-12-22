@@ -1,5 +1,9 @@
 package BinManagerFacade;
+import BinManagerPerson.Employee;
 import BinManagerPerson.ListEmployee;
+import BinManagerPerson.Person;
+import BinManagerPerson.PersonRole;
+
 import java.util.*;
 import BinManagerAbstractFactory.ListEmployeeMySQL;
 import BinManagerDAO.Dao;
@@ -32,6 +36,7 @@ public class ListEmployeeFacade implements Facade<ListEmployee>{
 	
 	public void update(ArrayList<String> info) {
 		Dao<ListEmployee> dao = getDao();
+		this.listEmployee.editEmployee(info);
 		dao.update(info);
 	}
 
@@ -43,6 +48,9 @@ public class ListEmployeeFacade implements Facade<ListEmployee>{
 
 	public boolean add(ArrayList<String> info) {
 		Dao<ListEmployee> dao = getDao();
+		PersonRole pr=new Employee();
+		Person p=new Person(info.get(0), info.get(1), info.get(2),pr);
+		this.listEmployee.addEmployee(p);
 		boolean res = dao.add(info);
 		return res;
 	}
