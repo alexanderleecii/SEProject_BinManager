@@ -2,7 +2,6 @@ package BinManagerDAO;
 import BinManagerPerson.Admin;
 import BinManagerPerson.Citizen;
 import BinManagerPerson.Employee;
-import BinManagerPerson.ListEmployee;
 import BinManagerPerson.Manager;
 import BinManagerPerson.Person;
 import BinManagerPerson.PersonRole;
@@ -98,17 +97,12 @@ public class PersonDAOSQL implements Dao<Person> {
 	}
 	
 	public void update(ArrayList<String> infos) {
-		String name=infos.get(0);
-		String email=infos.get(1);
-		String password=infos.get(2);
-		if (isExist(email)) {
-			String sql = "UPDATE `person` SET name='"+name+"',password='"+password+"'WHERE email='"+email+"';";
-			this.queryHandler.executeUpdate(sql);
-			this.queryHandler.close();
-		}
-		else {
-			System.out.println("This account doesn't exist");
-		}
+		String name=infos.get(2);
+		String email=infos.get(0);
+		String password=infos.get(1);
+		String sql = "UPDATE `person` SET name='"+name+"',password='"+password+"'WHERE email='"+email+"';";
+		this.queryHandler.executeUpdate(sql);
+		this.queryHandler.close();
 	}
 
 	public void delete(String email) {

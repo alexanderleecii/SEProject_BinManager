@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.myProfileController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <MenuBar fx:id="menuEmployee" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
+      <menus>
+        <Menu mnemonicParsing="false" text="Map">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Schedule">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#scheduleAction" text="See the schedule" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Garbage bins">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#binAction" text="See all bins" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Storage">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#storageAction" text="Storage" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Used Object">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#usedObjectAction" text="See all used objects" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Profile">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#profileAction" text="My profil" />
+            <MenuItem mnemonicParsing="false" onAction="#logOutAction" text="Log out" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <MenuBar fx:id="menuAdmin" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
+      <menus>
+        <Menu mnemonicParsing="false" text="Map">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Cost">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#costAction" text="Cost" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Person">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#citizenAction" text="Citizen Management" />
+            <MenuItem mnemonicParsing="false" onAction="#externalTechnicianAction" text="External Technician Management" />
+            <MenuItem mnemonicParsing="false" onAction="#employeeAction" text="Employee Management" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Garbage bins">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#binAction" text="See all bins" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Used Object">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#usedObjectAction" text="See all used objects" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Profile">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#profileAction" text="My profil" />
+            <MenuItem mnemonicParsing="false" onAction="#logOutAction" text="Log out" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <MenuBar fx:id="menuCitizen" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
+      <menus>
+        <Menu mnemonicParsing="false" text="Map">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Used Object">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#usedObjectAction" text="See all used objects" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Profile">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#profileAction" text="My profil" />
+            <MenuItem mnemonicParsing="false" onAction="#logOutAction" text="Log out" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <MenuBar fx:id="menuManager" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
+      <menus>
+        <Menu mnemonicParsing="false" text="Map">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Schedule">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#scheduleAction" text="See the schedule" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Cost">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#costAction" text="Cost" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Person">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#citizenAction" text="Citizen Management" />
+            <MenuItem mnemonicParsing="false" onAction="#externalTechnicianAction" text="External Technician Management" />
+            <MenuItem mnemonicParsing="false" onAction="#employeeAction" text="Employee Management" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Garbage bins">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#binAction" text="See all bins" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Storage">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#storageAction" text="Storage" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Used Object">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#usedObjectAction" text="See all used objects" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Profile">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#profileAction" text="My profil" />
+            <MenuItem mnemonicParsing="false" onAction="#logOutAction" text="Log out" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane id="PaneLogin" layoutX="42.0" layoutY="58.0" prefHeight="392.0" prefWidth="730.0">
+      <stylesheets>
+        <URL value="@application/login.css" />
+      </stylesheets>
+    </AnchorPane>
+    <Pane layoutX="42.0" layoutY="58.0" prefHeight="392.0" prefWidth="730.0">
+      <children>
+        <Label id="personConnected" alignment="CENTER_LEFT" layoutX="55.0" layoutY="44.0" prefHeight="31.0" prefWidth="281.4998779296875" text="My Profile" textAlignment="LEFT" textFill="WHITE" visible="true" wrapText="false">
+          <font>
+            <Font size="24.0" />
+          </font>
+        </Label>
+        <AnchorPane id="PaneEmployee" blendMode="SRC_OVER" layoutX="41.0" layoutY="101.0" prefHeight="224.0" prefWidth="309.5" visible="true">
+          <children>
+            <Label id="personConnected" alignment="CENTER_LEFT" layoutX="14.0" layoutY="40.0" prefHeight="31.0" prefWidth="113.0" text="Name :" textAlignment="LEFT" visible="true" wrapText="false">
+              <font>
+                <Font size="19.0" fx:id="x1" />
+              </font>
+              <textFill>
+                <Color blue="0.251" green="0.220" red="0.173" fx:id="x2" />
+              </textFill>
+            </Label>
+            <Label id="personConnected" alignment="CENTER_LEFT" font="$x1" layoutX="14.0" layoutY="97.0" prefHeight="31.0" prefWidth="113.0" text="Email :" textAlignment="LEFT" textFill="$x2" visible="true" wrapText="false" />
+            <Label id="personConnected" alignment="CENTER_LEFT" font="$x1" layoutX="14.0" layoutY="154.0" prefHeight="31.0" prefWidth="113.0" text="Password :" textAlignment="LEFT" textFill="$x2" visible="true" wrapText="false" />
+            <Label id="personConnected" fx:id="name" alignment="CENTER_LEFT" font="$x1" layoutX="88.0" layoutY="40.0" prefHeight="31.0" prefWidth="113.0" text="" textAlignment="LEFT" textFill="$x2" visible="true" wrapText="false" />
+            <Label id="personConnected" fx:id="email" alignment="CENTER_LEFT" font="$x1" layoutX="79.0" layoutY="97.0" prefHeight="31.0" prefWidth="113.0" text="" textAlignment="LEFT" textFill="$x2" visible="true" wrapText="false" />
+            <Label id="personConnected" fx:id="password" alignment="CENTER_LEFT" font="$x1" layoutX="120.0" layoutY="154.0" prefHeight="31.0" prefWidth="113.0" text="" textAlignment="LEFT" textFill="$x2" visible="true" wrapText="false" />
+            <Button fx:id="nameEditButton" layoutX="233.0" layoutY="39.0" mnemonicParsing="false" onAction="#nameEditAction" text="Edit" />
+            <Button fx:id="passwordEditButton" layoutX="233.0" layoutY="155.0" mnemonicParsing="false" onAction="#passwordEditAction" text="Edit" />
+          </children>
+          <stylesheets>
+            <URL value="@application/login.css" />
+          </stylesheets>
+        </AnchorPane>
+        <AnchorPane id="PaneEmployee" fx:id="editPane" blendMode="SRC_OVER" layoutX="385.0" layoutY="101.0" prefHeight="224.0" prefWidth="309.5" visible="true">
+          <children>
+            <Label id="personConnected" fx:id="editLabel1" alignment="CENTER_LEFT" font="$x1" layoutX="14.0" layoutY="40.0" prefHeight="31.0" prefWidth="113.0" text="" textAlignment="LEFT" textFill="$x2" visible="true" wrapText="false" />
+            <Label id="personConnected" fx:id="editLabel2" alignment="CENTER_LEFT" font="$x1" layoutX="14.0" layoutY="97.0" prefHeight="31.0" prefWidth="113.0" text="" textAlignment="LEFT" textFill="$x2" visible="true" wrapText="false" />
+            <Button id="validateButton" fx:id="validateNameButton" layoutX="113.0" layoutY="178.0" mnemonicParsing="false" onAction="#validateNameAction" text="Validate" />
+            <TextField fx:id="editTextField1" layoutX="113.0" layoutY="41.0" prefWidth="183.0" visible="false" />
+            <TextField fx:id="editTextField2" layoutX="113.0" layoutY="98.0" prefWidth="183.0" visible="false" />
+            <Button id="validateButton" fx:id="validatePasswordButton" layoutX="113.0" layoutY="178.0" mnemonicParsing="false" onAction="#validatePasswordAction" text="Validate" />
+          </children>
+          <stylesheets>
+            <URL value="@application/login.css" />
+          </stylesheets>
+        </AnchorPane>
+        <Button fx:id="deleteButton" layoutX="270.0" layoutY="346.0" mnemonicParsing="false" onAction="#deleteAction" text="Delete your account" />
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>

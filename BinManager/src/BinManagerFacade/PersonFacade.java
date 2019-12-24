@@ -31,39 +31,25 @@ public class PersonFacade implements Facade<Person>{
 		PersonMySQL p = new PersonMySQL();
 		return p.createDao();
 	}
-	/**
-	 * 
-	 * @param info
-	 */
+	
 	public void update(ArrayList<String> info) {
 		Dao<Person> dao = getDao();
+		this.person.setName(info.get(2));
+		this.person.setPassword(info.get(1));
 		dao.update(info);
 	}
 
-	/**
-	 * 
-	 * @param email
-	 */
 	public void delete(String email) {
 		Dao<Person> dao = getDao();
 		dao.delete(email);
 	}
 
-	/**
-	 * 
-	 * @param info
-	 */
 	public boolean add(ArrayList<String> info) {
 		Dao<Person> dao = getDao();
 		boolean res = dao.add(info);
 		return res;
 	}
 
-	/**
-	 * 
-	 * @param email
-	 * @param password
-	 */
 	public boolean load(ArrayList<String> infos) {
 		Dao<Person> dao = getDao();
 		this.person = dao.load(infos);
