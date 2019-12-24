@@ -104,6 +104,8 @@ public class myProfileController extends homeController implements Initializable
 		   }
 	   }
 	   public void deleteAction(ActionEvent event) {
+		   facade.delete(facade.getPerson().getEmail());
+		   rout.goTo("connectionPage");
 	   }
 	   
 }
