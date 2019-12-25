@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
-public class employeeManagementController extends homeController implements Initializable {
+public class EmployeeManagementController extends HomeController implements Initializable {
 	
 		@FXML
 		private ListView<String> listEmployeeView;

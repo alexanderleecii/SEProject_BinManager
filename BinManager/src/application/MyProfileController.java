@@ -11,7 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
-public class myProfileController extends homeController implements Initializable {
+public class MyProfileController extends HomeController implements Initializable {
 	
 		@FXML
 		private Label name;
@@ -49,7 +49,7 @@ public class myProfileController extends homeController implements Initializable
 		   editPane.setVisible(false);
 		   validateNameButton.setVisible(false);
 		   validatePasswordButton.setVisible(false);
-		   facade = Routing.getFacade();
+		   facade = HomeController.getFacade();
 		   name.setText(facade.getPerson().getName());
 		   email.setText(facade.getPerson().getEmail());
 		   String pswd = "";

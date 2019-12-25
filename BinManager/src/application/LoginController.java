@@ -9,7 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-public class LoginController extends homeController implements Initializable {
+public class LoginController extends HomeController implements Initializable {
 	@FXML
 	   private Button loginButton;
 	  
@@ -41,7 +41,8 @@ public class LoginController extends homeController implements Initializable {
 			   rout.goTo("connectionPage");
 		   }
 		   else {
-			   Routing.setPersonFacade(facade);
+			   //I don't think the routing class should hold the facade
+			   HomeController.setPersonFacade(facade);
 			   rout.goTo("homePage");
 		   }
 		   

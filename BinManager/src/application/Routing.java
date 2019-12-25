@@ -2,15 +2,14 @@ package application;
 
 import java.io.IOException;
 
-import BinManagerFacade.PersonFacade;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+//This class changes the view depending on what button is pressed (in the Controllers)
 public class Routing {
 	private static Stage stage;
-	private static PersonFacade facade; 
 	
 	public Routing(Stage primaryStage) {
 		Routing.stage=primaryStage;
@@ -25,12 +24,6 @@ public class Routing {
 
 	public static void setStage(Stage stage) {
 		Routing.stage = stage;
-	}
-	public static PersonFacade getFacade() {
-		return facade;
-	}
-	public static void setPersonFacade(PersonFacade facade) {
-		Routing.facade = facade;
 	}
 
 	public void goTo(String page) {

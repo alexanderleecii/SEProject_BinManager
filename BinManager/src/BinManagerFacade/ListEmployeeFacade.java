@@ -1,11 +1,12 @@
 package BinManagerFacade;
 import BinManagerPerson.Employee;
+
 import BinManagerPerson.ListEmployee;
 import BinManagerPerson.Person;
 import BinManagerPerson.PersonRole;
 
 import java.util.*;
-import BinManagerAbstractFactory.ListEmployeeMySQL;
+import BinManagerAbstractFactory.MySQLFactory;
 import BinManagerDAO.Dao;
 
 public class ListEmployeeFacade implements Facade<ListEmployee>{
@@ -30,8 +31,9 @@ public class ListEmployeeFacade implements Facade<ListEmployee>{
 	}
 	
 	public Dao<ListEmployee> createDao(){
-		ListEmployeeMySQL p = new ListEmployeeMySQL();
-		return p.createDao();
+		//Creates a SQLDao using parameterized classes
+		MySQLFactory<ListEmployee> p = new MySQLFactory<ListEmployee>(ListEmployee.class);
+		return (Dao<ListEmployee>) p.createDao();
 	}
 	
 	public void update(ArrayList<String> info) {

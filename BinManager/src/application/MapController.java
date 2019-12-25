@@ -5,7 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
-public class mapController extends homeController implements Initializable {
+public class MapController extends HomeController implements Initializable {
 	
 	
 	   @Override

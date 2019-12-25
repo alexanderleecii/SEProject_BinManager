@@ -1,9 +1,10 @@
 package BinManagerFacade;
 import BinManagerPerson.Person;
 
+
 import java.util.*;
 
-import BinManagerAbstractFactory.PersonMySQL;
+import BinManagerAbstractFactory.MySQLFactory;
 import BinManagerDAO.Dao;
 
 public class PersonFacade implements Facade<Person>{
@@ -28,8 +29,9 @@ public class PersonFacade implements Facade<Person>{
 	}
 	
 	public Dao<Person> createDao(){
-		PersonMySQL p = new PersonMySQL();
-		return p.createDao();
+		//Creates a SQLDao using parameterized classes
+		MySQLFactory<Person> p = new MySQLFactory<Person>(Person.class);
+		return (Dao<Person>) p.createDao();
 	}
 	
 	public void update(ArrayList<String> info) {

@@ -3,6 +3,6 @@ import BinManagerDAO.Dao;
 
 public interface AbstractFactory<T> {
 
-	public Dao<T> createDao();
+	public Dao<?> createDao();
 
 }

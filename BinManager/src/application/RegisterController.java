@@ -12,7 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-public class RegisterController extends homeController implements Initializable {
+public class RegisterController extends HomeController implements Initializable {
 	@FXML
 	   private Button registerButton;
 	@FXML
