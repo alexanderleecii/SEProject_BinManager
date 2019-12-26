@@ -5,13 +5,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomeController">
-  <!-- TODO Add Nodes -->
+<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BinManagementController">
   <children>
- 	<MenuBar fx:id="menuEmployee" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
-     <menus>
+    <MenuBar fx:id="menuEmployee" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
+      <menus>
         <Menu mnemonicParsing="false" text="Map">
           <items>
             <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
@@ -46,7 +46,7 @@
       </menus>
     </MenuBar>
     <MenuBar fx:id="menuAdmin" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
-     <menus>
+      <menus>
         <Menu mnemonicParsing="false" text="Map">
           <items>
             <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
@@ -82,7 +82,7 @@
         </Menu>
       </menus>
     </MenuBar>
-    <MenuBar fx:id="menuCitizen" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false">
+    <MenuBar fx:id="menuCitizen" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
       <menus>
         <Menu mnemonicParsing="false" text="Map">
           <items>
@@ -168,18 +168,57 @@
             </Menu>
          </menus>
       </MenuBar>
-    <AnchorPane id="PaneLogin" layoutX="225.0" layoutY="157.0" prefHeight="194.0" prefWidth="364.0">
+    <AnchorPane id="PaneLogin" layoutX="46.0" layoutY="69.0" prefHeight="392.0" prefWidth="730.0">
+      <stylesheets>
+        <URL value="@application/login.css" />
+      </stylesheets>
+    </AnchorPane>
+    <Pane layoutX="46.0" layoutY="69.0" prefHeight="392.0" prefWidth="730.0">
       <children>
-        <Label fx:id="personConnected" layoutX="43.0" layoutY="82.0" prefHeight="31.0" prefWidth="279.0" textAlignment="CENTER" textFill="WHITE">
+        <ListView id="listBin" fx:id="listBinView" layoutX="39.0" layoutY="86.0" prefHeight="246.0" prefWidth="390.0" />
+        <Button id="viewMoreButton" fx:id="seeMoreButton" layoutX="365.0" layoutY="346.0" mnemonicParsing="false" onAction="#seeMoreAction" text="See more" />
+        <Label id="personConnected" alignment="CENTER_LEFT" layoutX="67.0" layoutY="39.0" prefHeight="31.0" prefWidth="281.4998779296875" text="List of bins" textAlignment="LEFT" textFill="WHITE" visible="true" wrapText="false">
           <font>
-            <Font size="18" />
+            <Font size="21.0" fx:id="x1" />
           </font>
         </Label>
+        <Button id="viewMoreButton" fx:id="addButton" layoutX="397.0" layoutY="41.0" mnemonicParsing="false" onAction="#addAction" text="+" visible="false" />
+      </children>
+    </Pane>
+    <AnchorPane id="PaneBin" fx:id="paneBin" blendMode="SRC_OVER" layoutX="504.0" layoutY="155.0" prefHeight="246.0" prefWidth="248.0" visible="false">
+      <children>
+        <Label id="personConnected" fx:id="state" alignment="CENTER_LEFT" layoutX="18.0" layoutY="108.0" prefHeight="31.0" prefWidth="113.0" text="State :" textAlignment="LEFT" visible="false" wrapText="false">
+          <font>
+            <Font size="15.0" fx:id="x3" />
+          </font>
+          <textFill>
+            <Color blue="0.251" green="0.220" red="0.173" fx:id="x2" />
+          </textFill>
+        </Label>
+        <Label id="personConnected" fx:id="type" alignment="CENTER_LEFT" font="$x3" layoutX="18.0" layoutY="62.0" prefHeight="31.0" prefWidth="113.0" text="Type :" textAlignment="LEFT" textFill="$x2" visible="false" wrapText="false" />
+            <Label id="personConnected" fx:id="position" alignment="CENTER_LEFT" layoutX="18.0" layoutY="149.0" prefHeight="31.0" prefWidth="113.0" text="Position :" textAlignment="LEFT" visible="false" wrapText="false">
+               <font>
+                  <Font size="15.0" fx:id="x31" />
+               </font>
+               <textFill>
+                  <Color blue="0.251" green="0.220" red="0.173" fx:id="x21" />
+               </textFill>
+            </Label>
+        <Button id="viewMoreButton" fx:id="editButton" layoutX="30.0" layoutY="190.0" mnemonicParsing="false" onAction="#editAction" prefWidth="82.0" text="Edit" visible="false" />
+        <Button id="viewMoreButton" fx:id="deleteButton" layoutX="145.0" layoutY="190.0" mnemonicParsing="false" onAction="#deleteAction" prefWidth="82.0" text="Delete" visible="false" />
+        <Label id="personConnected" fx:id="stateBin" alignment="CENTER_LEFT" font="$x3" layoutX="69.0" layoutY="108.0" prefHeight="31.0" prefWidth="178.0" text="" textAlignment="LEFT" textFill="$x2" visible="false" wrapText="false" />
+        <Label id="personConnected" fx:id="typeBin" alignment="CENTER_LEFT" font="$x3" layoutX="74.0" layoutY="62.0" prefHeight="31.0" prefWidth="176.0" text="" textAlignment="LEFT" textFill="$x2" visible="false" wrapText="false" />
+            <Label id="personConnected" fx:id="positionBin" alignment="CENTER_LEFT" font="$x3" layoutX="79.0" layoutY="149.0" prefHeight="31.0" prefWidth="178.0" text="" textAlignment="LEFT" textFill="$x2" visible="false" wrapText="false" />
+        <Label id="personConnected" fx:id="moreInfo" alignment="CENTER" font="$x1" layoutX="13.0" layoutY="14.0" prefHeight="31.0" prefWidth="223.0" text="More informations" textAlignment="LEFT" textFill="$x2" visible="false" wrapText="false" />
+        <TextField fx:id="typeField" layoutX="74.0" layoutY="62.0" prefWidth="162.0" visible="false" />
+       	<TextField fx:id="stateField" layoutX="74.0" layoutY="108.0" prefWidth="162.0" visible="false" />
+            <TextField fx:id="positionField" layoutX="90.0" layoutY="149.0" prefWidth="162.0" visible="false" />
+        <Button fx:id="validateEditButton" layoutX="82.0" layoutY="200.0" mnemonicParsing="false" onAction="#validateEditAction" text="Validate" visible="false" />
+        <Button id="validateEditButton" fx:id="validateAddButton" layoutX="82.0" layoutY="200.0" mnemonicParsing="false" onAction="#validateAddAction" text="Validate" visible="false" />
       </children>
       <stylesheets>
         <URL value="@application/login.css" />
       </stylesheets>
     </AnchorPane>
-    <Pane layoutX="225.0" layoutY="157.0" prefHeight="194.0" prefWidth="364.0" />
   </children>
 </AnchorPane>

@@ -15,6 +15,8 @@ public interface Dao<T> {
 	 */
 	void delete(String email);
 	
+	void delete(int id);
+	
 	/**
 	 * 
 	 * @param infos

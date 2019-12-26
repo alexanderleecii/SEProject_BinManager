@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.EmployeeManagementController">
+<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EmployeeManagementController">
   <children>
     <MenuBar fx:id="menuEmployee" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
       <menus>
@@ -149,6 +149,20 @@
         </Menu>
       </menus>
     </MenuBar>
+      <MenuBar fx:id="menuVisitor" disable="false" focusTraversable="true" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false">
+         <menus>
+            <Menu mnemonicParsing="false" text="Map">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Login">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#loginAction" text="Login" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
     <AnchorPane id="PaneLogin" layoutX="46.0" layoutY="69.0" prefHeight="392.0" prefWidth="730.0">
       <stylesheets>
         <URL value="@application/login.css" />

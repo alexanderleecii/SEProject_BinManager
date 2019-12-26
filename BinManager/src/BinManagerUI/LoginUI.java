@@ -14,7 +14,7 @@ public class LoginUI extends Application {
         try {
             // Read file fxml and draw interface.
         	Routing rout= new Routing(primaryStage);
-        	rout.goTo("connectionPage");
+        	rout.goTo("mapPage");
          
         } catch(Exception e) {
             e.printStackTrace();

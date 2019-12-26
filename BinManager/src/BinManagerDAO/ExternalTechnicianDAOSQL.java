@@ -32,4 +32,28 @@ public class ExternalTechnicianDAOSQL implements Dao<ExternalTechnician> {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
+	public void update(ArrayList<String> infos) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean add(ArrayList<String> infos) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public ExternalTechnician load(ArrayList<String> infos) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -84,6 +84,12 @@ public class ListEmployeeDAOSQL implements Dao<ListEmployee> {
 		return false;
 	}
 
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 	
 
