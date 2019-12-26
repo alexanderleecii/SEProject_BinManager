@@ -118,6 +118,6 @@ public class HomeController implements Initializable {
    
    public void logOutAction(ActionEvent event) {
 		HomeController.setPersonFacade(null);
-		rout.goTo("visitorPage");
+		rout.goTo("mapPage");
    }
 }
