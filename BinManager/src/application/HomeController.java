@@ -65,7 +65,7 @@ public class HomeController implements Initializable {
    //FONCTION QUI CREE LES POPUPSS
    public void alerte(String msg) {
 		Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("ERREUR");
+        alert.setTitle("ERROR");
         alert.setHeaderText(null);
         alert.setContentText(msg);
         alert.show();
@@ -81,7 +81,7 @@ public class HomeController implements Initializable {
    }
    
    public void citizenAction(ActionEvent event) {
-		rout.goTo("citizenPage");
+		rout.goTo("citizenManagementPage");
    }
    
    public void externalTechnicianAction(ActionEvent event) {

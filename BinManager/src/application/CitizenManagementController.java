@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import BinManagerFacade.ListEmployeeFacade;
+import BinManagerFacade.ListCitizenFacade;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.*;
@@ -13,10 +13,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
-public class EmployeeManagementController extends HomeController implements Initializable {
+public class CitizenManagementController extends HomeController implements Initializable {
 	
 		@FXML
-		private ListView<String> listEmployeeView;
+		private ListView<String> listCitizenView;
 		@FXML
 		private Button seeMoreButton;
 		@FXML
@@ -38,31 +38,31 @@ public class EmployeeManagementController extends HomeController implements Init
 		@FXML
 		private Label password;
 		@FXML
-		private Label nameEmployee;
+		private Label nameCitizen;
 		@FXML
-		private Label emailEmployee;
+		private Label emailCitizen;
 		@FXML
-		private AnchorPane paneEmployee;
+		private AnchorPane paneCitizen;
 		@FXML
 		private TextField emailField;
 		@FXML
 		private TextField nameField;
 		@FXML
 		private TextField passwordField;
-		private ListEmployeeFacade facade;
+		private ListCitizenFacade facade;
 		
-//		private ObservableList<Person> listEmployee = FXCollections.observableArrayList();
+//		private ObservableList<Person> listCitizen = FXCollections.observableArrayList();
 		private ObservableList<String> listName = FXCollections.observableArrayList();
 	   @Override
 	   public void initialize(URL location, ResourceBundle resources) {
 		   initMenuBar();
-		   this.facade = new ListEmployeeFacade();
+		   this.facade = new ListCitizenFacade();
 		   ArrayList<String> infos = new ArrayList<>();
 		   facade.load(infos);
-		   for(int i=0;i<facade.getListEmployee().size();i++) {
-				   listName.add(facade.getListEmployee().getEmployee(i).getName());
+		   for(int i=0;i<facade.getListCitizen().size();i++) {
+				   listName.add(facade.getListCitizen().getCitizen(i).getName());
 		   }
-		   listEmployeeView.setItems(listName);
+		   listCitizenView.setItems(listName);
 	   }
 	   
 	   
@@ -73,29 +73,29 @@ public class EmployeeManagementController extends HomeController implements Init
 		   validateEditButton.setVisible(false);
 		   nameField.setVisible(false);
 		   emailField.setVisible(false);
-		   nameEmployee.setVisible(true);
-		   emailEmployee.setVisible(true);
-		   nameEmployee.setText(listEmployeeView.getSelectionModel().getSelectedItem());
-		   int i = listEmployeeView.getSelectionModel().getSelectedIndex();
+		   nameCitizen.setVisible(true);
+		   emailCitizen.setVisible(true);
+		   nameCitizen.setText(listCitizenView.getSelectionModel().getSelectedItem());
+		   int i = listCitizenView.getSelectionModel().getSelectedIndex();
 		   if(i!=-1) {
-			   emailEmployee.setText(facade.getListEmployee().getEmployee(i).getEmail());
+			   emailCitizen.setText(facade.getListCitizen().getCitizen(i).getEmail());
 			   name.setVisible(true);
 			   moreInfo.setVisible(true);
 			   editButton.setVisible(true);
 			   deleteButton.setVisible(true);
-			   paneEmployee.setVisible(true);
+			   paneCitizen.setVisible(true);
 			   email.setVisible(true);
 		   }else {
-			   alerte("You should select one employee");
+			   alerte("You should select one citizen");
 		   }
 	   }
 	   
 	   public void addAction(ActionEvent event) {
-		   nameEmployee.setVisible(false);
-		   emailEmployee.setVisible(false);
+		   nameCitizen.setVisible(false);
+		   emailCitizen.setVisible(false);
 		   editButton.setVisible(false);
 		   deleteButton.setVisible(false);
-		   paneEmployee.setVisible(true);
+		   paneCitizen.setVisible(true);
 		   email.setVisible(true);
 		   name.setVisible(true);
 		   password.setVisible(true);
@@ -104,31 +104,31 @@ public class EmployeeManagementController extends HomeController implements Init
 		   passwordField.setVisible(true);
 		   validateAddButton.setVisible(true);
 		   moreInfo.setVisible(true);
-		   moreInfo.setText("Add an employee");
+		   moreInfo.setText("Add a citizen");
 	   }
 
 	   public void deleteAction(ActionEvent event) {
-		   int i = listEmployeeView.getSelectionModel().getSelectedIndex();
-		   facade.delete(facade.getListEmployee().getEmployee(i).getEmail());
-		   rout.goTo("employeeManagementPage");
+		   int i = listCitizenView.getSelectionModel().getSelectedIndex();
+		   facade.delete(facade.getListCitizen().getCitizen(i).getEmail());
+		   rout.goTo("citizenManagementPage");
 	   }
 	   
 	   public void editAction(ActionEvent event) {
-		   nameEmployee.setVisible(false);
+		   nameCitizen.setVisible(false);
 		   editButton.setVisible(false);
 		   deleteButton.setVisible(false);
 		   nameField.setVisible(true);
 		   validateEditButton.setVisible(true);
-		   moreInfo.setText("Edit an employee");
+		   moreInfo.setText("Edit an citizen");
 	   }
 	   
 	   public void validateEditAction(ActionEvent event) {
 		   ArrayList<String> info = new ArrayList<>();
-		   int i = listEmployeeView.getSelectionModel().getSelectedIndex();
-		   info.add(facade.getListEmployee().getEmployee(i).getEmail());
+		   int i = listCitizenView.getSelectionModel().getSelectedIndex();
+		   info.add(facade.getListCitizen().getCitizen(i).getEmail());
 		   info.add(nameField.getText());
 		   facade.update(info); 
-		   rout.goTo("employeeManagementPage");
+		   rout.goTo("citizenManagementPage");
 		   
 	   }
 	   public void validateAddAction(ActionEvent event) {
@@ -136,16 +136,16 @@ public class EmployeeManagementController extends HomeController implements Init
 		   info.add(emailField.getText());
 		   info.add(passwordField.getText());
 		   info.add(nameField.getText());
-		   info.add("employee");
+		   info.add("citizen");
 		   if(emailField.getText().equals("") || passwordField.getText().equals("") || nameField.getText().equals("")) {
 			   alerte("You should fill all field"); 
 		   }
 		   else {
 			   boolean res = facade.add(info);
 			   if(!res) {
-				   alerte("The employee is already in the database");
+				   alerte("The citizen is already in the database");
 			   }
-			   rout.goTo("employeeManagementPage");
+			   rout.goTo("citizenManagementPage");
 		   }
 	   }
 

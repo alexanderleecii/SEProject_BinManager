@@ -3,6 +3,7 @@ package BinManagerAbstractFactory;
 import BinManagerDAO.Dao;
 import BinManagerDAO.ListBinDAOSQL;
 import BinManagerDAO.ListEmployeeDAOSQL;
+import BinManagerDAO.ListCitizenDAOSQL;
 import BinManagerDAO.PersonDAOSQL;
 
 public class MySQLFactory<T> implements AbstractFactory<T> {
@@ -28,11 +29,13 @@ public class MySQLFactory<T> implements AbstractFactory<T> {
 			case "class BinManagerPerson.ListEmployee":
 				newDao = new ListEmployeeDAOSQL();
 				break;
+			case "class BinManagerPerson.ListCitizen" :
+				newDao = new ListCitizenDAOSQL();
+				break;
 			case "class BinManagerObject.ListBin":
 				newDao = new ListBinDAOSQL();
 				break;
 		}
 		return newDao;
 	}
-
 }
