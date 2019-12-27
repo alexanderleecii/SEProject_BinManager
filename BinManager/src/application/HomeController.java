@@ -46,21 +46,34 @@ public class HomeController implements Initializable {
 	// exemple d'injection de code : il faut cr�er un label en FXML et utilis� setText avec son id par exemple 
 	  personConnected.setText("You are connected as "+ HomeController.getFacade().getPerson().getRole().toString());
    }
+   
    public void initMenuBar() {
-	   //INITIALISATION DE DE LA MENUBAR
+	   //INITIALISATION DE LA MENUBAR
 	   //Par default j'ai mis les 4 menuBar en FXML non visible et je mets a visible seulement celle necessaire
 	   if(!(HomeController.getFacade() == null)) {
 		   menuVisitor.setVisible(false);
 		   if(HomeController.getFacade().getPerson().getRole().toString().equals("manager")){
+			   menuAdmin.setVisible(false);
+			   menuCitizen.setVisible(false);
+			   menuEmployee.setVisible(false);
 			   menuManager.setVisible(true);
 		   }
 		   else if(HomeController.getFacade().getPerson().getRole().toString().equals("employee")) {
+			   menuManager.setVisible(false);
+			   menuAdmin.setVisible(false);
+			   menuCitizen.setVisible(false);
 			   menuEmployee.setVisible(true);
 		   }
 		   else if(HomeController.getFacade().getPerson().getRole().toString().equals("citizen")) {
+			   menuManager.setVisible(false);
+			   menuEmployee.setVisible(false);
+			   menuAdmin.setVisible(false);
 			   menuCitizen.setVisible(true);
 		   }
 		   else if(HomeController.getFacade().getPerson().getRole().toString().equals("admin")) {
+			   menuManager.setVisible(false);
+			   menuCitizen.setVisible(false);
+			   menuEmployee.setVisible(false);
 			   menuAdmin.setVisible(true);
 		   }
 	   }
