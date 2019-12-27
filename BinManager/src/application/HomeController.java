@@ -1,6 +1,9 @@
 package application;
 
 import java.net.URL;
+
+
+
 import java.util.ResourceBundle;
 
 import BinManagerFacade.PersonFacade;
@@ -86,6 +89,11 @@ public class HomeController implements Initializable {
    public void employeeAction(ActionEvent event) {
 		rout.goTo("employeeManagementPage");
    }
+   
+   public void managerAction(ActionEvent event) {
+		rout.goTo("managerManagementPage");
+  }
+
    
    public void binAction(ActionEvent event) {
 	   rout.goTo("binPage");

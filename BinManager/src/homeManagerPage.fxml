@@ -32,6 +32,7 @@
             <MenuItem mnemonicParsing="false" onAction="#citizenAction" text="Citizen" />
             <MenuItem mnemonicParsing="false" onAction="#externalTechnicianAction" text="External Technician" />
             <MenuItem mnemonicParsing="false" onAction="#employeeAction" text="Employee" />
+            <MenuItem mnemonicParsing="false" onAction="#managerAction" text="Manager" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Garbage bins">
@@ -59,7 +60,7 @@
     </MenuBar>
     <AnchorPane id="PaneLogin" layoutX="225.0" layoutY="157.0" prefHeight="194.0" prefWidth="364.0">
       <children>
-        <Label layoutX="43.0" layoutY="82.0" prefHeight="31.0" prefWidth="279.0" text="You are connected as citizen" textAlignment="CENTER" textFill="WHITE">
+        <Label layoutX="43.0" layoutY="82.0" prefHeight="31.0" prefWidth="279.0" text="You are connected as manager" textAlignment="CENTER" textFill="WHITE">
           <font>
             <Font size="22.0" />
           </font>
