@@ -1,13 +1,26 @@
 package BinManagerObject;
 import java.util.*;
-
+import BinManagerComment.Comment;
+import BinManagerHistory.History;
 public class Bin extends Object {
 
 	Collection<Comment> Comment;
-	History History;
+	BinManagerHistory.History History;
+	private int id;
 	private String type;
 	private boolean state;
-	private static ArrayList<Bin> listBin;
+	private Position pos;
+	
+	public Bin(int id, String type, boolean state, Position pos) {
+		this.id = id;
+		this.type = type;
+		this.state = state;
+		this.pos = pos;
+	}
+	
+	public int getId() {
+		return this.id;
+	}
 
 	public String getType() {
 		return this.type;
@@ -32,30 +45,15 @@ public class Bin extends Object {
 	public void setState(boolean state) {
 		this.state = state;
 	}
-
-	public static ArrayList<Bin> getListBin() {
-		return this.listBin;
+	
+	public Position getPosition() {
+		return this.pos;
+	}
+	
+	public void setPosition(Position newPos) {
+		this.pos = newPos;
 	}
 
-	/**
-	 * 
-	 * @param type
-	 * @param state
-	 * @param position
-	 */
-	public static void addBin(String type, boolean state, Position position) {
-		// TODO - implement Bin.addBin
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param index
-	 */
-	public static void removeBin(int index) {
-		// TODO - implement Bin.removeBin
-		throw new UnsupportedOperationException();
-	}
 
 	/**
 	 * 

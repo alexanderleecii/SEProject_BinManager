@@ -110,6 +110,12 @@ public class PersonDAOSQL implements Dao<Person> {
 		this.queryHandler.executeUpdate(sql);
 		this.queryHandler.close();
 	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }

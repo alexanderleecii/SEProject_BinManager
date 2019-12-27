@@ -1,8 +1,14 @@
+package BinManagerObject;
 public class Position {
 
 	private String latitude;
 	private String longitude;
-
+	
+	public Position(String latitude, String longitude) {
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}
+	
 	public String getLatitude() {
 		return this.latitude;
 	}
@@ -35,6 +41,10 @@ public class Position {
 	public void edit(String latitude, String longitude) {
 		// TODO - implement Position.edit
 		throw new UnsupportedOperationException();
+	}
+	
+	public String toString() {
+		return "("+latitude+","+longitude+")";
 	}
 
 }

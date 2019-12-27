@@ -24,6 +24,8 @@ public class HomeController implements Initializable {
 	@FXML
 	private MenuBar menuAdmin;
 	@FXML
+	private MenuBar menuVisitor;
+	@FXML
 	private Label personConnected;
 	
 	protected Routing rout = new Routing();
@@ -47,23 +49,26 @@ public class HomeController implements Initializable {
    public void initMenuBar() {
 	   //INITIALISATION DE DE LA MENUBAR
 	   //Par default j'ai mis les 4 menuBar en FXML non visible et je mets a visible seulement celle necessaire
-	    if(HomeController.getFacade().getPerson().getRole().toString().equals("manager")){
-		   menuManager.setVisible(true);
-	   }
-	   else if(HomeController.getFacade().getPerson().getRole().toString().equals("employee")) {
-		   menuEmployee.setVisible(true);
-	   }
-	   else if(HomeController.getFacade().getPerson().getRole().toString().equals("citizen")) {
-		   menuCitizen.setVisible(true);
-	   }
-	   else if(HomeController.getFacade().getPerson().getRole().toString().equals("admin")) {
-		   menuAdmin.setVisible(true);
+	   if(!(HomeController.getFacade() == null)) {
+		   menuVisitor.setVisible(false);
+		   if(HomeController.getFacade().getPerson().getRole().toString().equals("manager")){
+			   menuManager.setVisible(true);
+		   }
+		   else if(HomeController.getFacade().getPerson().getRole().toString().equals("employee")) {
+			   menuEmployee.setVisible(true);
+		   }
+		   else if(HomeController.getFacade().getPerson().getRole().toString().equals("citizen")) {
+			   menuCitizen.setVisible(true);
+		   }
+		   else if(HomeController.getFacade().getPerson().getRole().toString().equals("admin")) {
+			   menuAdmin.setVisible(true);
+		   }
 	   }
    }
    //FONCTION QUI CREE LES POPUPSS
    public void alerte(String msg) {
 		Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("ERREUR");
+        alert.setTitle("ERROR");
         alert.setHeaderText(null);
         alert.setContentText(msg);
         alert.show();
@@ -79,7 +84,7 @@ public class HomeController implements Initializable {
    }
    
    public void citizenAction(ActionEvent event) {
-		rout.goTo("citizenPage");
+		rout.goTo("citizenManagementPage");
    }
    
    public void externalTechnicianAction(ActionEvent event) {
@@ -96,7 +101,7 @@ public class HomeController implements Initializable {
 
    
    public void binAction(ActionEvent event) {
-	   rout.goTo("binPage");
+	   rout.goTo("binManagementPage");
    }
    
    
@@ -115,9 +120,12 @@ public class HomeController implements Initializable {
    public void storageAction(ActionEvent event) {
 		rout.goTo("storagePage");
    }
+   public void loginAction(ActionEvent event) {
+	   rout.goTo("connectionPage");
+   }
    
    public void logOutAction(ActionEvent event) {
 		HomeController.setPersonFacade(null);
-		rout.goTo("connectionPage");
+		rout.goTo("mapPage");
    }
 }

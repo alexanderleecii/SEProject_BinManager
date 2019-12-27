@@ -1,30 +1,30 @@
 package BinManagerDAO;
-import BinManagerPerson.Employee;
-import BinManagerPerson.ListEmployee;
+import BinManagerPerson.Citizen;
+import BinManagerPerson.ListCitizen;
 import BinManagerPerson.Person;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
-public class ListEmployeeDAOSQL implements Dao<ListEmployee> {
+public class ListCitizenDAOSQL implements Dao<ListCitizen> {
 	private String url = "jdbc:mysql://mysql-binmanager.alwaysdata.net/binmanager_bm";
 	private String login = "196466";
 	private String passwd ="BinManager";
 	private QueryHandler queryHandler;
 	
-	public ListEmployeeDAOSQL() {
+	public ListCitizenDAOSQL() {
 		this.queryHandler = new QueryHandler(this.url,this.login,this.passwd);
 	}
 	
-	public ListEmployee load(ArrayList<String> infos) {
-		String sql = "SELECT * FROM `person` WHERE role='employee';";
+	public ListCitizen load(ArrayList<String> infos) {
+		String sql = "SELECT * FROM `person` WHERE role='citizen';";
 		ResultSet rs = this.queryHandler.executeQuery(sql);
-		ListEmployee list = new ListEmployee();
+		ListCitizen list = new ListCitizen();
 		try {
 			while(rs.next()) {
-				Person p = new Person(rs.getString("name"),rs.getString("email"), new Employee());
-				list.addEmployee(p);
+				Person p = new Person(rs.getString("name"),rs.getString("email"), new Citizen());
+				list.addCitizen(p);
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();

@@ -7,10 +7,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.HomeController">
+<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomeController">
   <!-- TODO Add Nodes -->
   <children>
- 	<MenuBar fx:id="menuEmployee" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false" >
+ 	<MenuBar fx:id="menuEmployee" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
      <menus>
         <Menu mnemonicParsing="false" text="Map">
           <items>
@@ -83,13 +83,18 @@
         </Menu>
       </menus>
     </MenuBar>
-    <MenuBar fx:id="menuCitizen" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
+    <MenuBar fx:id="menuCitizen" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false">
       <menus>
         <Menu mnemonicParsing="false" text="Map">
           <items>
             <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
           </items>
         </Menu>
+            <Menu mnemonicParsing="false" text="Garbage bins">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#binAction" text="See all bins" />
+               </items>
+            </Menu>
         <Menu mnemonicParsing="false" text="Used Object">
           <items>
             <MenuItem mnemonicParsing="false" onAction="#usedObjectAction" text="See all used objects" />
@@ -151,6 +156,20 @@
         </Menu>
       </menus>
     </MenuBar>
+      <MenuBar fx:id="menuVisitor" disable="false" focusTraversable="true" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false">
+         <menus>
+            <Menu mnemonicParsing="false" text="Map">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Login">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#loginAction" text="Login" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
     <AnchorPane id="PaneLogin" layoutX="225.0" layoutY="157.0" prefHeight="194.0" prefWidth="364.0">
       <children>
         <Label fx:id="personConnected" layoutX="43.0" layoutY="82.0" prefHeight="31.0" prefWidth="279.0" textAlignment="CENTER" textFill="WHITE">
