@@ -86,28 +86,32 @@ public class BinManagementController extends HomeController implements Initializ
 		   stateField.setVisible(false);
 		   positionField.setVisible(false);
 		   int i = listBinView.getSelectionModel().getSelectedIndex();
-		   typeBin.setVisible(true);
-		   typeBin.setText(facade.getListBin().getBin(i).getType());
-		   stateBin.setVisible(true);
-		   
-		   String stateStr;
-		   if(facade.getListBin().getBin(i).getState() == false) {
-			   stateStr = "not full";
-		   }
-		   else {
-			   stateStr = "full";
-		   }
-		   stateBin.setText(stateStr);
-		   
-		   positionBin.setVisible(true);
-		   positionBin.setText(facade.getListBin().getBin(i).getPosition().toString());
-		   
-		   if(!role.equals("citizen") && !role.equals("visitor")) {
-			   editButton.setVisible(true);
-		   }
-		   
-		   if(role.equals("admin") || role.equals("manager")) {
-			   deleteButton.setVisible(true);
+		   if(i!=-1) {
+			   typeBin.setVisible(true);
+			   typeBin.setText(facade.getListBin().getBin(i).getType());
+			   stateBin.setVisible(true);
+			   
+			   String stateStr;
+			   if(facade.getListBin().getBin(i).getState() == false) {
+				   stateStr = "not full";
+			   }
+			   else {
+				   stateStr = "full";
+			   }
+			   stateBin.setText(stateStr);
+			   
+			   positionBin.setVisible(true);
+			   positionBin.setText(facade.getListBin().getBin(i).getPosition().toString());
+			   
+			   if(!role.equals("citizen") && !role.equals("visitor")) {
+				   editButton.setVisible(true);
+			   }
+			   
+			   if(role.equals("admin") || role.equals("manager")) {
+				   deleteButton.setVisible(true);
+			   }
+		   }else {
+			   alerte("You should select one bin");
 		   }
 	   }
 	   
