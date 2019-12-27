@@ -32,7 +32,7 @@ public class MySQLFactory<T> implements AbstractFactory<T> {
 				break;
 			case "class BinManagerPerson.ListManager":
 				newDao = new ListManagerDAOSQL();
-				
+				break;
 			case "class BinManagerPerson.ListCitizen" :
 				newDao = new ListCitizenDAOSQL();
 				break;

@@ -157,6 +157,20 @@
         </Menu>
       </menus>
     </MenuBar>
+    <MenuBar fx:id="menuVisitor" disable="false" focusTraversable="true" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false">
+         <menus>
+            <Menu mnemonicParsing="false" text="Map">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Login">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#loginAction" text="Login" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
     
     <AnchorPane id="PaneLogin" layoutX="46.0" layoutY="69.0" prefHeight="392.0" prefWidth="730.0">
       <stylesheets>

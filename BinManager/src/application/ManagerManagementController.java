@@ -55,16 +55,21 @@ public class ManagerManagementController extends HomeController implements Initi
 
 //			private ObservableList<Person> listManager = FXCollections.observableArrayList();
 	private ObservableList<String> listName = FXCollections.observableArrayList();
-
+	private String role = HomeController.getFacade().getPerson().getRole().toString();
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		initMenuBar();
+		if (role.equals("admin")) {
+			addButton.setVisible(true);
+		}
 		this.facade = new ListManagerFacade();
 		ArrayList<String> infos = new ArrayList<>();
 		facade.load(infos);
 		for (int i = 0; i < facade.getListManager().size(); i++) {
 			listName.add(facade.getListManager().getManager(i).getName());
 		}
+
 		listManagerView.setItems(listName);
 	}
 
@@ -81,12 +86,9 @@ public class ManagerManagementController extends HomeController implements Initi
 		emailManager.setText(facade.getListManager().getManager(i).getEmail());
 		name.setVisible(true);
 		moreInfo.setVisible(true);
-		if (HomeController.getFacade().getPerson().getRole().toString().equals("manager")) {
-			editButton.setVisible(false);
-			deleteButton.setVisible(false);
-		}else {
 		editButton.setVisible(true);
-		deleteButton.setVisible(true);
+		if (HomeController.getFacade().getPerson().getRole().toString().equals("admin")) {
+			deleteButton.setVisible(true);
 		}
 		paneManager.setVisible(true);
 		email.setVisible(true);

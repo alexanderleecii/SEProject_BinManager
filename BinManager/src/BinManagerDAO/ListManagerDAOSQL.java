@@ -84,5 +84,11 @@ public class ListManagerDAOSQL implements Dao<ListManager> {
 		return false;
 	}
 
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
 
