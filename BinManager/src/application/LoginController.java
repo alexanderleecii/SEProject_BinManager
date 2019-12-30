@@ -22,15 +22,14 @@ public class LoginController extends HomeController implements Initializable {
 	   @FXML
 	   private PasswordField passwordField;
 	   
-	  
+	   protected Routing rout = new Routing();
+	   
 	   @Override
 	   public void initialize(URL location, ResourceBundle resources) {
-	 
-	       // TODO (don't really need to do anything here).
-	      
+		   initMenuBar();
 	   }
 	 
-	   public void loginAction(ActionEvent event) {
+	   public void loginButtonAction(ActionEvent event) {
 	       PersonFacade facade = new PersonFacade();
 	       ArrayList<String> infos = new ArrayList<>();
 	       infos.add(emailField.getText());
@@ -46,9 +45,5 @@ public class LoginController extends HomeController implements Initializable {
 			   rout.goTo("homePage");
 		   }
 		   
-	   }
-	   
-	   public void registerAction(ActionEvent event) {
-       		rout.goTo("registerPage");
 	   }
 }
