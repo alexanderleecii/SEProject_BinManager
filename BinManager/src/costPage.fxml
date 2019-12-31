@@ -6,15 +6,15 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MapController">
-  <!-- TODO Add Nodes -->
+<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CostManagementController">
   <children>
     <MenuBar fx:id="menuEmployee" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
-     <menus>
+      <menus>
         <Menu mnemonicParsing="false" text="Map">
           <items>
             <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
@@ -49,7 +49,7 @@
       </menus>
     </MenuBar>
     <MenuBar fx:id="menuAdmin" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
-     <menus>
+      <menus>
         <Menu mnemonicParsing="false" text="Map">
           <items>
             <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
@@ -65,6 +65,7 @@
             <MenuItem mnemonicParsing="false" onAction="#citizenAction" text="Citizen Management" />
             <MenuItem mnemonicParsing="false" onAction="#externalTechnicianAction" text="External Technician Management" />
             <MenuItem mnemonicParsing="false" onAction="#employeeAction" text="Employee Management" />
+            <MenuItem mnemonicParsing="false" onAction="#managerAction" text="Manager Management" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Garbage bins">
@@ -92,11 +93,6 @@
             <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
           </items>
         </Menu>
-            <Menu mnemonicParsing="false" text="Garbage bins">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#binAction" text="See all bins" />
-               </items>
-            </Menu>
         <Menu mnemonicParsing="false" text="Used Object">
           <items>
             <MenuItem mnemonicParsing="false" onAction="#usedObjectAction" text="See all used objects" />
@@ -132,6 +128,7 @@
             <MenuItem mnemonicParsing="false" onAction="#citizenAction" text="Citizen Management" />
             <MenuItem mnemonicParsing="false" onAction="#externalTechnicianAction" text="External Technician Management" />
             <MenuItem mnemonicParsing="false" onAction="#employeeAction" text="Employee Management" />
+            <MenuItem mnemonicParsing="false" onAction="#managerAction" text="Manager Management" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Garbage bins">
@@ -171,19 +168,24 @@
             </Menu>
          </menus>
       </MenuBar>
-    <AnchorPane id="PaneLogin" layoutX="225.0" layoutY="157.0" prefHeight="194.0" prefWidth="364.0">
+    <AnchorPane id="PaneLogin" layoutX="46.0" layoutY="69.0" prefHeight="392.0" prefWidth="730.0">
       <stylesheets>
         <URL value="@application/login.css" />
       </stylesheets>
          <children>
-            <Label fx:id="map" layoutX="43.0" layoutY="82.0" prefHeight="31.0" prefWidth="279.0" textAlignment="CENTER" textFill="WHITE">
+            <TableView fx:id="tableView" layoutX="95.0" layoutY="123.0" prefHeight="200.0" prefWidth="500.0">
+               <columns>
+                  <TableColumn fx:id="costCategoryCol" maxWidth="125.0" prefWidth="125.0" text="CostCategory" />
+                  <TableColumn fx:id="nameCol" maxWidth="125.0" prefWidth="125.0" text="Name" />
+                  <TableColumn fx:id="priceCol" maxWidth="125.0" prefWidth="125.0" text="Price" />
+                  <TableColumn fx:id="dateCol" maxWidth="125.0" prefWidth="125.0" text="Date" />
+               </columns></TableView>
+            <Label fx:id="costField" layoutX="112.0" layoutY="62.0" prefHeight="17.0" prefWidth="242.0" text="Expences" textFill="WHITE">
                <font>
-                  <Font size="18" />
-               </font>
-            </Label>
+                  <Font size="21.0" />
+               </font></Label>
+            <Button fx:id="addButton" layoutX="510.0" layoutY="344.0" mnemonicParsing="false" text="Add Expence" />
          </children>
     </AnchorPane>
-    <Pane layoutX="225.0" layoutY="157.0" prefHeight="194.0" prefWidth="364.0" />
-      <Button fx:id="logInButton" layoutX="314.0" layoutY="391.0" mnemonicParsing="false" onAction="#loginAction" prefHeight="25.0" prefWidth="185.0" text="Log In" />
   </children>
 </AnchorPane>
