@@ -1,7 +1,5 @@
 package application;
 
-import java.awt.Button;
-
 //import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,7 +13,10 @@ import javafx.scene.layout.*;
 public class MapController extends HomeController implements Initializable {
 		@FXML
 		private Label map;
+		@FXML
 		private Pane msgLayout;
+		@FXML
+		private Button logInButton;
 		
 		protected Routing rout = new Routing();
 		
