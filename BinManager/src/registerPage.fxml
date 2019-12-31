@@ -20,6 +20,9 @@
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#loginAction" text="Login" />
                </items>
+               <items>
+	          	<MenuItem mnemonicParsing="false" onAction="#registerAction" text="Register" />
+	          </items>
             </Menu>
          </menus>
       </MenuBar>
@@ -42,7 +45,7 @@
             <Label layoutX="69.0" layoutY="9.0" text="Email" textFill="WHITE" />
             <Label layoutX="68.0" layoutY="65.0" text="Password" textFill="WHITE" />
             <Label layoutX="69.0" layoutY="122.0" text="Name" textFill="WHITE" />
-            <Button fx:id="registerButton" layoutX="120.0" layoutY="195.0" mnemonicParsing="false" onAction="#registerAction" prefWidth="124.0" text="Register" />
+            <Button fx:id="registerButton" layoutX="120.0" layoutY="195.0" mnemonicParsing="false" onAction="#registerButtonAction" prefWidth="124.0" text="Register" />
           </children>
           <stylesheets>
             <URL value="@application/login.css" />
@@ -50,6 +53,6 @@
         </AnchorPane>
       </children>
     </Pane>
-    <Button fx:id="goBack" layoutX="14.0" layoutY="462.0" mnemonicParsing="false" onAction="#goBackAction" text="&lt;-" />
+ <!--    <Button fx:id="goBack" layoutX="14.0" layoutY="462.0" mnemonicParsing="false" onAction="#goBackAction" text="&lt;-" /> -->
   </children>
 </AnchorPane>

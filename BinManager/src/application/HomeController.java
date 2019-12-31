@@ -4,6 +4,7 @@ import java.net.URL;
 
 
 
+
 import java.util.ResourceBundle;
 
 import BinManagerFacade.PersonFacade;
@@ -50,32 +51,37 @@ public class HomeController implements Initializable {
    public void initMenuBar() {
 	   //INITIALISATION DE LA MENUBAR
 	   //Par default j'ai mis les 4 menuBar en FXML non visible et je mets a visible seulement celle necessaire
-	   if(!(HomeController.getFacade() == null)) {
-		   menuVisitor.setVisible(false);
+	   if(!(HomeController.getFacade() == null)) {  
 		   if(HomeController.getFacade().getPerson().getRole().toString().equals("manager")){
+			   menuVisitor.setVisible(false);
 			   menuAdmin.setVisible(false);
 			   menuCitizen.setVisible(false);
 			   menuEmployee.setVisible(false);
 			   menuManager.setVisible(true);
 		   }
 		   else if(HomeController.getFacade().getPerson().getRole().toString().equals("employee")) {
+			   menuVisitor.setVisible(false);
 			   menuManager.setVisible(false);
 			   menuAdmin.setVisible(false);
 			   menuCitizen.setVisible(false);
 			   menuEmployee.setVisible(true);
 		   }
 		   else if(HomeController.getFacade().getPerson().getRole().toString().equals("citizen")) {
+			   menuVisitor.setVisible(false);
 			   menuManager.setVisible(false);
 			   menuEmployee.setVisible(false);
 			   menuAdmin.setVisible(false);
 			   menuCitizen.setVisible(true);
 		   }
 		   else if(HomeController.getFacade().getPerson().getRole().toString().equals("admin")) {
+			   menuVisitor.setVisible(false);
 			   menuManager.setVisible(false);
 			   menuCitizen.setVisible(false);
 			   menuEmployee.setVisible(false);
 			   menuAdmin.setVisible(true);
 		   }
+	   }else {
+		   menuVisitor.setVisible(true);
 	   }
    }
    //FONCTION QUI CREE LES POPUPSS
@@ -140,5 +146,9 @@ public class HomeController implements Initializable {
    public void logOutAction(ActionEvent event) {
 		HomeController.setPersonFacade(null);
 		rout.goTo("mapPage");
+   }
+
+   public void registerAction(ActionEvent event) {
+   		rout.goTo("registerPage");
    }
 }

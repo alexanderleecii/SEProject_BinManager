@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MapController">
+<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.MapController">
   <!-- TODO Add Nodes -->
   <children>
     <MenuBar fx:id="menuEmployee" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
-     <menus>
+      <menus>
         <Menu mnemonicParsing="false" text="Map">
           <items>
             <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
@@ -49,7 +49,7 @@
       </menus>
     </MenuBar>
     <MenuBar fx:id="menuAdmin" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
-     <menus>
+      <menus>
         <Menu mnemonicParsing="false" text="Map">
           <items>
             <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
@@ -92,11 +92,11 @@
             <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
           </items>
         </Menu>
-            <Menu mnemonicParsing="false" text="Garbage bins">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#binAction" text="See all bins" />
-               </items>
-            </Menu>
+        <Menu mnemonicParsing="false" text="Garbage bins">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#binAction" text="See all bins" />
+          </items>
+        </Menu>
         <Menu mnemonicParsing="false" text="Used Object">
           <items>
             <MenuItem mnemonicParsing="false" onAction="#usedObjectAction" text="See all used objects" />
@@ -157,33 +157,43 @@
         </Menu>
       </menus>
     </MenuBar>
-      <MenuBar fx:id="menuVisitor" disable="false" focusTraversable="true" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false">
-         <menus>
-            <Menu mnemonicParsing="false" text="Map">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Login">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#loginAction" text="Login" />
-               </items>
-            </Menu>
-         </menus>
-      </MenuBar>
+    <MenuBar fx:id="menuVisitor" disable="false" focusTraversable="true" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false">
+      <menus>
+        <Menu mnemonicParsing="false" text="Map">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#mapAction" text="See map" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Login">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#loginAction" text="Login" />
+          </items>
+          <items>
+                  <MenuItem mnemonicParsing="false" onAction="#registerAction" text="Register" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
     <AnchorPane id="PaneLogin" layoutX="225.0" layoutY="157.0" prefHeight="194.0" prefWidth="364.0">
+      <children>
+        <Label fx:id="map" layoutX="43.0" layoutY="82.0" prefHeight="31.0" prefWidth="340.0" textAlignment="CENTER" textFill="WHITE">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
+      </children>
       <stylesheets>
         <URL value="@application/login.css" />
       </stylesheets>
-         <children>
-            <Label fx:id="map" layoutX="43.0" layoutY="82.0" prefHeight="31.0" prefWidth="279.0" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="18" />
-               </font>
-            </Label>
-         </children>
     </AnchorPane>
+
     <Pane layoutX="225.0" layoutY="157.0" prefHeight="194.0" prefWidth="364.0" />
       <Button fx:id="logInButton" layoutX="314.0" layoutY="391.0" mnemonicParsing="false" onAction="#loginAction" prefHeight="25.0" prefWidth="185.0" text="Log In" />
+    <ImageView fitHeight="473.25" fitWidth="631.0" layoutX="106.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@application/map.png" />
+      </image>
+    </ImageView>
+
   </children>
 </AnchorPane>

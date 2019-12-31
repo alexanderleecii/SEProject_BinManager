@@ -11,8 +11,10 @@ import javafx.fxml.FXML;
 //import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class RegisterController extends HomeController implements Initializable {
+
 	@FXML
 	   private Button registerButton;
 	@FXML
@@ -28,12 +30,25 @@ public class RegisterController extends HomeController implements Initializable 
 	  
 	   @Override
 	   public void initialize(URL location, ResourceBundle resources) {
-	 
-	       // TODO (don't really need to do anything here).
 	      
 	   }
 	 
-	   public void registerAction(ActionEvent event) {
+	   //--Hash password	   
+	   private static String hash(String password) {
+		   System.out.println(BCrypt.hashpw(password, BCrypt.gensalt()));
+		   return "1";
+	   }
+
+	   private void checkPass(String plainPassword, String hashedPassword) {
+			if (BCrypt.checkpw(plainPassword, hashedPassword))
+				System.out.println("The password matches.");
+			else
+				System.out.println("The password does not match.");
+		}
+	   //--Hash password
+
+	   
+	   public void registerButtonAction(ActionEvent event) {
 		   PersonFacade facade = new PersonFacade();
 		   ArrayList<String> info = new ArrayList<>();
 		   info.add(emailField.getText());
