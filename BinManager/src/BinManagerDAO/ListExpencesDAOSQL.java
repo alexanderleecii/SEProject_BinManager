@@ -1,20 +1,14 @@
 package BinManagerDAO;
 
 import java.sql.Date;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-
-import BinManagerObject.Bin;
 import BinManagerObject.Expence;
-import BinManagerObject.ListBin;
 import BinManagerObject.ListExpences;
-import BinManagerObject.Position;
-import BinManagerPerson.Employee;
-import BinManagerPerson.Person;
 
 public class ListExpencesDAOSQL implements Dao<ListExpences> {
 	private String url = "jdbc:mysql://mysql-binmanager.alwaysdata.net/binmanager_bm";
@@ -111,13 +105,10 @@ public class ListExpencesDAOSQL implements Dao<ListExpences> {
 			while(rs.next()) {
 			Date date = new Date(rs.getDate("Date").getTime());
 			expence = new Expence(rs.getString("Cost Category"),rs.getString("Name"),Integer.parseInt(rs.getString("Price")), date);
-			System.out.println("haha");
-			System.out.println(expence);
 			list.addExpence(expence);
 			}
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
-			System.out.println("noe feil med sql");
 			e1.printStackTrace();
 		} 
 		return list;

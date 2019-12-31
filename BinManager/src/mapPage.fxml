@@ -73,6 +73,7 @@
             <MenuItem mnemonicParsing="false" onAction="#citizenAction" text="Citizen Management" />
             <MenuItem mnemonicParsing="false" onAction="#externalTechnicianAction" text="External Technician Management" />
             <MenuItem mnemonicParsing="false" onAction="#employeeAction" text="Employee Management" />
+                  <MenuItem mnemonicParsing="false" onAction="#managerAction" text="Manager Management" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Garbage bins">
@@ -140,6 +141,7 @@
             <MenuItem mnemonicParsing="false" onAction="#citizenAction" text="Citizen Management" />
             <MenuItem mnemonicParsing="false" onAction="#externalTechnicianAction" text="External Technician Management" />
             <MenuItem mnemonicParsing="false" onAction="#employeeAction" text="Employee Management" />
+                  <MenuItem mnemonicParsing="false" onAction="#managerAction" text="Manager Management" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Garbage bins">

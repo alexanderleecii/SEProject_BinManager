@@ -93,13 +93,14 @@ public class HomeController implements Initializable {
         alert.show();
 	}
    
-   //EN DESSOUS TOUT LES LIENS VERS LES PAGES DANS LA MANUBAR !!
+   //EN DESSOUS TOUT LES LIENS VERS LES PAGES DANS LA MENUBAR !!
    public void mapAction(ActionEvent event) {
 	   rout.goTo("mapPage");
    }
    
    public void scheduleAction(ActionEvent event) {
-		rout.goTo("schedulePage");
+		//rout.goTo("schedulePage"); //TODO create this page
+	   rout.goTo("homePage");
    }
    
    public void citizenAction(ActionEvent event) {
@@ -107,7 +108,8 @@ public class HomeController implements Initializable {
    }
    
    public void externalTechnicianAction(ActionEvent event) {
-		rout.goTo("externalTechnicianPage");
+		//rout.goTo("externalTechnicianPage"); //TODO create this page
+	   rout.goTo("homePage");
    }
    
    public void employeeAction(ActionEvent event) {
@@ -125,7 +127,8 @@ public class HomeController implements Initializable {
    
    
    public void usedObjectAction(ActionEvent event) {
- 		rout.goTo("usedObjectPage");
+ 		//rout.goTo("usedObjectPage"); //TODO create this page
+	   rout.goTo("homePage");
    }
    
    public void profileAction(ActionEvent event) {
@@ -137,7 +140,8 @@ public class HomeController implements Initializable {
    }
    
    public void storageAction(ActionEvent event) {
-		rout.goTo("storagePage");
+		//rout.goTo("storagePage"); //TODO create this page
+	   rout.goTo("homePage");
    }
    public void loginAction(ActionEvent event) {
 	   rout.goTo("connectionPage");
