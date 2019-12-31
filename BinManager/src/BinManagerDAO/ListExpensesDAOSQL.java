@@ -7,22 +7,22 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import BinManagerObject.Expence;
-import BinManagerObject.ListExpences;
+import BinManagerObject.Expense;
+import BinManagerObject.ListExpenses;
 
-public class ListExpencesDAOSQL implements Dao<ListExpences> {
+public class ListExpensesDAOSQL implements Dao<ListExpenses> {
 	private String url = "jdbc:mysql://mysql-binmanager.alwaysdata.net/binmanager_bm";
 	private String login = "196466";
 	private String passwd = "BinManager";
 	private QueryHandler queryHandler;
 
-	public ListExpencesDAOSQL() {
+	public ListExpensesDAOSQL() {
 			this.queryHandler = new QueryHandler(this.url,this.login,this.passwd);
 		}
 
 	private boolean isExist(String name, Date date) {
 		
-		String sql = "SELECT * from `expences` WHERE Name='"+name+"' AND Date='"+date+"';";
+		String sql = "SELECT * from `expenses` WHERE Name='"+name+"' AND Date='"+date+"';";
 		ResultSet rs = this.queryHandler.executeQuery(sql);
 		try {
 			boolean exist = false;
@@ -47,12 +47,12 @@ public class ListExpencesDAOSQL implements Dao<ListExpences> {
 		try {
 			Date date1 = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(date);
 			if (isExist(name, date1)) {
-				String sql = "UPDATE `expences` SET Cost Category='"+costCategory+"', Name='"+name+"', Price='"+price+"', Date='"+date+"' WHERE Name='"+name+"' AND Date='"+date+"';";
+				String sql = "UPDATE `expenses` SET Cost Category='"+costCategory+"', Name='"+name+"', Price='"+price+"', Date='"+date+"' WHERE Name='"+name+"' AND Date='"+date+"';";
 				this.queryHandler.executeUpdate(sql);
 				this.queryHandler.close();
 			}
 			else {
-				System.out.println("This expence doesn't exist");
+				System.out.println("This Expense doesn't exist");
 			}
 			
 		} catch (ParseException e) {
@@ -64,7 +64,7 @@ public class ListExpencesDAOSQL implements Dao<ListExpences> {
 
 	
 	public void delete(String name) {
-		String sql = "DELETE FROM `expences` WHERE Name='"+name+"';";
+		String sql = "DELETE FROM `expenses` WHERE Name='"+name+"';";
 		this.queryHandler.executeUpdate(sql);
 		this.queryHandler.close();
 	}
@@ -78,11 +78,11 @@ public class ListExpencesDAOSQL implements Dao<ListExpences> {
 		try {
 			Date date1 = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(date);
 			if (isExist(name, date1)) {
-				System.out.println("The expence exists already");
+				System.out.println("The Expense exists already");
 				return false;
 			}
 			else {
-				String sql = "INSERT INTO `expences` VALUES ('"+costCategory+"','"+name+"','"+price+"','"+date+"');";
+				String sql = "INSERT INTO `expenses` VALUES ('"+costCategory+"','"+name+"','"+price+"','"+date+"');";
 				this.queryHandler.executeUpdate(sql);
 				this.queryHandler.close();
 			}
@@ -95,17 +95,17 @@ public class ListExpencesDAOSQL implements Dao<ListExpences> {
 	}
 
 	@Override
-	public ListExpences load(ArrayList<String> infos) {
-		String sql = "SELECT * FROM `expences`;";
+	public ListExpenses load(ArrayList<String> infos) {
+		String sql = "SELECT * FROM `expenses`;";
 		ResultSet rs = this.queryHandler.executeQuery(sql);
-		ListExpences list = new ListExpences();
-		Expence expence;
+		ListExpenses list = new ListExpenses();
+		Expense Expense;
 		
 		try {
 			while(rs.next()) {
 			Date date = new Date(rs.getDate("Date").getTime());
-			expence = new Expence(rs.getString("Cost Category"),rs.getString("Name"),Integer.parseInt(rs.getString("Price")), date);
-			list.addExpence(expence);
+			Expense = new Expense(rs.getString("Cost Category"),rs.getString("Name"),Integer.parseInt(rs.getString("Price")), date);
+			list.addExpense(Expense);
 			}
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block

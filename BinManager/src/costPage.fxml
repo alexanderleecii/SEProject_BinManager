@@ -180,11 +180,11 @@
                   <TableColumn fx:id="priceCol" maxWidth="125.0" prefWidth="125.0" text="Price" />
                   <TableColumn fx:id="dateCol" maxWidth="125.0" prefWidth="125.0" text="Date" />
                </columns></TableView>
-            <Label fx:id="costField" layoutX="112.0" layoutY="62.0" prefHeight="17.0" prefWidth="242.0" text="Expences" textFill="WHITE">
+            <Label fx:id="costField" layoutX="112.0" layoutY="62.0" prefHeight="17.0" prefWidth="242.0" text="Expenses" textFill="WHITE">
                <font>
                   <Font size="21.0" />
                </font></Label>
-            <Button fx:id="addButton" layoutX="510.0" layoutY="344.0" mnemonicParsing="false" text="Add Expence" />
+            <Button fx:id="addButton" layoutX="510.0" layoutY="344.0" mnemonicParsing="false" text="Add Expense" />
          </children>
     </AnchorPane>
   </children>

@@ -4,7 +4,7 @@ import BinManagerDAO.CommentDAOSQL;
 import BinManagerDAO.Dao;
 import BinManagerDAO.ListBinDAOSQL;
 import BinManagerDAO.ListEmployeeDAOSQL;
-import BinManagerDAO.ListExpencesDAOSQL;
+import BinManagerDAO.ListExpensesDAOSQL;
 import BinManagerDAO.ListManagerDAOSQL;
 import BinManagerDAO.ListCitizenDAOSQL;
 import BinManagerDAO.PersonDAOSQL;
@@ -44,8 +44,8 @@ public class MySQLFactory<T> implements AbstractFactory<T> {
 			case "class BinManagerComment.ListComment":
 				newDao = new CommentDAOSQL();
 				break;
-			case "class BinManagerObject.ListExpences":
-				newDao = new ListExpencesDAOSQL();
+			case "class BinManagerObject.ListExpenses":
+				newDao = new ListExpensesDAOSQL();
 
 				break;
 		}

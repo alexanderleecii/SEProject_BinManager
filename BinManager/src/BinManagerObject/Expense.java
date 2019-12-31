@@ -3,7 +3,7 @@ package BinManagerObject;
 
 import java.util.*;
 
-public class Expence extends Object {
+public class Expense extends Object {
 
 	
 	private String costCategory;
@@ -11,7 +11,7 @@ public class Expence extends Object {
 	private int price;
 	private Date date;
 
-	public Expence(String costCategory, String name, int price, Date date) {
+	public Expense(String costCategory, String name, int price, Date date) {
 			this.costCategory = costCategory;
 			this.name = name;
 			this.price = price;

@@ -4,8 +4,8 @@ import java.net.URL;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import BinManagerFacade.ListExpenceFacade;
-import BinManagerObject.Expence;
+import BinManagerFacade.ListExpenseFacade;
+import BinManagerObject.Expense;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -34,27 +34,27 @@ public class CostManagementController extends HomeController implements Initiali
 	@FXML
 	private Label price;
 	@FXML
-	private Label nameExpence;
+	private Label nameExpense;
 	@FXML
-	private Label costCategoryExpence;
+	private Label costCategoryExpense;
 	@FXML
 	private Label costField;
 	@FXML
-	private AnchorPane paneExpence;
+	private AnchorPane paneExpense;
 	@FXML
 	private TextField costCategoryField;
 	@FXML
 	private TextField nameField;
 	@FXML
 	private TextField priceField;
-	@FXML private TableView<Expence> tableView;
-    @FXML private TableColumn<Expence, String> costCategoryCol;
-    @FXML private TableColumn<Expence, String> nameCol;
-    @FXML private TableColumn<Expence, Integer> priceCol;
-    @FXML private TableColumn<Expence, Date> dateCol;
+	@FXML private TableView<Expense> tableView;
+    @FXML private TableColumn<Expense, String> costCategoryCol;
+    @FXML private TableColumn<Expense, String> nameCol;
+    @FXML private TableColumn<Expense, Integer> priceCol;
+    @FXML private TableColumn<Expense, Date> dateCol;
     @FXML private Button addButton;
-    private ListExpenceFacade facade;
-    private ObservableList<Expence> listExpence = FXCollections.observableArrayList();
+    private ListExpenseFacade facade;
+    private ObservableList<Expense> listExpense = FXCollections.observableArrayList();
    
     private String role = HomeController.getFacade().getPerson().getRole().toString();
     @Override
@@ -63,18 +63,18 @@ public class CostManagementController extends HomeController implements Initiali
     	if(role.equals("admin") || role.equals("manager")) {
 			addButton.setVisible(true);
 		}
-    	costCategoryCol.setCellValueFactory(new PropertyValueFactory<Expence,String>("CostCategory"));
-    	nameCol.setCellValueFactory(new PropertyValueFactory<Expence,String>("Name"));
-    	priceCol.setCellValueFactory(new PropertyValueFactory<Expence,Integer>("Price"));
-    	dateCol.setCellValueFactory(new PropertyValueFactory<Expence,Date>("Date"));
-    	this.facade = new ListExpenceFacade();
+    	costCategoryCol.setCellValueFactory(new PropertyValueFactory<Expense,String>("CostCategory"));
+    	nameCol.setCellValueFactory(new PropertyValueFactory<Expense,String>("Name"));
+    	priceCol.setCellValueFactory(new PropertyValueFactory<Expense,Integer>("Price"));
+    	dateCol.setCellValueFactory(new PropertyValueFactory<Expense,Date>("Date"));
+    	this.facade = new ListExpenseFacade();
     	ArrayList<String> infos = new ArrayList<>();
 		   facade.load(infos);
-		   for(int i=0;i<facade.getListExpences().size();i++) {
-				   listExpence.addAll(facade.getListExpences().getExpence(i));		
+		   for(int i=0;i<facade.getListExpenses().size();i++) {
+				   listExpense.addAll(facade.getListExpenses().getExpense(i));		
 				   
 		   }
-		   tableView.setItems(listExpence);
+		   tableView.setItems(listExpense);
     }
     
 
