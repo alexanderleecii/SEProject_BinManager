@@ -23,6 +23,9 @@ public class MapController extends HomeController implements Initializable {
 	   @Override
 	   public void initialize(URL location, ResourceBundle resources) {
 		   initMenuBar();
+		   if(!(HomeController.getFacade() == null)) {
+			   logInButton.setVisible(false);
+		   }
 		   map.setText("The map will be displayed here");
 	   }
 	   

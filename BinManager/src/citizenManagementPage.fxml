@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.CitizenManagementController">
+<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CitizenManagementController">
   <children>
     <MenuBar fx:id="menuEmployee" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
       <menus>
@@ -62,6 +62,7 @@
             <MenuItem mnemonicParsing="false" onAction="#citizenAction" text="Citizen Management" />
             <MenuItem mnemonicParsing="false" onAction="#externalTechnicianAction" text="External Technician Management" />
             <MenuItem mnemonicParsing="false" onAction="#employeeAction" text="Employee Management" />
+                  <MenuItem mnemonicParsing="false" onAction="#managerAction" text="Manager Management" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Garbage bins">
