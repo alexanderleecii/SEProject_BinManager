@@ -1,5 +1,4 @@
 package BinManagerCompany;
-import Address;
 
 public class Company {
 

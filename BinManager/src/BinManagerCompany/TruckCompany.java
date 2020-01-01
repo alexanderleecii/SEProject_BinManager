@@ -1,34 +1,15 @@
 package BinManagerCompany;
-import java.util.*;
+
+import java.util.ArrayList;
 
 public class TruckCompany extends Company {
+	private ArrayList<Truck> trucks;
 
-	Collection<Truck> Truck;
-	private static ArrayList<TruckCompany> listTruckCompany;
-
-	public static ArrayList<TruckCompany> getListTruckCompany() {
-		return this.listTruckCompany;
+	public ArrayList<Truck> getTrucks() {
+		return this.trucks;
 	}
 
-	/**
-	 * 
-	 * @param name
-	 * @param phoneNumber
-	 * @param email
-	 * @param address
-	 */
-	public static void addTruckCompany(String name, String phoneNumber, String email, Address address) {
-		// TODO - implement TruckCompany.addTruckCompany
-		throw new UnsupportedOperationException();
+	public void setTrucks(ArrayList<Truck> trucks) {
+		this.trucks = trucks;
 	}
-
-	/**
-	 * 
-	 * @param email
-	 */
-	public static void removeTruckCompany(String email) {
-		// TODO - implement TruckCompany.removeTruckCompany
-		throw new UnsupportedOperationException();
-	}
-
 }

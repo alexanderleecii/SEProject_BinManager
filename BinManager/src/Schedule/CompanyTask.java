@@ -1,5 +1,5 @@
 package Schedule;
-import Truck;
+import BinManagerCompany.Truck;
 
 public class CompanyTask extends Task {
 

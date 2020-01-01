@@ -1,8 +1,10 @@
 package BinManagerHistory;
+
+import java.util.ArrayList;
+
 public class History {
 
-	Event Event;
-	private static ArrayList<History> listHistory;
+	private ArrayList<Event> Event;
 
 	public ArrayList<Event> getListEvent() {
 		// TODO - implement History.getListEvent
@@ -27,40 +29,12 @@ public class History {
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * 
-	 * @param binIndex
-	 */
-	public void removeAllEventsBin(int binIndex) {
-		// TODO - implement History.removeAllEventsBin
-		throw new UnsupportedOperationException();
+	public ArrayList<Event> getEvent() {
+		return Event;
 	}
 
-	public static void removeAllEvents() {
-		// TODO - implement History.removeAllEvents
-		throw new UnsupportedOperationException();
-	}
-
-	public static ArrayList<History> getListHistory() {
-		return this.listHistory;
-	}
-
-	/**
-	 * 
-	 * @param history
-	 */
-	public static void addHistory(History history) {
-		// TODO - implement History.addHistory
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param index
-	 */
-	public static void removeHistory(int index) {
-		// TODO - implement History.removeHistory
-		throw new UnsupportedOperationException();
+	public void setEvent(ArrayList<Event> event) {
+		Event = event;
 	}
 
 }
