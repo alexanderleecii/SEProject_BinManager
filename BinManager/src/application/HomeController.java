@@ -44,7 +44,7 @@ public class HomeController implements Initializable {
    @Override
    public void initialize(URL location, ResourceBundle resources) {
 	  initMenuBar();
-	// exemple d'injection de code : il faut cr�er un label en FXML et utilis� setText avec son id par exemple 
+	// exemple d'injection de code : il faut creer un label en FXML et utiliser setText avec son id par exemple 
 	  personConnected.setText("You are connected as "+ HomeController.getFacade().getPerson().getRole().toString());
    }
    
@@ -94,6 +94,7 @@ public class HomeController implements Initializable {
 	}
    
    //EN DESSOUS TOUT LES LIENS VERS LES PAGES DANS LA MENUBAR !!
+   //An "action" is called when the corresponding item is clicked
    public void mapAction(ActionEvent event) {
 	   rout.goTo("mapPage");
    }

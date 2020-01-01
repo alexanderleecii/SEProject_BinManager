@@ -93,6 +93,7 @@ public class BinManagementController extends HomeController implements Initializ
 	@FXML
 	private TextArea textComment;
 	
+	//Facade for the bin / listBin objects
 	private ListBinFacade binFacade;
 	
 	private ObservableList<String> listName = FXCollections.observableArrayList();
@@ -105,6 +106,8 @@ public class BinManagementController extends HomeController implements Initializ
 	private String role = HomeController.getFacade().getPerson().getRole().toString();
 	@Override
    public void initialize(URL location, ResourceBundle resources) {
+		//This method changes the display according to the connected user's role
+		//Also loads the bin objects and displays them to the user
 		initMenuBar();
 		if(role.equals("admin") || role.equals("manager")) {
 			addButton.setVisible(true);

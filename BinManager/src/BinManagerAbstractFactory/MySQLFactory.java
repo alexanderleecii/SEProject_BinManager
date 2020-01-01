@@ -24,7 +24,7 @@ public class MySQLFactory<T> implements AbstractFactory<T> {
 	
 	public Dao<?> createDao() {
 		Dao<?> newDao = null;
-		
+		//In this switch we create the DAO needed by the class calling the createDao method
 		switch(this.getType().toString()) {
 			case "class BinManagerPerson.Person":
 				newDao = new PersonDAOSQL();
@@ -46,7 +46,6 @@ public class MySQLFactory<T> implements AbstractFactory<T> {
 				break;
 			case "class binManagerCost.ListExpenses":
 				newDao = new ListExpensesDAOSQL();
-
 				break;
 		}
 		return newDao;
