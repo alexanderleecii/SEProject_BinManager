@@ -44,7 +44,7 @@ public class MySQLFactory<T> implements AbstractFactory<T> {
 			case "class BinManagerComment.ListComment":
 				newDao = new CommentDAOSQL();
 				break;
-			case "class BinManagerObject.ListExpenses":
+			case "class binManagerCost.ListExpenses":
 				newDao = new ListExpensesDAOSQL();
 
 				break;

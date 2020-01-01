@@ -1,7 +1,9 @@
-package BinManagerObject;
+package binManagerCost;
 
 
 import java.util.*;
+
+import BinManagerObject.Object;
 
 public class Expense extends Object {
 

@@ -1,5 +1,5 @@
 
-package BinManagerObject;
+package binManagerCost;
 
 import java.util.ArrayList;
 

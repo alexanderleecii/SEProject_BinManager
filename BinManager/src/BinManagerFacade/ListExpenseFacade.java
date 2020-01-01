@@ -7,9 +7,8 @@ import java.util.ArrayList;
 
 import BinManagerAbstractFactory.MySQLFactory;
 import BinManagerDAO.Dao;
-import BinManagerObject.Expense;
-
-import BinManagerObject.ListExpenses;
+import binManagerCost.Expense;
+import binManagerCost.ListExpenses;
 
 
 public class ListExpenseFacade implements Facade<ListExpenses> {

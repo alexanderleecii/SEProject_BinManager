@@ -7,8 +7,9 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import BinManagerObject.Expense;
-import BinManagerObject.ListExpenses;
+
+import binManagerCost.Expense;
+import binManagerCost.ListExpenses;
 
 public class ListExpensesDAOSQL implements Dao<ListExpenses> {
 	private String url = "jdbc:mysql://mysql-binmanager.alwaysdata.net/binmanager_bm";
