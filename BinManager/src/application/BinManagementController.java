@@ -272,97 +272,119 @@ public class BinManagementController extends HomeController implements Initializ
 		   }
 	   }
 	   
-	   public void seeCommentsAction(ActionEvent event) {
-		   addButton.setVisible(false);
-		   seeMoreButton.setVisible(false);
-		   seeMoreCommentButton.setVisible(true);
-		   
-		   paneBin.setVisible(false);
-		   moreInfo.setVisible(false);
-		   type.setVisible(false);
-		   state.setVisible(false);
-		   position.setVisible(false);
-		   typeBin.setVisible(false);
-		   stateBin.setVisible(false);
-		   positionBin.setVisible(false);
-		   
-		   seeCommentsButton.setVisible(false);
-		   seeAlertsButton.setVisible(false);
-		   
-		   paneLabel.setText("Comments");
-		   
-		   ArrayList<String> infos = new ArrayList<>();
+	   public void seeCommentsAction(ActionEvent event) {   
 		   
 		   int j = listBinView.getSelectionModel().getSelectedIndex();
-		   
-		   infos.add("comments");
-		   infos.add(""+binFacade.getListBin().getBin(j).getId());
-		   commentFacade.load(infos);
-		   for(int i=0;i<commentFacade.getListComment().size();i++) {
-			   listComments.add("Comment "+commentFacade.getListComment().getComment(i).getId()+"  "+commentFacade.getListComment().getComment(i).getDate());
+		   if(j!=-1) {
+			   addButton.setVisible(false);
+			   seeMoreButton.setVisible(false);
+			   seeMoreCommentButton.setVisible(true);
+			   
+			   paneBin.setVisible(false);
+			   moreInfo.setVisible(false);
+			   type.setVisible(false);
+			   state.setVisible(false);
+			   position.setVisible(false);
+			   typeBin.setVisible(false);
+			   stateBin.setVisible(false);
+			   positionBin.setVisible(false);
+			   
+			   seeCommentsButton.setVisible(false);
+			   seeAlertsButton.setVisible(false);
+			   
+			   paneLabel.setText("Comments");
+			   
+			   ArrayList<String> infos = new ArrayList<>();
+			   
+			   infos.add("comments");
+			   infos.add(""+binFacade.getListBin().getBin(j).getId());
+			   commentFacade.load(infos);
+			   for(int i=0;i<commentFacade.getListComment().size();i++) {
+				   listComments.add("Comment "+commentFacade.getListComment().getComment(i).getId()+"  "+commentFacade.getListComment().getComment(i).getDate());
+			   }
+			   listBinView.setVisible(false);
+			   listCommentView.setVisible(true);
+			   
+			   listCommentView.setItems(listComments);
 		   }
-		   listBinView.setVisible(false);
-		   listCommentView.setVisible(true);
-		   
-		   listCommentView.setItems(listComments);
+		   else {
+			   alerte("You should select one bin");
+		   }
 	   }
 	   
 	   public void seeAlertsAction(ActionEvent event) {
-		   addButton.setVisible(false);
-		   seeMoreButton.setVisible(false);
-		   seeMoreCommentButton.setVisible(true);
-		   
-		   paneBin.setVisible(false);
-		   moreInfo.setVisible(false);
-		   type.setVisible(false);
-		   state.setVisible(false);
-		   position.setVisible(false);
-		   typeBin.setVisible(false);
-		   stateBin.setVisible(false);
-		   positionBin.setVisible(false);
-		   
-		   seeCommentsButton.setVisible(false);
-		   seeAlertsButton.setVisible(false);
-		   
-		   paneLabel.setText("Alerts");
-		   
-		   ArrayList<String> infos = new ArrayList<>();
 		   
 		   int j = listBinView.getSelectionModel().getSelectedIndex();
-		   
-		   infos.add("alerts");
-		   infos.add(""+binFacade.getListBin().getBin(j).getId());
-		   commentFacade.load(infos);
-		   for(int i=0;i<commentFacade.getListComment().size();i++) {
-			   listAlerts.add("Alert "+commentFacade.getListComment().getComment(i).getId()+"  "+commentFacade.getListComment().getComment(i).getDate());
+		   if(j!=-1) {
+			   addButton.setVisible(false);
+			   seeMoreButton.setVisible(false);
+			   seeMoreCommentButton.setVisible(true);
+			   
+			   paneBin.setVisible(false);
+			   moreInfo.setVisible(false);
+			   type.setVisible(false);
+			   state.setVisible(false);
+			   position.setVisible(false);
+			   typeBin.setVisible(false);
+			   stateBin.setVisible(false);
+			   positionBin.setVisible(false);
+			   
+			   seeCommentsButton.setVisible(false);
+			   seeAlertsButton.setVisible(false);
+			   
+			   paneLabel.setText("Alerts");
+			   
+			   ArrayList<String> infos = new ArrayList<>();
+			   
+			   infos.add("alerts");
+			   infos.add(""+binFacade.getListBin().getBin(j).getId());
+			   commentFacade.load(infos);
+			   for(int i=0;i<commentFacade.getListComment().size();i++) {
+				   listAlerts.add("Alert "+commentFacade.getListComment().getComment(i).getId()+"  "+commentFacade.getListComment().getComment(i).getDate());
+			   }
+			   listBinView.setVisible(false);
+			   listCommentView.setVisible(true);
+			   
+			   listCommentView.setItems(listAlerts);
 		   }
-		   listBinView.setVisible(false);
-		   listCommentView.setVisible(true);
-		   
-		   listCommentView.setItems(listAlerts);
+		   else {
+			   alerte("You should select one bin");
+		   }
 	   }
 	   
 	   public void seeMoreCommentAction(ActionEvent event) {
 		   int i = listCommentView.getSelectionModel().getSelectedIndex();
-		   paneDetailComment.setVisible(true);
-		   detailCommentLabel.setVisible(true);
-		   if(commentFacade.getListComment().getComment(i).getType().equals("alert")) {
-			   detailCommentLabel.setText("Alert");
+		   if(i != -1) {
+			   paneDetailComment.setVisible(true);
+			   detailCommentLabel.setVisible(true);
+			   if(commentFacade.getListComment().getComment(i).getType().equals("alert")) {
+				   detailCommentLabel.setText("Alert");
+			   }
+			   else {
+				   detailCommentLabel.setText("Comment");
+			   }
+			   binCommentLabel.setVisible(true);
+			   usernameCommentLabel.setVisible(true);
+			   textComment.setVisible(true);
+			   deleteCommentButton.setVisible(true);
+			   
+			   binCommentLabel.setText("Bin : |||");//TODO change to get the real id
+			   usernameCommentLabel.setText("User : |||");//TODO change to get the real username
+			   textComment.setText(commentFacade.getListComment().getComment(i).getText());
 		   }
 		   else {
-			   detailCommentLabel.setText("Comment");
+			   alerte("You should select one element");
 		   }
-		   binCommentLabel.setVisible(true);
-		   usernameCommentLabel.setVisible(true);
-		   textComment.setVisible(true);
-		   deleteCommentButton.setVisible(true);
-		   
-		   binCommentLabel.setText("Bin : |||");//TODO change to get the real id
-		   usernameCommentLabel.setText("User : |||");//TODO change to get the real username
-		   textComment.setText(commentFacade.getListComment().getComment(i).getText());
 	   }
 	   
 	   public void deleteCommentAction(ActionEvent event) {
-		   System.out.println("delete ok");
+		   int i = listCommentView.getSelectionModel().getSelectedIndex();
+		   if(commentFacade.getListComment().getComment(i).getType().equals("comment")) {
+			   commentFacade.deleteComment(commentFacade.getListComment().getComment(i).getId());
+		   }
+		   else if(commentFacade.getListComment().getComment(i).getType().equals("alert")) {
+			   commentFacade.deleteAlert(commentFacade.getListComment().getComment(i).getId());
+		   }
+		   rout.goTo("binManagementPage");
 	   }
 }

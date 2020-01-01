@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import BinManagerAbstractFactory.MySQLFactory;
 import BinManagerComment.Comment;
 import BinManagerComment.ListComment;
+import BinManagerDAO.CommentDAOSQL;
 import BinManagerDAO.Dao;
 import BinManagerObject.ListBin;
 import BinManagerPerson.Person;
@@ -49,10 +50,16 @@ public class ListCommentFacade implements Facade<ListComment>{
 		
 	}
 	
-	public void delete(int id) {
-		Dao<ListComment> dao = getDao();
+	public void deleteComment(int id) {
+		CommentDAOSQL dao = (CommentDAOSQL) getDao();
 		this.listComment.removeComment(id);
-		dao.delete(id);
+		dao.deleteComment(id);
+	}
+	
+	public void deleteAlert(int id) {
+		CommentDAOSQL dao = (CommentDAOSQL) getDao();
+		this.listComment.removeComment(id);
+		dao.deleteAlert(id);
 	}
 
 	@Override

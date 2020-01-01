@@ -33,6 +33,18 @@ public class CommentDAOSQL implements Dao<ListComment>{
 		
 	}
 	
+	public void deleteComment(int id) {
+		String sql = "DELETE FROM `comments` WHERE id='"+id+"';";
+		this.queryHandler.executeUpdate(sql);
+		this.queryHandler.close();
+	}
+	
+	public void deleteAlert(int id) {
+		String sql = "DELETE FROM `alerts` WHERE id='"+id+"';";
+		this.queryHandler.executeUpdate(sql);
+		this.queryHandler.close();
+	}
+	
 	@Override
 	public boolean add(ArrayList<String> infos) {
 		String binId=infos.get(0);
