@@ -3,28 +3,49 @@ import java.util.*;
 
 import BinManagerDAO.Dao;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Interface Facade.
+ *
+ * @param <T> the generic type
+ */
 public interface Facade<T> {
 
-	public Dao<T> getDao();
 	/**
-	 * 
-	 * @param info
+	 * Gets the dao.
+	 *
+	 * @return the dao
+	 */
+	public Dao<T> getDao();
+	
+	/**
+	 * Update.
+	 *
+	 * @param info the info
 	 */
 	public void update(ArrayList<String> info);
 
 	/**
-	 * 
-	 * @param email
+	 * Delete.
+	 *
+	 * @param email the email
 	 */
 	public void delete(String email);
 
 	/**
-	 * 
-	 * @param info
-	 * @return 
+	 * Adds the.
+	 *
+	 * @param info the info
+	 * @return true, if successful
 	 */
 	public boolean add(ArrayList<String> info);
 	
+	/**
+	 * Load.
+	 *
+	 * @param info the info
+	 * @return true, if successful
+	 */
 	public boolean load(ArrayList<String> info);
 
 }

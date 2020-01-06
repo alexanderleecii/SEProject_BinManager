@@ -13,47 +13,94 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CitizenManagementController.
+ */
 public class CitizenManagementController extends HomeController implements Initializable {
 	
+		/** The list citizen view. */
 		@FXML
 		private ListView<String> listCitizenView;
+		
+		/** The see more button. */
 		@FXML
 		private Button seeMoreButton;
+		
+		/** The edit button. */
 		@FXML
 		private Button editButton;
+		
+		/** The delete button. */
 		@FXML
 		private Button deleteButton;
+		
+		/** The add button. */
 		@FXML
 		private Button addButton;
+		
+		/** The validate edit button. */
 		@FXML
 		private Button validateEditButton;
+		
+		/** The validate add button. */
 		@FXML
 		private Button validateAddButton;
+		
+		/** The more info. */
 		@FXML
 		private Label moreInfo;
+		
+		/** The name. */
 		@FXML
 		private Label name;
+		
+		/** The email. */
 		@FXML
 		private Label email;
+		
+		/** The password. */
 		@FXML
 		private Label password;
+		
+		/** The name citizen. */
 		@FXML
 		private Label nameCitizen;
+		
+		/** The email citizen. */
 		@FXML
 		private Label emailCitizen;
+		
+		/** The pane citizen. */
 		@FXML
 		private AnchorPane paneCitizen;
+		
+		/** The email field. */
 		@FXML
 		private TextField emailField;
+		
+		/** The name field. */
 		@FXML
 		private TextField nameField;
+		
+		/** The password field. */
 		@FXML
 		private TextField passwordField;
+		
+		/** The facade. */
 		private ListCitizenFacade facade;
 		
+/** The list name. */
 //		private ObservableList<Person> listCitizen = FXCollections.observableArrayList();
 		private ObservableList<String> listName = FXCollections.observableArrayList();
-	   @Override
+	   
+   	/**
+   	 * Initialize.
+   	 *
+   	 * @param location the location
+   	 * @param resources the resources
+   	 */
+   	@Override
 	   public void initialize(URL location, ResourceBundle resources) {
 		   initMenuBar();
 		   this.facade = new ListCitizenFacade();
@@ -66,7 +113,12 @@ public class CitizenManagementController extends HomeController implements Initi
 	   }
 	   
 	   
-	   public void seeMoreAction(ActionEvent event) {
+	   /**
+   	 * See more action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void seeMoreAction(ActionEvent event) {
 		   password.setVisible(false);
 		   passwordField.setVisible(false);
 		   validateAddButton.setVisible(false);
@@ -90,7 +142,12 @@ public class CitizenManagementController extends HomeController implements Initi
 		   }
 	   }
 	   
-	   public void addAction(ActionEvent event) {
+	   /**
+   	 * Adds the action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void addAction(ActionEvent event) {
 		   nameCitizen.setVisible(false);
 		   emailCitizen.setVisible(false);
 		   editButton.setVisible(false);
@@ -107,13 +164,23 @@ public class CitizenManagementController extends HomeController implements Initi
 		   moreInfo.setText("Add a citizen");
 	   }
 
-	   public void deleteAction(ActionEvent event) {
+	   /**
+   	 * Delete action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void deleteAction(ActionEvent event) {
 		   int i = listCitizenView.getSelectionModel().getSelectedIndex();
 		   facade.delete(facade.getListCitizen().getCitizen(i).getEmail());
 		   rout.goTo("citizenManagementPage");
 	   }
 	   
-	   public void editAction(ActionEvent event) {
+	   /**
+   	 * Edits the action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void editAction(ActionEvent event) {
 		   nameCitizen.setVisible(false);
 		   editButton.setVisible(false);
 		   deleteButton.setVisible(false);
@@ -122,7 +189,12 @@ public class CitizenManagementController extends HomeController implements Initi
 		   moreInfo.setText("Edit an citizen");
 	   }
 	   
-	   public void validateEditAction(ActionEvent event) {
+	   /**
+   	 * Validate edit action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void validateEditAction(ActionEvent event) {
 		   ArrayList<String> info = new ArrayList<>();
 		   int i = listCitizenView.getSelectionModel().getSelectedIndex();
 		   info.add(facade.getListCitizen().getCitizen(i).getEmail());
@@ -131,7 +203,13 @@ public class CitizenManagementController extends HomeController implements Initi
 		   rout.goTo("citizenManagementPage");
 		   
 	   }
-	   public void validateAddAction(ActionEvent event) {
+	   
+   	/**
+   	 * Validate add action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void validateAddAction(ActionEvent event) {
 		   ArrayList<String> info = new ArrayList<>();
 		   info.add(emailField.getText());
 		   info.add(passwordField.getText());

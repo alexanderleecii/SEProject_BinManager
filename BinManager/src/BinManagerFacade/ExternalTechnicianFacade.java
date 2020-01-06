@@ -1,11 +1,17 @@
 package BinManagerFacade;
 import java.util.*;
+// TODO: Auto-generated Javadoc
+
+/**
+ * The Class ExternalTechnicianFacade.
+ */
 public class ExternalTechnicianFacade {
 
 	/**
-	 * 
-	 * @param id
-	 * @param info
+	 * Update.
+	 *
+	 * @param id the id
+	 * @param info the info
 	 */
 	public void update(int id, ArrayList<String> info) {
 		// TODO - implement ExternalTechnicianFacade.update
@@ -13,8 +19,9 @@ public class ExternalTechnicianFacade {
 	}
 
 	/**
-	 * 
-	 * @param id
+	 * Delete.
+	 *
+	 * @param id the id
 	 */
 	public void delete(int id) {
 		// TODO - implement ExternalTechnicianFacade.delete
@@ -22,8 +29,9 @@ public class ExternalTechnicianFacade {
 	}
 
 	/**
-	 * 
-	 * @param info
+	 * Adds the.
+	 *
+	 * @param info the info
 	 */
 	public void add(ArrayList<String> info) {
 		// TODO - implement ExternalTechnicianFacade.add
@@ -31,8 +39,10 @@ public class ExternalTechnicianFacade {
 	}
 
 	/**
-	 * 
-	 * @param id
+	 * Retrieve.
+	 *
+	 * @param id the id
+	 * @return the array list
 	 */
 	public ArrayList<String> retrieve(int id) {
 		// TODO - implement ExternalTechnicianFacade.retrieve

@@ -9,27 +9,48 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LoginController.
+ */
 public class LoginController extends HomeController implements Initializable {
+	
+	/** The login button. */
 	@FXML
 	   private Button loginButton;
 	  
+	/** The register button. */
 	@FXML
 	   private Button registerButton;
 	
-	   @FXML
+	   /** The email field. */
+   	@FXML
 	   private TextField emailField;
 	   
-	   @FXML
+	   /** The password field. */
+   	@FXML
 	   private PasswordField passwordField;
 	   
-	   protected Routing rout = new Routing();
+	   /** The rout. */
+   	protected Routing rout = new Routing();
 	   
-	   @Override
+	   /**
+   	 * Initialize.
+   	 *
+   	 * @param location the location
+   	 * @param resources the resources
+   	 */
+   	@Override
 	   public void initialize(URL location, ResourceBundle resources) {
 		   initMenuBar();
 	   }
 	 
-	   public void loginButtonAction(ActionEvent event) {
+	   /**
+   	 * Login button action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void loginButtonAction(ActionEvent event) {
 	       PersonFacade facade = new PersonFacade();
 	       ArrayList<String> infos = new ArrayList<>();
 	       infos.add(emailField.getText());

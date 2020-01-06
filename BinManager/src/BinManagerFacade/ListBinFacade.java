@@ -12,20 +12,40 @@ import BinManagerPerson.ListEmployee;
 import BinManagerPerson.Person;
 import BinManagerPerson.PersonRole;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ListBinFacade.
+ */
 public class ListBinFacade implements Facade<ListBin>{
 	
+	/** The list bin. */
 	private ListBin listBin;
+	
+	/** The list bin dao. */
 	private Dao<ListBin> listBinDao;
 	
+	/**
+	 * Instantiates a new list bin facade.
+	 */
 	public ListBinFacade() {
 		this.listBin = null;
 		this.listBinDao = null;
 	}
 	
+	/**
+	 * Gets the list bin.
+	 *
+	 * @return the list bin
+	 */
 	public ListBin getListBin() {
 		return this.listBin;
 	}
 	
+	/**
+	 * Gets the dao.
+	 *
+	 * @return the dao
+	 */
 	@Override
 	public Dao<ListBin> getDao() {
 		if(this.listBinDao == null) {
@@ -34,12 +54,22 @@ public class ListBinFacade implements Facade<ListBin>{
 		return this.listBinDao;
 	}
 	
+	/**
+	 * Creates the dao.
+	 *
+	 * @return the dao
+	 */
 	public Dao<ListBin> createDao(){
 		//Creates a SQLDao using parameterized classes
 		MySQLFactory<ListBin> p = new MySQLFactory<ListBin>(ListBin.class);
 		return (Dao<ListBin>) p.createDao();
 	}
 
+	/**
+	 * Update.
+	 *
+	 * @param info the info
+	 */
 	@Override
 	public void update(ArrayList<String> info) {
 		Dao<ListBin> dao = getDao();
@@ -47,12 +77,23 @@ public class ListBinFacade implements Facade<ListBin>{
 		dao.update(info);
 	}
 
+	/**
+	 * Delete.
+	 *
+	 * @param id the id
+	 */
 	public void delete(int id) {
 		Dao<ListBin> dao = getDao();
 		this.listBin.removeBin(id);
 		dao.delete(id);
 	}
 
+	/**
+	 * Adds the.
+	 *
+	 * @param info the info
+	 * @return true, if successful
+	 */
 	@Override
 	public boolean add(ArrayList<String> info) {
 		Dao<ListBin> dao = getDao();
@@ -72,6 +113,12 @@ public class ListBinFacade implements Facade<ListBin>{
 		return res;
 	}
 
+	/**
+	 * Load.
+	 *
+	 * @param info the info
+	 * @return true, if successful
+	 */
 	@Override
 	public boolean load(ArrayList<String> info) {
 		Dao<ListBin> dao = getDao();
@@ -79,6 +126,11 @@ public class ListBinFacade implements Facade<ListBin>{
 		return true;
 	}
 
+	/**
+	 * Delete.
+	 *
+	 * @param email the email
+	 */
 	@Override
 	public void delete(String email) {
 		// TODO Auto-generated method stub

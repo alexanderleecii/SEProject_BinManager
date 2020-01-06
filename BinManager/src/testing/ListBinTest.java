@@ -10,8 +10,15 @@ import BinManagerObject.Bin;
 import BinManagerObject.ListBin;
 import BinManagerObject.Position;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ListBinTest.
+ */
 public class ListBinTest {
 
+	/**
+	 * Test set list bin.
+	 */
 	@Test
 	public void testSetListBin() {
 		ListBin l = new ListBin();
@@ -26,6 +33,9 @@ public class ListBinTest {
 		assertEquals(l.getListBin(), l1.getListBin());
 	}
 
+	/**
+	 * Test add bin.
+	 */
 	@Test
 	public void testAddBin() {
 		ListBin l = new ListBin();
@@ -41,6 +51,9 @@ public class ListBinTest {
 		assertEquals(testList, l.getListBin());
 	}
 
+	/**
+	 * Test remove bin.
+	 */
 	@Test
 	public void testRemoveBin() {
 		ListBin l = new ListBin();
@@ -62,6 +75,9 @@ public class ListBinTest {
 		assertEquals(testList, l.getListBin());
 	}
 
+	/**
+	 * Test get bin.
+	 */
 	@Test
 	public void testGetBin() {
 		ListBin l = new ListBin();
@@ -74,6 +90,9 @@ public class ListBinTest {
 		assertEquals(b2,l.getBin(1));
 	}
 
+	/**
+	 * Test size.
+	 */
 	@Test
 	public void testSize() {
 		ListBin l = new ListBin();

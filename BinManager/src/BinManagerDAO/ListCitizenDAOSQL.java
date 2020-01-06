@@ -7,16 +7,37 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ListCitizenDAOSQL.
+ */
 public class ListCitizenDAOSQL implements Dao<ListCitizen> {
+	
+	/** The url. */
 	private String url = "jdbc:mysql://mysql-binmanager.alwaysdata.net/binmanager_bm";
+	
+	/** The login. */
 	private String login = "196466";
+	
+	/** The passwd. */
 	private String passwd ="BinManager";
+	
+	/** The query handler. */
 	private QueryHandler queryHandler;
 	
+	/**
+	 * Instantiates a new list citizen DAOSQL.
+	 */
 	public ListCitizenDAOSQL() {
 		this.queryHandler = new QueryHandler(this.url,this.login,this.passwd);
 	}
 	
+	/**
+	 * Load.
+	 *
+	 * @param infos the infos
+	 * @return the list citizen
+	 */
 	public ListCitizen load(ArrayList<String> infos) {
 		String sql = "SELECT * FROM `person` WHERE role='citizen';";
 		ResultSet rs = this.queryHandler.executeQuery(sql);
@@ -32,6 +53,12 @@ public class ListCitizenDAOSQL implements Dao<ListCitizen> {
 		return list;	
 	}
 	
+	/**
+	 * Adds the.
+	 *
+	 * @param infos the infos
+	 * @return true, if successful
+	 */
 	public boolean add(ArrayList<String> infos) {
 		String email=infos.get(0);
 		String password=infos.get(1);
@@ -49,6 +76,11 @@ public class ListCitizenDAOSQL implements Dao<ListCitizen> {
 		return true;
 	}
 	
+	/**
+	 * Update.
+	 *
+	 * @param infos the infos
+	 */
 	public void update(ArrayList<String> infos) {
 		String email=infos.get(0);
 		String name=infos.get(1);
@@ -62,12 +94,23 @@ public class ListCitizenDAOSQL implements Dao<ListCitizen> {
 		}
 	}
 
+	/**
+	 * Delete.
+	 *
+	 * @param email the email
+	 */
 	public void delete(String email) {
 		String sql = "DELETE FROM `person` WHERE email='"+email+"';";
 		this.queryHandler.executeUpdate(sql);
 		this.queryHandler.close();
 	}
 	
+	/**
+	 * Checks if is exist.
+	 *
+	 * @param email the email
+	 * @return true, if is exist
+	 */
 	public boolean isExist(String email) {
 		String sql = "SELECT * from person WHERE email='"+email+"'";
 		ResultSet rs = this.queryHandler.executeQuery(sql);
@@ -84,6 +127,11 @@ public class ListCitizenDAOSQL implements Dao<ListCitizen> {
 		return false;
 	}
 
+	/**
+	 * Delete.
+	 *
+	 * @param id the id
+	 */
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub

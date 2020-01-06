@@ -11,39 +11,77 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MyProfileController.
+ */
 public class MyProfileController extends HomeController implements Initializable {
 	
+		/** The name. */
 		@FXML
 		private Label name;
+		
+		/** The email. */
 		@FXML
 		private Label email;
+		
+		/** The password. */
 		@FXML
 		private Label password;
+		
+		/** The name edit button. */
 		@FXML
 		private Button nameEditButton;
+		
+		/** The password edit button. */
 		@FXML
 		private Button passwordEditButton;
+		
+		/** The delete button. */
 		@FXML
 		private Button deleteButton;
+		
+		/** The edit label 1. */
 		@FXML
 		private Label editLabel1;
+		
+		/** The edit label 2. */
 		@FXML
 		private Label editLabel2;
+		
+		/** The validate name button. */
 		@FXML
 		private Button validateNameButton;
+		
+		/** The validate password button. */
 		@FXML
 		private Button validatePasswordButton;
+		
+		/** The edit text field 1. */
 		@FXML
 		private TextField editTextField1;
+		
+		/** The edit text field 2. */
 		@FXML
 		private TextField editTextField2;
+		
+		/** The edit pane. */
 		@FXML
 		private AnchorPane editPane;
 		
+		/** The facade. */
 		private PersonFacade facade;
+		
+		/** The rout. */
 		protected Routing rout = new Routing();
 		
-	   @Override
+	   /**
+   	 * Initialize.
+   	 *
+   	 * @param location the location
+   	 * @param resources the resources
+   	 */
+   	@Override
 	   public void initialize(URL location, ResourceBundle resources) {
 		   initMenuBar();
 		   editPane.setVisible(false);
@@ -59,7 +97,12 @@ public class MyProfileController extends HomeController implements Initializable
 		   password.setText(pswd);
 	   }
 	   
-	   public void nameEditAction(ActionEvent event) {
+	   /**
+   	 * Name edit action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void nameEditAction(ActionEvent event) {
 		   validatePasswordButton.setVisible(false);
 		   editPane.setVisible(true);
 		   editLabel1.setText("Name :");
@@ -69,7 +112,13 @@ public class MyProfileController extends HomeController implements Initializable
 		   validateNameButton.setVisible(true);
 		   
 	   }
-	   public void passwordEditAction(ActionEvent event) {
+	   
+   	/**
+   	 * Password edit action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void passwordEditAction(ActionEvent event) {
 		   validateNameButton.setVisible(false);
 		   editPane.setVisible(true);
 		   editLabel1.setText("Old pswd :");
@@ -79,7 +128,13 @@ public class MyProfileController extends HomeController implements Initializable
 		   editTextField2.setVisible(true);
 		   validatePasswordButton.setVisible(true);
 	   }
-	   public void validateNameAction(ActionEvent event) {
+	   
+   	/**
+   	 * Validate name action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void validateNameAction(ActionEvent event) {
 		   ArrayList<String> infos = new ArrayList<>();
 		   infos.add(facade.getPerson().getEmail());
 		   infos.add(facade.getPerson().getPassword());
@@ -89,7 +144,13 @@ public class MyProfileController extends HomeController implements Initializable
 		   rout.goTo("profilePage");
 		   
 	   }
-	   public void validatePasswordAction(ActionEvent event) {
+	   
+   	/**
+   	 * Validate password action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void validatePasswordAction(ActionEvent event) {
 		   if(editTextField1.getText().equals(facade.getPerson().getPassword())) {
 			   ArrayList<String> infos = new ArrayList<>();
 			   infos.add(facade.getPerson().getEmail());
@@ -103,7 +164,13 @@ public class MyProfileController extends HomeController implements Initializable
 			   alerte("Your old password is wrong");
 		   }
 	   }
-	   public void deleteAction(ActionEvent event) {
+	   
+   	/**
+   	 * Delete action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void deleteAction(ActionEvent event) {
 		   facade.delete(facade.getPerson().getEmail());
 		   rout.goTo("connectionPage");
 	   }

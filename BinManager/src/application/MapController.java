@@ -10,17 +10,34 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MapController.
+ */
 public class MapController extends HomeController implements Initializable {
+		
+		/** The map. */
 		@FXML
 		private Label map;
+		
+		/** The msg layout. */
 		@FXML
 		private Pane msgLayout;
+		
+		/** The log in button. */
 		@FXML
 		private Button logInButton;
 		
+		/** The rout. */
 		protected Routing rout = new Routing();
 		
-	   @Override
+	   /**
+   	 * Initialize.
+   	 *
+   	 * @param location the location
+   	 * @param resources the resources
+   	 */
+   	@Override
 	   public void initialize(URL location, ResourceBundle resources) {
 		   initMenuBar();
 		   if(!(HomeController.getFacade() == null)) {
@@ -29,7 +46,12 @@ public class MapController extends HomeController implements Initializable {
 		   map.setText("The map will be displayed here");
 	   }
 	   
-	   public void registerAction(ActionEvent event) {
+	   /**
+   	 * Register action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void registerAction(ActionEvent event) {
 		   rout.goTo("registerPage");
 	   }
 	   

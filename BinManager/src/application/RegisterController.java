@@ -14,33 +14,62 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import org.mindrot.jbcrypt.BCrypt;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class RegisterController.
+ */
 public class RegisterController extends HomeController implements Initializable {
 
+	/** The register button. */
 	@FXML
 	   private Button registerButton;
+	
+	/** The go back. */
 	@FXML
 	   private Button goBack;
-	   @FXML
+	   
+   	/** The email field. */
+   	@FXML
 	   private TextField emailField;
 	   
-	   @FXML
+	   /** The name field. */
+   	@FXML
 	   private TextField nameField;
 	   
-	   @FXML
+	   /** The password field. */
+   	@FXML
 	   private PasswordField passwordField;
 	  
-	   @Override
+	   /**
+   	 * Initialize.
+   	 *
+   	 * @param location the location
+   	 * @param resources the resources
+   	 */
+   	@Override
 	   public void initialize(URL location, ResourceBundle resources) {
 	      
 	   }
 	 
-	   //--Hash password	   
+	   /**
+   	 * Hash.
+   	 *
+   	 * @param password the password
+   	 * @return the string
+   	 */
+   	//--Hash password	   
 	   private static String hash(String password) {
 		   System.out.println(BCrypt.hashpw(password, BCrypt.gensalt()));
 		   return "1";
 	   }
 
-	   private void checkPass(String plainPassword, String hashedPassword) {
+	   /**
+   	 * Check pass.
+   	 *
+   	 * @param plainPassword the plain password
+   	 * @param hashedPassword the hashed password
+   	 */
+   	private void checkPass(String plainPassword, String hashedPassword) {
 			if (BCrypt.checkpw(plainPassword, hashedPassword))
 				System.out.println("The password matches.");
 			else
@@ -49,7 +78,12 @@ public class RegisterController extends HomeController implements Initializable 
 	   //--Hash password
 
 	   
-	   public void registerButtonAction(ActionEvent event) {
+	   /**
+   	 * Register button action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void registerButtonAction(ActionEvent event) {
 		   PersonFacade facade = new PersonFacade();
 		   ArrayList<String> info = new ArrayList<>();
 		   info.add(emailField.getText());
@@ -67,7 +101,13 @@ public class RegisterController extends HomeController implements Initializable 
 			   rout.goTo("connectionPage");
 		   }
 	   }
-	   public void goBackAction(ActionEvent event) {
+	   
+   	/**
+   	 * Go back action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void goBackAction(ActionEvent event) {
 		   rout.goTo("connectionPage");
 	   }
 }

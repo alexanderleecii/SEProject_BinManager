@@ -8,43 +8,91 @@ import BinManagerComment.Comment;
 import BinManagerComment.ListComment;
 import BinManagerPerson.Citizen;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CommentDAOSQL.
+ */
 public class CommentDAOSQL implements Dao<ListComment>{
+	
+	/** The url. */
 	private String url = "jdbc:mysql://mysql-binmanager.alwaysdata.net/binmanager_bm";
+	
+	/** The login. */
 	private String login = "196466";
+	
+	/** The passwd. */
 	private String passwd ="BinManager";
+	
+	/** The query handler. */
 	private QueryHandler queryHandler;
 	
+	/**
+	 * Instantiates a new comment DAOSQL.
+	 */
 	public CommentDAOSQL() {
 		this.queryHandler = new QueryHandler(this.url,this.login,this.passwd);
 	}
 	
+	/**
+	 * Update.
+	 *
+	 * @param infos the infos
+	 */
 	@Override
 	public void update(ArrayList<String> infos) {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	/**
+	 * Delete.
+	 *
+	 * @param email the email
+	 */
 	@Override
 	public void delete(String email) {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	/**
+	 * Delete.
+	 *
+	 * @param id the id
+	 */
 	@Override
 	public void delete(int id) {
 		
 	}
 	
+	/**
+	 * Delete comment.
+	 *
+	 * @param id the id
+	 */
 	public void deleteComment(int id) {
 		String sql = "DELETE FROM `comments` WHERE id='"+id+"';";
 		this.queryHandler.executeUpdate(sql);
 		this.queryHandler.close();
 	}
 	
+	/**
+	 * Delete alert.
+	 *
+	 * @param id the id
+	 */
 	public void deleteAlert(int id) {
 		String sql = "DELETE FROM `alerts` WHERE id='"+id+"';";
 		this.queryHandler.executeUpdate(sql);
 		this.queryHandler.close();
 	}
 	
+	/**
+	 * Adds the.
+	 *
+	 * @param infos the infos
+	 * @return true, if successful
+	 */
 	@Override
 	public boolean add(ArrayList<String> infos) {
 		String binId=infos.get(0);
@@ -63,6 +111,13 @@ public class CommentDAOSQL implements Dao<ListComment>{
 		this.queryHandler.close();
 		return true;
 	}
+	
+	/**
+	 * Load.
+	 *
+	 * @param infos the infos
+	 * @return the list comment
+	 */
 	@Override
 	public ListComment load(ArrayList<String> infos) {
 		ListComment list = new ListComment();

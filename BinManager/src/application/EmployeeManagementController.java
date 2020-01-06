@@ -13,47 +13,94 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class EmployeeManagementController.
+ */
 public class EmployeeManagementController extends HomeController implements Initializable {
 	
+		/** The list employee view. */
 		@FXML
 		private ListView<String> listEmployeeView;
+		
+		/** The see more button. */
 		@FXML
 		private Button seeMoreButton;
+		
+		/** The edit button. */
 		@FXML
 		private Button editButton;
+		
+		/** The delete button. */
 		@FXML
 		private Button deleteButton;
+		
+		/** The add button. */
 		@FXML
 		private Button addButton;
+		
+		/** The validate edit button. */
 		@FXML
 		private Button validateEditButton;
+		
+		/** The validate add button. */
 		@FXML
 		private Button validateAddButton;
+		
+		/** The more info. */
 		@FXML
 		private Label moreInfo;
+		
+		/** The name. */
 		@FXML
 		private Label name;
+		
+		/** The email. */
 		@FXML
 		private Label email;
+		
+		/** The password. */
 		@FXML
 		private Label password;
+		
+		/** The name employee. */
 		@FXML
 		private Label nameEmployee;
+		
+		/** The email employee. */
 		@FXML
 		private Label emailEmployee;
+		
+		/** The pane employee. */
 		@FXML
 		private AnchorPane paneEmployee;
+		
+		/** The email field. */
 		@FXML
 		private TextField emailField;
+		
+		/** The name field. */
 		@FXML
 		private TextField nameField;
+		
+		/** The password field. */
 		@FXML
 		private TextField passwordField;
+		
+		/** The facade. */
 		private ListEmployeeFacade facade;
 		
+/** The list name. */
 //		private ObservableList<Person> listEmployee = FXCollections.observableArrayList();
 		private ObservableList<String> listName = FXCollections.observableArrayList();
-	   @Override
+	   
+   	/**
+   	 * Initialize.
+   	 *
+   	 * @param location the location
+   	 * @param resources the resources
+   	 */
+   	@Override
 	   public void initialize(URL location, ResourceBundle resources) {
 		   initMenuBar();
 		   this.facade = new ListEmployeeFacade();
@@ -66,7 +113,12 @@ public class EmployeeManagementController extends HomeController implements Init
 	   }
 	   
 	   
-	   public void seeMoreAction(ActionEvent event) {
+	   /**
+   	 * See more action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void seeMoreAction(ActionEvent event) {
 		   password.setVisible(false);
 		   passwordField.setVisible(false);
 		   validateAddButton.setVisible(false);
@@ -90,7 +142,12 @@ public class EmployeeManagementController extends HomeController implements Init
 		   }
 	   }
 	   
-	   public void addAction(ActionEvent event) {
+	   /**
+   	 * Adds the action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void addAction(ActionEvent event) {
 		   nameEmployee.setVisible(false);
 		   emailEmployee.setVisible(false);
 		   editButton.setVisible(false);
@@ -107,13 +164,23 @@ public class EmployeeManagementController extends HomeController implements Init
 		   moreInfo.setText("Add an employee");
 	   }
 
-	   public void deleteAction(ActionEvent event) {
+	   /**
+   	 * Delete action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void deleteAction(ActionEvent event) {
 		   int i = listEmployeeView.getSelectionModel().getSelectedIndex();
 		   facade.delete(facade.getListEmployee().getEmployee(i).getEmail());
 		   rout.goTo("employeeManagementPage");
 	   }
 	   
-	   public void editAction(ActionEvent event) {
+	   /**
+   	 * Edits the action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void editAction(ActionEvent event) {
 		   nameEmployee.setVisible(false);
 		   editButton.setVisible(false);
 		   deleteButton.setVisible(false);
@@ -122,7 +189,12 @@ public class EmployeeManagementController extends HomeController implements Init
 		   moreInfo.setText("Edit an employee");
 	   }
 	   
-	   public void validateEditAction(ActionEvent event) {
+	   /**
+   	 * Validate edit action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void validateEditAction(ActionEvent event) {
 		   ArrayList<String> info = new ArrayList<>();
 		   int i = listEmployeeView.getSelectionModel().getSelectedIndex();
 		   info.add(facade.getListEmployee().getEmployee(i).getEmail());
@@ -131,7 +203,13 @@ public class EmployeeManagementController extends HomeController implements Init
 		   rout.goTo("employeeManagementPage");
 		   
 	   }
-	   public void validateAddAction(ActionEvent event) {
+	   
+   	/**
+   	 * Validate add action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void validateAddAction(ActionEvent event) {
 		   ArrayList<String> info = new ArrayList<>();
 		   info.add(emailField.getText());
 		   info.add(passwordField.getText());

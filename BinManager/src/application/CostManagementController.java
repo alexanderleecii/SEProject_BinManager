@@ -14,49 +14,109 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CostManagementController.
+ */
 public class CostManagementController extends HomeController implements Initializable {
+	
+	/** The see more button. */
 	@FXML
 	private Button seeMoreButton;
+	
+	/** The edit button. */
 	@FXML
 	private Button editButton;
+	
+	/** The delete button. */
 	@FXML
 	private Button deleteButton;
+	
+	/** The validate edit button. */
 	@FXML
 	private Button validateEditButton;
+	
+	/** The validate add button. */
 	@FXML
 	private Button validateAddButton;
+	
+	/** The more info. */
 	@FXML
 	private Label moreInfo;
+	
+	/** The name. */
 	@FXML
 	private Label name;
+	
+	/** The cost category. */
 	@FXML
 	private Label costCategory;
+	
+	/** The price. */
 	@FXML
 	private Label price;
+	
+	/** The name expense. */
 	@FXML
 	private Label nameExpense;
+	
+	/** The cost category expense. */
 	@FXML
 	private Label costCategoryExpense;
+	
+	/** The cost field. */
 	@FXML
 	private Label costField;
+	
+	/** The pane expense. */
 	@FXML
 	private AnchorPane paneExpense;
+	
+	/** The cost category field. */
 	@FXML
 	private TextField costCategoryField;
+	
+	/** The name field. */
 	@FXML
 	private TextField nameField;
+	
+	/** The price field. */
 	@FXML
 	private TextField priceField;
+	
+	/** The table view. */
 	@FXML private TableView<Expense> tableView;
+    
+    /** The cost category col. */
     @FXML private TableColumn<Expense, String> costCategoryCol;
+    
+    /** The name col. */
     @FXML private TableColumn<Expense, String> nameCol;
+    
+    /** The price col. */
     @FXML private TableColumn<Expense, Integer> priceCol;
+    
+    /** The date col. */
     @FXML private TableColumn<Expense, Date> dateCol;
+    
+    /** The add button. */
     @FXML private Button addButton;
+    
+    /** The facade. */
     private ListExpenseFacade facade;
+    
+    /** The list expense. */
     private ObservableList<Expense> listExpense = FXCollections.observableArrayList();
    
+    /** The role. */
     private String role = HomeController.getFacade().getPerson().getRole().toString();
+    
+    /**
+     * Initialize.
+     *
+     * @param location the location
+     * @param resources the resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     	initMenuBar();

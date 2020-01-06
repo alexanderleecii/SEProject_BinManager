@@ -11,16 +11,38 @@ import BinManagerPerson.Employee;
 import BinManagerPerson.ListEmployee;
 import BinManagerPerson.Person;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ListBinDAOSQL.
+ */
 public class ListBinDAOSQL implements Dao<ListBin>{
+	
+	/** The url. */
 	private String url = "jdbc:mysql://mysql-binmanager.alwaysdata.net/binmanager_bm";
+	
+	/** The login. */
 	private String login = "196466";
+	
+	/** The passwd. */
 	private String passwd ="BinManager";
+	
+	/** The query handler. */
 	private QueryHandler queryHandler;
 	
+	/**
+	 * Instantiates a new list bin DAOSQL.
+	 */
 	public ListBinDAOSQL() {
 		this.queryHandler = new QueryHandler(this.url,this.login,this.passwd);
 	}
 	
+	/**
+	 * Checks if is exist.
+	 *
+	 * @param latitude the latitude
+	 * @param longitude the longitude
+	 * @return true, if is exist
+	 */
 	private boolean isExist(String latitude, String longitude) {
 		String sql = "SELECT * from bin WHERE latitude='"+latitude+"' AND longitude='"+longitude+"';";
 		ResultSet rs = this.queryHandler.executeQuery(sql);
@@ -37,6 +59,12 @@ public class ListBinDAOSQL implements Dao<ListBin>{
 		return false;
 	}
 	
+	/**
+	 * Checks if is exist id.
+	 *
+	 * @param id the id
+	 * @return true, if is exist id
+	 */
 	private boolean isExistId(int id) {
 		String sql = "SELECT * from bin WHERE id='"+id+"';";
 		ResultSet rs = this.queryHandler.executeQuery(sql);
@@ -53,6 +81,11 @@ public class ListBinDAOSQL implements Dao<ListBin>{
 		return false;
 	}
 	
+	/**
+	 * Update.
+	 *
+	 * @param infos the infos
+	 */
 	@Override
 	public void update(ArrayList<String> infos) {
 		int id=Integer.parseInt(infos.get(0));
@@ -75,17 +108,33 @@ public class ListBinDAOSQL implements Dao<ListBin>{
 		
 	}
 
+	/**
+	 * Delete.
+	 *
+	 * @param email the email
+	 */
 	@Override
 	public void delete(String email) {
 		//TODO modify email in this method
 	}
 	
+	/**
+	 * Delete.
+	 *
+	 * @param id the id
+	 */
 	public void delete(int id) {
 		String sql = "DELETE FROM `bin` WHERE id='"+id+"';";
 		this.queryHandler.executeUpdate(sql);
 		this.queryHandler.close();
 	}
 
+	/**
+	 * Adds the.
+	 *
+	 * @param infos the infos
+	 * @return true, if successful
+	 */
 	@Override
 	public boolean add(ArrayList<String> infos) {
 		String type=infos.get(0);
@@ -106,6 +155,12 @@ public class ListBinDAOSQL implements Dao<ListBin>{
 		return true;
 	}
 
+	/**
+	 * Load.
+	 *
+	 * @param infos the infos
+	 * @return the list bin
+	 */
 	@Override
 	public ListBin load(ArrayList<String> infos) {
 		String sql = "SELECT * FROM `bin`;";

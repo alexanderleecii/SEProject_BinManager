@@ -11,20 +11,40 @@ import binManagerCost.Expense;
 import binManagerCost.ListExpenses;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ListExpenseFacade.
+ */
 public class ListExpenseFacade implements Facade<ListExpenses> {
 	
+	/** The list expenses. */
 	private ListExpenses listExpenses;
+	
+	/** The list expenses dao. */
 	private Dao<ListExpenses> listExpensesDao;
 	
+	/**
+	 * Instantiates a new list expense facade.
+	 */
 	public ListExpenseFacade() {
 		this.listExpenses = null;
 		this.listExpensesDao = null;
 	}
 	
+	/**
+	 * Gets the list expenses.
+	 *
+	 * @return the list expenses
+	 */
 	public ListExpenses getListExpenses() {
 		return this.listExpenses;
 	}
 	
+	/**
+	 * Gets the dao.
+	 *
+	 * @return the dao
+	 */
 	@Override
 	public Dao<ListExpenses> getDao() {
 		if(this.listExpensesDao == null) {
@@ -33,24 +53,46 @@ public class ListExpenseFacade implements Facade<ListExpenses> {
 		return this.listExpensesDao;
 	}
 	
+	/**
+	 * Creates the dao.
+	 *
+	 * @return the dao
+	 */
 	public Dao<ListExpenses> createDao(){
 		//Creates a SQLDao using parameterized classes
 		MySQLFactory<ListExpenses> p = new MySQLFactory<ListExpenses>(ListExpenses.class);
 		return (Dao<ListExpenses>) p.createDao();
 	}
 
+	/**
+	 * Update.
+	 *
+	 * @param info the info
+	 */
 	@Override
 	public void update(ArrayList<String> info) {
 		Dao<ListExpenses> dao = getDao();
 		this.listExpenses.editExpense(info);
 		dao.update(info);
 	}
+	
+	/**
+	 * Delete.
+	 *
+	 * @param name the name
+	 */
 	public void delete(String name) {
 		Dao<ListExpenses> dao = getDao();
 		this.listExpenses.removeExpense(name);
 		dao.delete(name);
 	}
 
+	/**
+	 * Adds the.
+	 *
+	 * @param info the info
+	 * @return true, if successful
+	 */
 	public boolean add(ArrayList<String> info) {
 		Dao<ListExpenses> dao = getDao();
 		String date=info.get(3);
@@ -71,6 +113,12 @@ public class ListExpenseFacade implements Facade<ListExpenses> {
 	}
 	
 
+	/**
+	 * Load.
+	 *
+	 * @param info the info
+	 * @return true, if successful
+	 */
 	@Override
 	public boolean load(ArrayList<String> info) {
 		Dao<ListExpenses> dao = getDao();

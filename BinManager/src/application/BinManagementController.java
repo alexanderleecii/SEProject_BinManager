@@ -21,89 +21,177 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class BinManagementController.
+ */
 public class BinManagementController extends HomeController implements Initializable{
+	
+	/** The list bin view. */
 	@FXML
 	private ListView<String> listBinView;
+	
+	/** The list comment view. */
 	@FXML
 	private ListView<String> listCommentView;
+	
+	/** The see more button. */
 	@FXML
 	private Button seeMoreButton;
+	
+	/** The see more comment button. */
 	@FXML
 	private Button seeMoreCommentButton;
+	
+	/** The edit button. */
 	@FXML
 	private Button editButton;
+	
+	/** The delete button. */
 	@FXML
 	private Button deleteButton;
+	
+	/** The alert comment button. */
 	@FXML
 	private Button alertCommentButton;
+	
+	/** The see comments button. */
 	@FXML
 	private Button seeCommentsButton;
+	
+	/** The see alerts button. */
 	@FXML
 	private Button seeAlertsButton;
+	
+	/** The add button. */
 	@FXML
 	private Button addButton;
+	
+	/** The validate edit button. */
 	@FXML
 	private Button validateEditButton;
+	
+	/** The validate add button. */
 	@FXML
 	private Button validateAddButton;
+	
+	/** The send comment button. */
 	@FXML
 	private Button sendCommentButton;
+	
+	/** The delete comment button. */
 	@FXML
 	private Button deleteCommentButton;
+	
+	/** The pane label. */
 	@FXML
 	private Label paneLabel;
+	
+	/** The more info. */
 	@FXML
 	private Label moreInfo;
+	
+	/** The type. */
 	@FXML
 	private Label type;
+	
+	/** The state. */
 	@FXML
 	private Label state;
+	
+	/** The position. */
 	@FXML
 	private Label position;
+	
+	/** The type bin. */
 	@FXML
 	private Label typeBin;
+	
+	/** The state bin. */
 	@FXML
 	private Label stateBin;
+	
+	/** The position bin. */
 	@FXML
 	private Label positionBin;
+	
+	/** The add alert comment. */
 	@FXML
 	private Label addAlertComment;
+	
+	/** The detail comment label. */
 	@FXML
 	private Label detailCommentLabel;
+	
+	/** The bin comment label. */
 	@FXML
 	private Label binCommentLabel;
+	
+	/** The username comment label. */
 	@FXML
 	private Label usernameCommentLabel;
+	
+	/** The pane bin. */
 	@FXML
 	private AnchorPane paneBin;
+	
+	/** The pane comment. */
 	@FXML
 	private AnchorPane paneComment;
+	
+	/** The pane detail comment. */
 	@FXML
 	private AnchorPane paneDetailComment;
+	
+	/** The type field. */
 	@FXML
 	private TextField typeField;
+	
+	/** The state field. */
 	@FXML
 	private TextField stateField;
+	
+	/** The position field. */
 	@FXML
 	private TextField positionField;
+	
+	/** The choice box. */
 	@FXML
 	private ChoiceBox<String> choiceBox;
+	
+	/** The comment area. */
 	@FXML
 	private TextArea commentArea;
+	
+	/** The text comment. */
 	@FXML
 	private TextArea textComment;
 	
+	/** The bin facade. */
 	//Facade for the bin / listBin objects
 	private ListBinFacade binFacade;
 	
+	/** The list name. */
 	private ObservableList<String> listName = FXCollections.observableArrayList();
 	
+	/** The list comments. */
 	private ObservableList<String> listComments = FXCollections.observableArrayList();
+	
+	/** The list alerts. */
 	private ObservableList<String> listAlerts = FXCollections.observableArrayList();   
 	
+	/** The comment facade. */
 	private ListCommentFacade commentFacade = new ListCommentFacade();
 	
+	/** The role. */
 	private String role = HomeController.getFacade().getPerson().getRole().toString();
+	
+	/**
+	 * Initialize.
+	 *
+	 * @param location the location
+	 * @param resources the resources
+	 */
 	@Override
    public void initialize(URL location, ResourceBundle resources) {
 		//This method changes the display according to the connected user's role
@@ -125,6 +213,11 @@ public class BinManagementController extends HomeController implements Initializ
 	   listBinView.setItems(listName);
    }
 	
+	/**
+	 * See more action.
+	 *
+	 * @param event the event
+	 */
 	public void seeMoreAction(ActionEvent event) {
 			paneBin.setVisible(true);	
 			moreInfo.setVisible(true);
@@ -168,7 +261,12 @@ public class BinManagementController extends HomeController implements Initializ
 		   }
 	   }
 	   
-	   public void addAction(ActionEvent event) {
+	   /**
+   	 * Adds the action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void addAction(ActionEvent event) {
 		   typeBin.setVisible(false);
 		   stateBin.setVisible(false);
 		   positionBin.setVisible(false);
@@ -186,13 +284,23 @@ public class BinManagementController extends HomeController implements Initializ
 		   moreInfo.setText("Add a bin");
 	   }
 
-	   public void deleteAction(ActionEvent event) {
+	   /**
+   	 * Delete action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void deleteAction(ActionEvent event) {
 		   int i = listBinView.getSelectionModel().getSelectedIndex();
 		   binFacade.delete(binFacade.getListBin().getBin(i).getId());
 		   rout.goTo("binManagementPage");
 	   }
 	   
-	   public void editAction(ActionEvent event) {
+	   /**
+   	 * Edits the action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void editAction(ActionEvent event) {
 		   typeBin.setVisible(false);
 		   stateBin.setVisible(false);
 		   positionBin.setVisible(false);
@@ -205,7 +313,12 @@ public class BinManagementController extends HomeController implements Initializ
 		   moreInfo.setText("Edit a bin");
 	   }
 	   
-	   public void validateEditAction(ActionEvent event) {
+	   /**
+   	 * Validate edit action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void validateEditAction(ActionEvent event) {
 		   ArrayList<String> info = new ArrayList<>();
 		   int i = listBinView.getSelectionModel().getSelectedIndex();
 		   info.add(""+binFacade.getListBin().getBin(i).getId());
@@ -216,7 +329,13 @@ public class BinManagementController extends HomeController implements Initializ
 		   rout.goTo("binManagementPage");
 		   
 	   }
-	   public void validateAddAction(ActionEvent event) {
+	   
+   	/**
+   	 * Validate add action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void validateAddAction(ActionEvent event) {
 		   ArrayList<String> info = new ArrayList<>();
 		   info.add(typeField.getText());
 		   info.add(stateField.getText());
@@ -233,7 +352,12 @@ public class BinManagementController extends HomeController implements Initializ
 		   }
 	   }
 	   
-	   public void alertCommentAction(ActionEvent event) {
+	   /**
+   	 * Alert comment action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void alertCommentAction(ActionEvent event) {
 		   paneBin.setVisible(false);
 		   moreInfo.setVisible(false);
 		   type.setVisible(false);
@@ -255,7 +379,12 @@ public class BinManagementController extends HomeController implements Initializ
 		   
 	   }
 	   
-	   public void sendCommentAction(ActionEvent event) {
+	   /**
+   	 * Send comment action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void sendCommentAction(ActionEvent event) {
 		   ListCommentFacade commentFacade = new ListCommentFacade();
 		   if(commentArea.getText().equals("")) {
 			   alerte("Please add some text");
@@ -275,7 +404,12 @@ public class BinManagementController extends HomeController implements Initializ
 		   }
 	   }
 	   
-	   public void seeCommentsAction(ActionEvent event) {   
+	   /**
+   	 * See comments action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void seeCommentsAction(ActionEvent event) {   
 		   
 		   int j = listBinView.getSelectionModel().getSelectedIndex();
 		   if(j!=-1) {
@@ -315,7 +449,12 @@ public class BinManagementController extends HomeController implements Initializ
 		   }
 	   }
 	   
-	   public void seeAlertsAction(ActionEvent event) {
+	   /**
+   	 * See alerts action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void seeAlertsAction(ActionEvent event) {
 		   
 		   int j = listBinView.getSelectionModel().getSelectedIndex();
 		   if(j!=-1) {
@@ -355,7 +494,12 @@ public class BinManagementController extends HomeController implements Initializ
 		   }
 	   }
 	   
-	   public void seeMoreCommentAction(ActionEvent event) {
+	   /**
+   	 * See more comment action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void seeMoreCommentAction(ActionEvent event) {
 		   int i = listCommentView.getSelectionModel().getSelectedIndex();
 		   if(i != -1) {
 			   paneDetailComment.setVisible(true);
@@ -380,7 +524,12 @@ public class BinManagementController extends HomeController implements Initializ
 		   }
 	   }
 	   
-	   public void deleteCommentAction(ActionEvent event) {
+	   /**
+   	 * Delete comment action.
+   	 *
+   	 * @param event the event
+   	 */
+   	public void deleteCommentAction(ActionEvent event) {
 		   int i = listCommentView.getSelectionModel().getSelectedIndex();
 		   if(commentFacade.getListComment().getComment(i).getType().equals("comment")) {
 			   commentFacade.deleteComment(commentFacade.getListComment().getComment(i).getId());

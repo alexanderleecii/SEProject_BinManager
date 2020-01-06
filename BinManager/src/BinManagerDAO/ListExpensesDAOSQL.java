@@ -11,16 +11,38 @@ import java.util.*;
 import binManagerCost.Expense;
 import binManagerCost.ListExpenses;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ListExpensesDAOSQL.
+ */
 public class ListExpensesDAOSQL implements Dao<ListExpenses> {
+	
+	/** The url. */
 	private String url = "jdbc:mysql://mysql-binmanager.alwaysdata.net/binmanager_bm";
+	
+	/** The login. */
 	private String login = "196466";
+	
+	/** The passwd. */
 	private String passwd = "BinManager";
+	
+	/** The query handler. */
 	private QueryHandler queryHandler;
 
+	/**
+	 * Instantiates a new list expenses DAOSQL.
+	 */
 	public ListExpensesDAOSQL() {
 			this.queryHandler = new QueryHandler(this.url,this.login,this.passwd);
 		}
 
+	/**
+	 * Checks if is exist.
+	 *
+	 * @param name the name
+	 * @param date the date
+	 * @return true, if is exist
+	 */
 	private boolean isExist(String name, Date date) {
 		
 		String sql = "SELECT * from `expenses` WHERE Name='"+name+"' AND Date='"+date+"';";
@@ -39,6 +61,11 @@ public class ListExpensesDAOSQL implements Dao<ListExpenses> {
 	}
 	
 	
+	/**
+	 * Update.
+	 *
+	 * @param infos the infos
+	 */
 	@Override
 	public void update(ArrayList<String> infos) {
 		String costCategory=infos.get(0);
@@ -64,12 +91,23 @@ public class ListExpensesDAOSQL implements Dao<ListExpenses> {
 	}
 
 	
+	/**
+	 * Delete.
+	 *
+	 * @param name the name
+	 */
 	public void delete(String name) {
 		String sql = "DELETE FROM `expenses` WHERE Name='"+name+"';";
 		this.queryHandler.executeUpdate(sql);
 		this.queryHandler.close();
 	}
 
+	/**
+	 * Adds the.
+	 *
+	 * @param infos the infos
+	 * @return true, if successful
+	 */
 	@Override
 	public boolean add(ArrayList<String> infos) {
 		String costCategory=infos.get(0);
@@ -95,6 +133,12 @@ public class ListExpensesDAOSQL implements Dao<ListExpenses> {
 		return true;
 	}
 
+	/**
+	 * Load.
+	 *
+	 * @param infos the infos
+	 * @return the list expenses
+	 */
 	@Override
 	public ListExpenses load(ArrayList<String> infos) {
 		String sql = "SELECT * FROM `expenses`;";
@@ -116,6 +160,11 @@ public class ListExpensesDAOSQL implements Dao<ListExpenses> {
 		
 	}
 
+	/**
+	 * Delete.
+	 *
+	 * @param id the id
+	 */
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub

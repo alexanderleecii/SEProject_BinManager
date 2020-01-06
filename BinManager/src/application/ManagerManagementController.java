@@ -15,48 +15,96 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ManagerManagementController.
+ */
 public class ManagerManagementController extends HomeController implements Initializable {
 
+	/** The list manager view. */
 	@FXML
 	private ListView<String> listManagerView;
+	
+	/** The see more button. */
 	@FXML
 	private Button seeMoreButton;
+	
+	/** The edit button. */
 	@FXML
 	private Button editButton;
+	
+	/** The delete button. */
 	@FXML
 	private Button deleteButton;
+	
+	/** The add button. */
 	@FXML
 	private Button addButton;
+	
+	/** The validate edit button. */
 	@FXML
 	private Button validateEditButton;
+	
+	/** The validate add button. */
 	@FXML
 	private Button validateAddButton;
+	
+	/** The more info. */
 	@FXML
 	private Label moreInfo;
+	
+	/** The name. */
 	@FXML
 	private Label name;
+	
+	/** The email. */
 	@FXML
 	private Label email;
+	
+	/** The password. */
 	@FXML
 	private Label password;
+	
+	/** The name manager. */
 	@FXML
 	private Label nameManager;
+	
+	/** The email manager. */
 	@FXML
 	private Label emailManager;
+	
+	/** The pane manager. */
 	@FXML
 	private AnchorPane paneManager;
+	
+	/** The email field. */
 	@FXML
 	private TextField emailField;
+	
+	/** The name field. */
 	@FXML
 	private TextField nameField;
+	
+	/** The password field. */
 	@FXML
 	private TextField passwordField;
+	
+	/** The facade. */
 	private ListManagerFacade facade;
 
+/** The list name. */
 //			private ObservableList<Person> listManager = FXCollections.observableArrayList();
 	private ObservableList<String> listName = FXCollections.observableArrayList();
+	
+	/** The role. */
 	private String role = HomeController.getFacade().getPerson().getRole().toString();
 	
+	/**
+	 * Initialize.
+	 *
+	 * @param location the location
+	 * @param resources the resources
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		initMenuBar();
@@ -73,6 +121,11 @@ public class ManagerManagementController extends HomeController implements Initi
 		listManagerView.setItems(listName);
 	}
 
+	/**
+	 * See more action.
+	 *
+	 * @param event the event
+	 */
 	public void seeMoreAction(ActionEvent event) {
 		password.setVisible(false);
 		passwordField.setVisible(false);
@@ -94,6 +147,11 @@ public class ManagerManagementController extends HomeController implements Initi
 		email.setVisible(true);
 	}
 
+	/**
+	 * Adds the action.
+	 *
+	 * @param event the event
+	 */
 	public void addAction(ActionEvent event) {
 		nameManager.setVisible(false);
 		emailManager.setVisible(false);
@@ -111,12 +169,22 @@ public class ManagerManagementController extends HomeController implements Initi
 		moreInfo.setText("Add a manager");
 	}
 
+	/**
+	 * Delete action.
+	 *
+	 * @param event the event
+	 */
 	public void deleteAction(ActionEvent event) {
 		int i = listManagerView.getSelectionModel().getSelectedIndex();
 		facade.delete(facade.getListManager().getManager(i).getEmail());
 		rout.goTo("managerManagementPage");
 	}
 
+	/**
+	 * Edits the action.
+	 *
+	 * @param event the event
+	 */
 	public void editAction(ActionEvent event) {
 		nameManager.setVisible(false);
 		editButton.setVisible(false);
@@ -126,6 +194,11 @@ public class ManagerManagementController extends HomeController implements Initi
 		moreInfo.setText("Edit a manager");
 	}
 
+	/**
+	 * Validate edit action.
+	 *
+	 * @param event the event
+	 */
 	public void validateEditAction(ActionEvent event) {
 		ArrayList<String> info = new ArrayList<>();
 		int i = listManagerView.getSelectionModel().getSelectedIndex();
@@ -136,6 +209,11 @@ public class ManagerManagementController extends HomeController implements Initi
 
 	}
 
+	/**
+	 * Validate add action.
+	 *
+	 * @param event the event
+	 */
 	public void validateAddAction(ActionEvent event) {
 		ArrayList<String> info = new ArrayList<>();
 		info.add(emailField.getText());

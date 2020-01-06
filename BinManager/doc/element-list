@@ -1,0 +1,14 @@
+application
+BinManagerAbstractFactory
+BinManagerComment
+BinManagerCompany
+binManagerCost
+BinManagerDAO
+BinManagerFacade
+BinManagerHistory
+BinManagerObject
+BinManagerPerson
+BinManagerUI
+ExternalTechnician
+Schedule
+testing
