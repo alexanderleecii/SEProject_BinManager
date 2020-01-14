@@ -136,15 +136,18 @@ public class ManagerManagementController extends HomeController implements Initi
 		emailManager.setVisible(true);
 		nameManager.setText(listManagerView.getSelectionModel().getSelectedItem());
 		int i = listManagerView.getSelectionModel().getSelectedIndex();
-		emailManager.setText(facade.getListManager().getManager(i).getEmail());
-		name.setVisible(true);
-		moreInfo.setVisible(true);
-		editButton.setVisible(true);
-		if (HomeController.getFacade().getPerson().getRole().toString().equals("admin")) {
-			deleteButton.setVisible(true);
-		}
-		paneManager.setVisible(true);
-		email.setVisible(true);
+		if(i!=-1) {
+			   emailManager.setText(facade.getListManager().getManager(i).getEmail());
+			   name.setVisible(true);
+			   moreInfo.setVisible(true);
+			   editButton.setVisible(true);
+			   deleteButton.setVisible(true);
+			   paneManager.setVisible(true);
+			   email.setVisible(true);
+		   }else {
+			   alerte("You should select one manager");
+		   }
+		
 	}
 
 	/**
