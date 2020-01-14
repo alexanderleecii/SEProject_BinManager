@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import BinManagerObject.Bin;
 import BinManagerPerson.Employee;
 import BinManagerPerson.ListEmployee;
 import BinManagerPerson.Person;
@@ -38,7 +39,18 @@ public class ListEmployeeTest {
 
 	@Test
 	public void testRemoveEmployee() {
-		fail("Not yet implemented");
+		ListEmployee emp=new ListEmployee();
+		Person e = new Person("haha","jojo@et.com", new Employee());
+		Person f = new Person("hehe","jojo@et.com", new Employee());
+		emp.addEmployee(e);
+		emp.addEmployee(f);
+		assertEquals(2, emp.size());
+		emp.removeEmployee("jojo@et.com");
+		
+		ArrayList<Person> testList = new ArrayList<>();
+		testList.add(f);
+		assertEquals(1, testList.size());
+		assertEquals(testList, emp.getListEmployee());
 	}
 
 	@Test

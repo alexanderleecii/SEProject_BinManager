@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -14,7 +21,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ManagerManagementController">
+<AnchorPane disable="false" prefHeight="508.1328125" prefWidth="813.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ManagerManagementController">
   <children>
     <MenuBar fx:id="menuManager" disable="false" focusTraversable="true" layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="813.0" useSystemMenuBar="false" visible="false">
       <menus>
@@ -186,7 +193,7 @@
             <Font size="21.0" fx:id="x1" />
           </font>
         </Label>
-        <Button id="viewMoreButton" fx:id="addButton" layoutX="397.0" layoutY="41.0" mnemonicParsing="false" onAction="#addAction" text="+" />
+        <Button id="viewMoreButton" fx:id="addButton" layoutX="397.0" layoutY="41.0" mnemonicParsing="false" onAction="#addAction" text="+" visible="false" />
       </children>
     </Pane>
     <AnchorPane id="PaneManager" fx:id="paneManager" blendMode="SRC_OVER" layoutX="504.0" layoutY="155.0" prefHeight="246.0" prefWidth="248.0" visible="false">
