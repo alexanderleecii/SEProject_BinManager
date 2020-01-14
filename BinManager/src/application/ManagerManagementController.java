@@ -141,7 +141,10 @@ public class ManagerManagementController extends HomeController implements Initi
 			   name.setVisible(true);
 			   moreInfo.setVisible(true);
 			   editButton.setVisible(true);
-			   deleteButton.setVisible(true);
+			   if(HomeController.getFacade().getPerson().getRole().toString().contentEquals("admin")) {
+				   deleteButton.setVisible(true); 
+			   }
+			   
 			   paneManager.setVisible(true);
 			   email.setVisible(true);
 		   }else {
