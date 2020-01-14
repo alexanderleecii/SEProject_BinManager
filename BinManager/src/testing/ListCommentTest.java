@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import BinManagerComment.Comment;
-import BinManagerComment.ListComment;
-import BinManagerPerson.Citizen;
+import binManagerComment.Comment;
+import binManagerComment.ListComment;
+import binManagerPerson.Citizen;
 
 public class ListCommentTest {
 

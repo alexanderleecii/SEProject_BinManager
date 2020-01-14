@@ -5,7 +5,7 @@ import java.net.URL;
 
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import BinManagerFacade.PersonFacade;
+
 //import BinManagerPerson.Person;
 import javafx.event.*;
 import javafx.fxml.FXML;
@@ -13,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import org.mindrot.jbcrypt.BCrypt;
+
+import binManagerFacade.PersonFacade;
 
 // TODO: Auto-generated Javadoc
 /**

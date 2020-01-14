@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import BinManagerObject.Bin;
-import BinManagerPerson.Employee;
-import BinManagerPerson.ListEmployee;
-import BinManagerPerson.Person;
+import binManagerObject.Bin;
+import binManagerPerson.Employee;
+import binManagerPerson.ListEmployee;
+import binManagerPerson.Person;
 
 public class ListEmployeeTest {
 	

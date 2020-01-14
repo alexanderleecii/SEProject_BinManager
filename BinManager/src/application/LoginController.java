@@ -3,7 +3,8 @@ package application;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import BinManagerFacade.PersonFacade;
+
+import binManagerFacade.PersonFacade;
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

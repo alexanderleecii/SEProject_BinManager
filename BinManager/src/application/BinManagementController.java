@@ -7,8 +7,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import BinManagerFacade.ListCommentFacade;
-import BinManagerFacade.ListBinFacade;
+import binManagerFacade.ListBinFacade;
+import binManagerFacade.ListCommentFacade;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

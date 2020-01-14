@@ -3,7 +3,7 @@ package binManagerCost;
 
 import java.util.*;
 
-import BinManagerObject.Object;
+import binManagerObject.Object;
 
 // TODO: Auto-generated Javadoc
 /**

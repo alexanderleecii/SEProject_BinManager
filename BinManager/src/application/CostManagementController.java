@@ -4,8 +4,9 @@ import java.net.URL;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import BinManagerFacade.ListExpenseFacade;
+
 import binManagerCost.Expense;
+import binManagerFacade.ListExpenseFacade;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
