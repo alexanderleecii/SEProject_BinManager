@@ -34,3 +34,9 @@ How to run :
 -----------
 
 run LoginUI file
+
+
+Open javadoc :
+-------------
+
+Double clic on : /home/camille/Documents/java/SEProject_BinManager/BinManager/doc/allclasses.html
