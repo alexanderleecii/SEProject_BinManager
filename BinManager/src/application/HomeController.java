@@ -7,7 +7,7 @@ import java.net.URL;
 
 import java.util.ResourceBundle;
 
-import BinManagerFacade.PersonFacade;
+import binManagerFacade.PersonFacade;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import BinManagerObject.Bin;
-import BinManagerObject.ListBin;
-import BinManagerObject.Position;
+import binManagerObject.Bin;
+import binManagerObject.ListBin;
+import binManagerObject.Position;
 
 // TODO: Auto-generated Javadoc
 /**
