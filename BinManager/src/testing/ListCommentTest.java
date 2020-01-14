@@ -8,9 +8,6 @@ import org.junit.Test;
 
 import BinManagerComment.Comment;
 import BinManagerComment.ListComment;
-import BinManagerObject.Bin;
-import BinManagerObject.ListBin;
-import BinManagerObject.Position;
 import BinManagerPerson.Citizen;
 
 public class ListCommentTest {
